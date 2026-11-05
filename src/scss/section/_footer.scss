@@ -1,0 +1,49 @@
+@use '../base/var' as *;
+.footer {
+    padding: 29.5px 0;
+    border-top: 1px solid $results-color;
+  &__box {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .api {
+      display: none;
+    }
+    @media screen and (min-width: 770px) {
+    .api {
+      display: block;
+    }
+    }
+  }
+  &__content{
+    @media screen and (min-width: 770px) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    @media screen and (min-width: 1326px) {
+        flex-direction: row;
+        gap: 406px;
+    }
+  }
+  &__icon {
+      width: 18px;
+      height: 18px;
+
+  }
+  &__text {
+      color: $subtitle-color;
+      font-family: Inter;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: normal;
+    @media screen and (min-width: 1326px) {
+        color: $subtitle-color;
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+    }
+  }
+}

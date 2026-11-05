@@ -9,6 +9,10 @@
     width: 390px;
     padding: 0 10px;
   }
+  @media screen and (min-width: 770px) {
+    width: 770px;
+    padding: 0 10px;
+  }
 
     @media screen and (min-width: 1326px) {
     width: 1326px;
