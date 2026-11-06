@@ -1,1 +1,85 @@
 @use '../base/var' as *;
+.hero {
+    padding-top: 20px;
+    padding-bottom: 24px;
+    @media screen and (min-width: 770px) {
+            padding-top: 32px;
+            padding-bottom: 24px;
+    }
+  @media screen and (min-width: 1326px) {
+    padding-bottom: 28px;
+  }
+
+  &__box {
+    border-radius: 24px;
+    background-image: url('/img/hero.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top:24px ;
+    padding-bottom: 48px;
+    padding-left: 24px;
+
+    @media screen and (min-width: 1326px) {
+      padding-top: 28px;
+    }
+
+    @media screen and (min-width: 1326px) {
+      padding-top: 36px;
+      padding-bottom: 52px;
+    }
+
+  }
+  &__text{
+    color: $title-color;
+font-size: 10px;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 1.6px;
+  }
+  &__title{
+    width: 179px;
+    color: $title-color;
+font-size: 28px;
+font-weight: 800;
+line-height: 112%;
+letter-spacing: -1.2px;
+margin-bottom: 12px;
+margin-top: 12px;
+    @media screen and (min-width:770px) {
+        width: 100%;
+        font-size: 34px;
+    }
+    @media screen and (min-width:1326px) {
+        font-size: 38px;
+    }
+  }
+&__subtitle{
+    width: 270px;
+    color: $title-color;
+font-size: 12px;
+font-weight: 400;
+line-height: 160%;
+
+ @media screen and (min-width:770px) {
+    font-size: 14px;
+    width: 100%;
+ }
+}
+&__list{
+    display: none;
+    @media screen and (min-width:770px) {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-top: 12px;
+    }
+}
+&__analys{
+color: $title-color;
+font-size: 12px;
+font-weight: 400;
+line-height: normal;
+
+}
+}
