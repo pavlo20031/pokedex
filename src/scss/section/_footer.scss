@@ -1,5 +1,6 @@
 @use '../base/var' as *;
 .footer {
+  background-color: $main-color;
     padding: 29.5px 0;
     border-top: 1px solid $results-color;
   &__box {
@@ -34,16 +35,11 @@
   }
   &__text {
       color: $subtitle-color;
-      font-family: Inter;
       font-size: 10px;
       font-weight: 400;
       line-height: normal;
     @media screen and (min-width: 1326px) {
-        color: $subtitle-color;
-        font-family: Inter;
         font-size: 12px;
-        font-weight: 400;
-        line-height: normal;
     }
   }
 }

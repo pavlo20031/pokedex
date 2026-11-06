@@ -1,3 +1,8 @@
+@use '../base/var' as *;
+body{
+  font-family: Inter;
+  background-color:$bg-color ;
+}
 ul {
   margin: 0;
   list-style: none;
