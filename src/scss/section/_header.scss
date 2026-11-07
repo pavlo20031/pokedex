@@ -1,1 +1,139 @@
 @use '../base/var' as *;
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid $results-color;
+  background: $main-color;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    color: $text-color;
+
+    @media (max-width: 480px) {
+      &-text {
+        display: none; 
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__nav {
+    @media (max-width: 1024px) {
+      display: none; 
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $text-color;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $active-color;
+      }
+
+      &--active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $active-color;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__burger-btn {
+    display: none;
+
+    @media (max-width: 1024px) {
+      display: inline-flex;
+    }
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+
+  &--logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--stroke {
+    fill: none;
+    stroke: $text-color;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease;
+  }
+}
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $subtitle-color;
+
+    .icon--stroke {
+      stroke: $main-color;
+    }
+  }
+}
