@@ -20,11 +20,49 @@
     />
     
     <script type="module" crossorigin src="/pokedex/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/index-5e624fef.css">
+    <link rel="stylesheet" href="/pokedex/assets/index-ff82eb4f.css">
   </head>
   <body>
     <!-- Loads the specified .html file -->
-    
+    <header class="header">
+  <div class="header__container container">
+    <a href="#" class="header__brand">
+      <svg class="icon icon--logo">
+        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#pokeball"></use>
+      </svg>
+      <span class="header__brand-text">Pokédex</span>
+    </a>
+    <div class="header__right">
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link header__nav-link--active">Головна</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">
+              Улюблені <span class="header__nav-badge">7</span>
+            </a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">Про проєкт</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a class="btn-icon" href="#" aria-label="Toggle Theme">
+          <svg class="icon icon--stroke">
+            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#sun"></use>
+          </svg>
+        </a>
+        <button class="btn-icon header__burger-btn" aria-label="Open menu" type="button">
+          <svg class="icon icon--stroke">
+            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#burger"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
     <section class="hero">
   <div class="container hero__box">
     <p class="hero__text">СВІТ ПОКЕМОНІВ ПОРУЧ</p>
