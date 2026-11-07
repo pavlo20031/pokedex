@@ -31,6 +31,9 @@
   &__icon {
       width: 18px;
       height: 18px;
+    fill: transparent;
+    stroke-width: 1.8px;
+stroke: $subtitle-color;
 
   }
   &__text {
