@@ -19,11 +19,11 @@
   //   top: 50%;
   //   left: 50%;
   //   transform: translate(-50%, -50%);
-  @media screen and (min-width:770px) {
+  @media screen and (min-width: 770px) {
     width: 770px;
     padding: 24px;
   }
-  @media screen and (min-width:1326px) {
+  @media screen and (min-width: 1326px) {
     width: 1080px;
     padding: 32px;
   }
@@ -31,9 +31,10 @@
     width: 112px;
   }
   &__gif {
+    border-radius: 8px;
     width: 310px;
-    @media screen and (min-width:1326px) {
-        width: 480px;
+    @media screen and (min-width: 1326px) {
+      width: 480px;
     }
   }
   &__exit {
@@ -70,45 +71,114 @@
     border-radius: 4px;
     padding: 2px 7px;
   }
-  &__sub{
+  &__sub {
     background-color: transparent;
     border-radius: 0;
     padding: 0;
   }
-  &__title{
-color: $text-color;
-font-size: 28px;
-font-weight: 700;
-line-height: 120%;
-letter-spacing: -0.7px;
-
-@media screen and (min-width: 770px) {
-    font-size: 30px;
-    letter-spacing: -0.8px;
-}
-@media screen and (min-width:1326px) {
-    font-size: 32px;
-}
-  }
-  &__subtitle{
-color: $exit-color;
-font-size: 14px;
-font-weight: 400;
-line-height: 160%;
-  }
-  &__missingno{
+  &__title {
     color: $text-color;
-font-family: "Roboto Mono";
-font-size: 18px;
-font-weight: 700;
-line-height: normal;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -0.7px;
 
+    @media screen and (min-width: 770px) {
+      font-size: 30px;
+      letter-spacing: -0.8px;
+    }
+    @media screen and (min-width: 1326px) {
+      font-size: 32px;
+    }
   }
-  &__forms{
+  &__subtitle {
+    color: $exit-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+  &__missingno {
+    color: $text-color;
+    font-family: 'Roboto Mono';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__forms {
     color: $subtitle-color;
-font-size: 12px;
-font-weight: 400;
-line-height: normal;
-
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__textcontent {
+    padding: 16px;
+    background-color: $question-color;
+    border-radius: 8px;
+  }
+  &__information {
+    color: $exit-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 160%;
+    @media screen and (min-width: 770px) {
+      font-size: 12px;
+    }
+  }
+  &__btn {
+    border-radius: 8px;
+    background: $active-color;
+    padding: 15.5px 57.5px;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  &__item {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid $results-color;
+  }
+  &__img {
+    object-fit: contain;
+    border-radius: 8px;
+    background: $bg-button;
+    padding: 8px 0;
+    @media screen and (min-width: 770px) {
+      width: 208px;
+      height: 124px;
+      padding: 6px 16px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 169.6px;
+      height: 100%;
+      padding: 20px 29px;
+    }
+  }
+  &__name {
+    color: $text-color;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 130%;
+  }
+  &__desc {
+    align-self: stretch;
+    color: $exit-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    @media screen and (min-width: 770px) {
+      font-size: 11px;
+    }
+  }
+  &__type {
+    color: $subtitle-color;
+    font-family: 'Roboto Mono';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.2px;
+    @media screen and (min-width: 770px) {
+      font-size: 9px;
+    }
   }
 }
