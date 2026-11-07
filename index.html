@@ -20,7 +20,7 @@
     />
     
     <script type="module" crossorigin src="/pokedex/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/index-fbbcf1e5.css">
+    <link rel="stylesheet" href="/pokedex/assets/index-2c2563b4.css">
   </head>
   <body>
     <header class="header">
@@ -86,7 +86,7 @@
         <p class="footer__text api">Дані з PokéAPI · Pokémon © Nintendo</p>
         </div>
         <svg class="footer__icon">
-            <use href=""></use>
+            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#github"></use>
         </svg>
     </div>
 </section>
@@ -95,37 +95,49 @@
   <div class="easteregg">
     <button type="button" class="easteregg__button">
       <svg class="easteregg__exit">
-        <use href=""></use>
+        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#x"></use>
       </svg>
     </button>
+    <div class="easteregg__box">
     <p class="easteregg__text">?</p>
     <p class="easteregg__text easteregg__sub">СЕКРЕТ РОЗКРИТО</p>
+    </div>
     <h2 class="easteregg__title">Ти знайшов пасхалку!</h2>
     <p class="easteregg__subtitle">
       Знайомся, MissingNo. — легендарний збій першого покоління. Один секрет,
       п’ять форм.
     </p>
+    <div class="easteregg__content">
+    <div>
     <h3 class="easteregg__missingno">MissingNo.</h3>
     <p class="easteregg__text">№ 000</p>
+    </div>
     <p class="easteregg__forms">Усі 5 форм</p>
+    </div>
     <ul class="easteregg__list">
       <li class="easteregg__item">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAYAAADG4PRLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABIJJREFUeAHtnT1uE2EQhm1Elwb5DNwkl7BoIy4AokgBhSlSILgAchtxidyEMyCa1ME4TNY7yjA/++NvZt+niLNxdt3kzfzPt14VZXNx8fD39df9/fq59z+8/fZwev3l+7v16c/5Nf897Tlz8WIFUvNyVRRJeRJceRyvIudSIhSYnFn/X7eE19ZZnxe9PwoUmJzFKpDw2jRNudJzpgIKTE5ZL5SQFEKMpZS54z8CCkxO3Tjwx6ej8jZbmzI0W+a1hbCBwERZL5RyoT/374/Xr6++rjzXN3evjq9a7pODXChwUdYGXr35/O+738evpCxCu+ZoyjsXUGByyirw+vJReZvtLmSTvIpDHAhCLMYLJazeqFbJJ4V77x8bKDA5ZRU4V2ZEy9BMDRSYnPI2sIsHH7HmNolWc6AEFJic8jYwqijuZWrACwUhFtMTE+1tITSbh3ogCFFegVSZ12wZz9hQDpUra3/70fScaA7WCxSYnLLViE45z9cDJZ68yCfl9hUnxZXEoZI/a90QCkxOWRvYdaXtQl1lnNbmAgkoMDnlFSjB63jS+wTPtEg/hxcKXJSvRmiVde+ELfpCwagsph5orftxWpkDlIACk1PeC5W6xgipa81az8OELhjE4uqBxNDMStSLHRsoMDnlJ3Rpzk9CsmHkxUpQz8z1Zd/WavXCsYECk7MYG8ix9ndGtxfCBgITzSpw6ESsNYPi3bx07lkIDhSYnDI2ULJN0rYKDcrEjGUbpwIKTE6zcaBWz7Per3Wj/WdPzCjTSlMDBSanWQVGlcdtH1cWV5xUreD9n60CBSanXC5Usp28Y5q/v9nues85KPn46vVC0RMDXDQbB1qrCVa88drQCV/EgcBEswqMxoFcAbyuZ+3ElrrZJJALBSGaz4VqlXHCu+ssasNayYESUGBy0ttATTFWBXOkaoQEt7nYEwNMNK9A65Z5QsplUheZto3e2w+KOBAMonkv1Iq2z0Xb3MuR9sR4MzdTAwUmp/mKvDbfZ91ddnPXfz55ibxKISlIs3HIxIAQZfpCoz0p1kld6+eS7UUcCEw0awN53KbBbRPfE+OtK1ptGlfeyZ6Y1RxAgclpPg7UZt21awlvXKgx965sAgpMTrt9ocK2QToT13pNcJsqna1LcaF2NpLUR3qwhahGADvlzw/sFLfread8tr2zff1zB61KhxcKQjTvhXrrb9ZdaNr7pGAvUr1xKqDA5JSpB3Kk3hRr11mUoWf3eoECk1N3U5MQh0Vto93mYkIXOCirQAnNxnl7W85dmYcCk1OmIq/h7dvUPp97m+hKAyHKxoHekza1ir5UX7RuxZ8KKDA5i/NCuVK4Ivm5g1ql/1z9oAQUmJy0NnDq8/6iXjC8UOCiWRvoPdc92pkt3c8r7Fb2t5jQBQ7SZ2KiU0veeqBX4YgDgYlmbeDYf8He7fTS/dLvIxcKQpSpRoxto6y5UJxiDQaRNhcq5TS9c32SDePzhFJcRx3YdD+fxZ8aKDA5aRVo3agrMXbmhj93LqDA5JSpRni3TUx1HiAq8sDFHxaySINcuQ5FAAAAAElFTkSuQmCC" alt="red/blue" class="easteregg__img" />
+        <div>
         <h3 class="easteregg__name">Red / Blue</h3>
         <p class="easteregg__desc">Звичайна glitch-форма</p>
         <p class="easteregg__type">POKÉMON RED / BLUE</p>
+        </div>
       </li>
       <li class="easteregg__item">
         <img src="data:image/png;base64,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" alt="yellow" class="easteregg__img" />
+        <div>
         <h3 class="easteregg__name">Yellow</h3>
         <p class="easteregg__desc">Glitch-форма Yellow</p>
         <p class="easteregg__type">POKÉMON YELLOW</p>
+        </div>
       </li>
       <li class="easteregg__item">
         <img src="data:image/png;base64,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" alt="kabutops" class="easteregg__img" />
+        <div>
         <h3 class="easteregg__name">Kabutops</h3>
         <p class="easteregg__desc">Скелет Kabutops</p>
         <p class="easteregg__type">FOSSIL FORM</p>
+        </div>
       </li>
       <li class="easteregg__item">
         <img
@@ -133,9 +145,11 @@
           alt="aerodactyl"
           class="easteregg__img"
         />
+        <div>
         <h3 class="easteregg__name">Aerodactyl</h3>
         <p class="easteregg__desc">Скелет Aerodactyl</p>
         <p class="easteregg__type">FOSSIL FORM</p>
+        </div>
       </li>
       <li class="easteregg__item">
         <img
@@ -143,28 +157,32 @@
           alt="pokemon tower"
           class="easteregg__img"
         />
+        <div>
         <h3 class="easteregg__name">Pokémon Tower</h3>
         <p class="easteregg__desc">Привид Pokémon Tower</p>
         <p class="easteregg__type">GHOST FORM</p>
+        </div>
       </li>
     </ul>
     <img src="/pokedex/assets/missingno-f6c65531.gif" alt="missingno" class="easteregg__gif" />
     <div class="easteregg__textcontent">
       <svg class="easteregg__info">
-        <use href=""></use>
+        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#info"></use>
       </svg>
       <p class="easteregg__information">
         MissingNo. означає «відсутній номер». Це не звичайний покемон, а помилка
         даних, що стала легендою Pokémon Red, Blue та Yellow.
       </p>
     </div>
+    <div class="easteregg__container">
     <p class="easteregg__forms">Іноді найцікавіші знахідки — поза каталогом.</p>
     <button class="easteregg__btn" type="button">
       <svg class="easteregg__icon">
-        <use herf=""></use>
+        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#arrow-left"></use>
       </svg>
       Повернутися до пошуку
     </button>
+    </div>
   </div>
 </div>
 
