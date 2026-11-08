@@ -4,14 +4,11 @@
   position: fixed;
   inset: 0;
   overflow-y: auto;
-
-  // display: flex;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
-
   padding: 20px;
-  background-color: rgba(20, 34, 57, 0.68);
-  display: none;
+  background-color: rgba(20, 34, 57, 0.68)
 }
 
 .easteregg {

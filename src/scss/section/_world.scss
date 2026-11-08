@@ -1,0 +1,84 @@
+@use '../base/var' as *;
+.world {
+  padding: 24px 0;
+  @media screen and (min-width: 1326px) {
+    padding: 28px 0;
+  }
+  &__box {
+    background-color: $main-color;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 18px 0 rgba(49, 87, 139, 0.04);
+    @media screen and (min-width: 770px) {
+      padding: 28px;
+    }
+    @media screen and (min-width: 1326px) {
+      display: flex;
+      justify-content: space-between;
+      gap: 48px;
+      padding: 32px;
+    }
+  }
+  &__title {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    @media screen and (min-width: 770px) {
+      font-size: 24px;
+    }
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 170%;
+    margin-top: 12px;
+  }
+  &__item {
+    width: 98px;
+
+    background-color: $bg-color;
+    padding: 16px 8px;
+    border-radius: 8px;
+    @media screen and (min-width: 770px) {
+      width: 227px;
+      padding: 22px 8px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 142.7px;
+    }
+  }
+  &__text {
+    color: $subtitle-color;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  &__num {
+    color: $active-color;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -0.7px;
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    @media screen and (min-width: 770px) {
+      gap: 16px;
+    }
+    @media screen and (min-width: 1326px) {
+      margin-top: 0;
+    }
+  }
+}
