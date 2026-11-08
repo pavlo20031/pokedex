@@ -301,6 +301,138 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: normal;
 }
 
+.about {
+  padding-top: 28px;
+}
+@media screen and (min-width: 770px) {
+  .about {
+    padding-top: 32px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .about {
+    padding-top: 40px;
+  }
+}
+.about__title {
+  color: #192A45;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 770px) {
+  .about__title {
+    font-size: 32px;
+  }
+}
+.about__subtitle {
+  color: #8391A7;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+.world {
+  padding: 24px 0;
+}
+@media screen and (min-width: 1326px) {
+  .world {
+    padding: 28px 0;
+  }
+}
+.world__box {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px 0 rgba(49, 87, 139, 0.04);
+}
+@media screen and (min-width: 770px) {
+  .world__box {
+    padding: 28px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .world__box {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 32px;
+  }
+}
+.world__title {
+  color: #192A45;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.4px;
+}
+@media screen and (min-width: 770px) {
+  .world__title {
+    font-size: 24px;
+  }
+}
+.world__subtitle {
+  color: #8391A7;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 170%;
+  margin-top: 12px;
+}
+.world__item {
+  width: 98px;
+  background-color: #F2F7FC;
+  padding: 16px 8px;
+  border-radius: 8px;
+}
+@media screen and (min-width: 770px) {
+  .world__item {
+    width: 227px;
+    padding: 22px 8px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .world__item {
+    width: 142.7px;
+  }
+}
+.world__text {
+  color: #8391A7;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.world__num {
+  color: #287BFA;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.7px;
+}
+.world__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+@media screen and (min-width: 770px) {
+  .world__list {
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .world__list {
+    margin-top: 0;
+  }
+}
+
 .footer {
   background-color: #FFFFFF;
   padding: 29.5px 0;
@@ -355,11 +487,11 @@ input[type=number]::-webkit-outer-spin-button {
   position: fixed;
   inset: 0;
   overflow-y: auto;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
   background-color: rgba(20, 34, 57, 0.68);
-  display: none;
 }
 
 .easteregg {
