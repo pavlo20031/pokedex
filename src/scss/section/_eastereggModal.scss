@@ -1,29 +1,30 @@
 @use '../base/var' as *;
 
-// .backdrop {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(20, 34, 57, 0.68);
-//   //   display: none;
-// }
+.backdrop {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: rgba(20, 34, 57, 0.68)
+}
 
 .easteregg {
+  border-radius: 24px;
   background-color: $main-color;
   padding: 20px;
   width: 350px;
 
-  //   position: relative;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  @media screen and (min-width:770px) {
+ position: relative;
+  top: auto;
+  left: auto;
+  @media screen and (min-width: 770px) {
     width: 770px;
     padding: 24px;
   }
-  @media screen and (min-width:1326px) {
+  @media screen and (min-width: 1326px) {
     width: 1080px;
     padding: 32px;
   }
@@ -31,27 +32,42 @@
     width: 112px;
   }
   &__gif {
+    border-radius: 8px;
     width: 310px;
-    @media screen and (min-width:1326px) {
-        width: 480px;
+    margin: 24px auto;
+
+    @media screen and (min-width: 1326px) {
+      width: 480px;
     }
   }
   &__exit {
-    fill: $exit-color;
-    width: 9px;
-    height: 9px;
+    fill: transparent;
+    stroke-width: 1.8px;
+    stroke: $exit-color;
+    width: 15px;
+    height: 15px;
   }
   &__info {
-    width: 16.7px;
-    height: 16.7px;
-    fill: $active-color;
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8px;
+    stroke: $active-color;
+    fill: transparent;
   }
   &__icon {
-    width: 9.9px;
-    height: 9.9px;
-    fill: $main-color;
+    width: 17px;
+    height: 17px;
+    fill: transparent;
+    stroke-width: 1.8px;
+    stroke: $main-color;
   }
   &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     padding: 17.5px;
     border-radius: 8px;
     background: $bg-button;
@@ -70,45 +86,205 @@
     border-radius: 4px;
     padding: 2px 7px;
   }
-  &__sub{
+  &__sub {
     background-color: transparent;
     border-radius: 0;
     padding: 0;
   }
-  &__title{
-color: $text-color;
-font-size: 28px;
-font-weight: 700;
-line-height: 120%;
-letter-spacing: -0.7px;
-
-@media screen and (min-width: 770px) {
-    font-size: 30px;
-    letter-spacing: -0.8px;
-}
-@media screen and (min-width:1326px) {
-    font-size: 32px;
-}
-  }
-  &__subtitle{
-color: $exit-color;
-font-size: 14px;
-font-weight: 400;
-line-height: 160%;
-  }
-  &__missingno{
+  &__title {
     color: $text-color;
-font-family: "Roboto Mono";
-font-size: 18px;
-font-weight: 700;
-line-height: normal;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -0.7px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 
+    @media screen and (min-width: 770px) {
+      font-size: 30px;
+      letter-spacing: -0.8px;
+    }
+    @media screen and (min-width: 1326px) {
+      font-size: 32px;
+    }
   }
-  &__forms{
+  &__subtitle {
+    color: $exit-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 24px;
+  }
+  &__missingno {
+    color: $text-color;
+    font-family: 'Roboto Mono';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__forms {
     color: $subtitle-color;
-font-size: 12px;
-font-weight: 400;
-line-height: normal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__textcontent {
+    padding: 16px;
+    background-color: $question-color;
+    border-radius: 8px;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+    @media screen and (min-width: 770px) {
+      align-items: center;
+    }
+  }
+  &__information {
+    width: 246px;
+    color: $exit-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 160%;
+    @media screen and (min-width: 770px) {
+      width: 658px;
+      font-size: 12px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 100%;
+    }
+  }
+  &__btn {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: $active-color;
+    padding: 15.5px 57.5px;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    @media screen and (min-width: 770px) {
+      padding: 15.5px 20px;
+    }
+  }
+  &__item {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid $results-color;
+  }
+  &__img {
+    object-fit: contain;
+    border-radius: 8px;
+    background: $bg-button;
+    padding: 8px 0;
+    @media screen and (min-width: 770px) {
+      width: 208px;
+      height: 124px;
+      padding: 6px 16px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 169.6px;
+      height: 100%;
+      padding: 20px 29px;
+    }
+  }
+  &__name {
+    color: $text-color;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 130%;
+  }
+  &__desc {
+    align-self: stretch;
+    color: $exit-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    @media screen and (min-width: 770px) {
+      font-size: 11px;
+    }
+  }
+  &__type {
+    color: $subtitle-color;
+    font-family: 'Roboto Mono';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.2px;
+    @media screen and (min-width: 770px) {
+      font-size: 9px;
+    }
+  }
+  &__box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    & > div {
+      display: flex;
+      gap: 8px;
+      @media screen and (min-width: 770px) {
+        gap: 10px;
+      }
+    }
+  }
+  &__container {
+    padding-top: 16px;
+    border-top: 1px solid $results-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    @media screen and (min-width: 770px) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 24px;
+    }
+  }
+  &__item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+    &:is(:hover, :focus) {
+      transform: translateY(-10px);
+    }
 
+    @media screen and (min-width: 770px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+    @media screen and (min-width: 1326px) {
+      gap: 14px;
+    }
+
+    & > div {
+      display: flex;
+      gap: 6px;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media screen and (min-width: 770px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
   }
 }

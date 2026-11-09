@@ -1,0 +1,27 @@
+@use '../base/var' as *;
+.about {
+    padding-top: 28px;
+    @media screen and (min-width: 770px) {
+        padding-top: 32px;
+    }
+    @media screen and (min-width: 1326px) {
+        padding-top: 40px;
+    }
+  &__title {
+    color: $text-color;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    @media screen and (min-width:770px) {
+        font-size: 32px;
+    }
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+}
