@@ -1,0 +1,73 @@
+@use '../base/var' as *;
+.team {
+  padding: 24px 0;
+  @media screen and (min-width: 1326px) {
+    padding: 28px 0;
+  }
+  &__title {
+    color: $text-color;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    margin-bottom: 8px;
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 16px;
+  }
+  &__img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+  }
+  &__name {
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__text {
+    color: $subtitle-color;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid $results-color;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: $main-color;
+    box-shadow: 0 4px 18px 0 rgba(49, 87, 139, 0.04);
+    transition: 250ms transform ease;
+    &:is(:hover, :focus){
+        transform: translateY(-10px);
+    }
+    @media screen and (min-width: 770px) {
+      flex-basis: calc((100% - 16px) / 2);
+    }
+    @media screen and (min-width: 1326px) {
+      width: 312px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    @media screen and (min-width: 770px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    @media screen and (min-width: 1326px) {
+      flex-wrap: nowrap;
+    }
+  }
+}
