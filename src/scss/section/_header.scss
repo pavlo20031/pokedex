@@ -29,7 +29,7 @@
 
     @media (max-width: 390px) {
       &-text {
-        display: none; 
+        display: none;
       }
     }
   }
@@ -43,7 +43,7 @@
 
   &__nav {
     @media (max-width: 1326px) {
-      display: none; 
+      display: none;
     }
 
     &-list {
@@ -87,7 +87,7 @@
     gap: 12px;
   }
 
-  &__burger-btn {  
+  &__burger-btn {
     display: none !important;
 
     @media (max-width: 1326px) {
@@ -102,12 +102,12 @@
   display: block;
   flex-shrink: 0;
 
-  &--logo {
+  &__logo {
     width: 32px;
     height: 32px;
   }
 
-  &--stroke {
+  &__stroke {
     fill: none;
     stroke: $text-color;
     stroke-width: 2;
@@ -132,66 +132,95 @@
   &:hover {
     background-color: $subtitle-color;
 
-    .icon--stroke {
+    .icon__stroke {
       stroke: $main-color;
     }
   }
 }
 
-// body,
-// a, button, h1, h2, h3, h4, h5, h6, p, span, div, header, main, footer, section {
-//   transition: background-color 1850ms ease, color 1850ms ease, stroke 1850ms ease, border-color 1850ms ease;
-// }
+body,
+a,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+header,
+main,
+footer,
+section {
+  transition:
+    background-color 1850ms ease,
+    color 1850ms ease,
+    stroke 1850ms ease,
+    border-color 1850ms ease;
+}
 
-// body.dark-theme {
-//   background-color: $dark-color;
-//   color: $pokemon-color;
+body.dark-theme {
+  background-color: $title-color;
+  color: $main-color;
 
-//   h1, h2, h3, h4, h5, h6, p, span, a {
-//     color: $pokemon-color;
-//   }
+  h1:not(.hero *, .easteregg *),
+  h2:not(.hero *, .easteregg *),
+  h3:not(.hero *, .easteregg *),
+  h4:not(.hero *, .easteregg *),
+  h5:not(.hero *, .easteregg *),
+  h6:not(.hero *, .easteregg *) {
+    color: $main-color;
+  }
 
-//   a:hover {
-//     color: $active-color;
-//   }
+  p:not(.hero *, .easteregg *),
+  span:not(.hero *, .easteregg *),
+  a {
+    color: $bg-color;
+  }
 
-//   button {
-//     background-color: $dark-color;
-//     color: $pokemon-color;
-//   }
+  a:hover {
+    color: $active-color;
+  }
 
-//   button svg,
-//   button .icon--stroke {
-//     stroke: $active-color;
+  button:not(.hero *, .easteregg *) {
+    background-color: $active-color;
+    color: $main-color;
+  }
 
-//     &:hover {
-//       stroke: $water-color;
-//     }
-//   }
+  button svg:not(.hero *, .easteregg *),
+  button .icon__stroke:not(.hero *, .easteregg *) {
+    stroke: $active-color;
 
-//   section svg,
-//   section .icon--stroke {
-//     stroke: $water-color;
-//     fill: $water-color;
-//   }
+    &:hover {
+      stroke: $water-color;
+    }
+  }
 
-//   .header {
-//     background-color: $dark-color;
-//     border-bottom-color: $exit-color;
+  section svg,
+  section .icon__stroke {
+    stroke: $water-color;
+  }
 
-//     svg,
-//     .icon--stroke {
-//       stroke: $subtitle-color;
-//       fill: $subtitle-color;
+  .header {
+    background-color: $title-color;
+    border-bottom-color: $subtitle-color;
 
-//       &:hover {
-//         stroke: $water-color;
-//         fill: $water-color;
-//       }
-//     }
+    .icon__stroke {
+      stroke: $subtitle-color;
+    }
 
-//     .btn-icon:hover {
-//       background-color: $exit-color;
-//     }
-//   }
-// }
+    .btn-icon {
+      background-color: transparent;
+
+      &:hover {
+        background-color: $ice-color;
+
+        .icon__stroke {
+          stroke: $water-color;
+        }
+      }
+    }
+  }
+}
