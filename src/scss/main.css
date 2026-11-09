@@ -84,17 +84,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .header {
   width: 100%;
-  border-bottom: 1px solid #E5EDF6;
+  border-bottom: 3px solid #E5EDF6;
+  border-radius: 0 0 10px 10px;
   background: #FFFFFF;
   position: sticky;
   top: 0;
   z-index: 20;
 }
 .header__container {
-  max-width: 1280px;
+  max-width: 1326px;
   width: 100%;
-  margin: 0 auto;
-  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +108,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 18px;
   color: #192A45;
 }
-@media (max-width: 480px) {
+@media (max-width: 390px) {
   .header__brand-text {
     display: none;
   }
@@ -118,8 +117,9 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   gap: 32px;
+  flex-shrink: 0;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1326px) {
   .header__nav {
     display: none;
   }
@@ -160,11 +160,11 @@ input[type=number]::-webkit-outer-spin-button {
   gap: 12px;
 }
 .header__burger-btn {
-  display: none;
+  display: none !important;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1326px) {
   .header__burger-btn {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 }
 
