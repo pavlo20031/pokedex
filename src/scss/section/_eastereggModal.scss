@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  background-color: rgba(20, 34, 57, 0.68)
+  background-color: rgba(20, 34, 57, 0.68);
 }
 
 .easteregg {
@@ -17,7 +17,7 @@
   padding: 20px;
   width: 350px;
 
- position: relative;
+  position: relative;
   top: auto;
   left: auto;
   @media screen and (min-width: 770px) {
@@ -60,6 +60,12 @@
     fill: transparent;
     stroke-width: 1.8px;
     stroke: $main-color;
+    transition-property: stroke;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    .easteregg__btn:hover & {
+      stroke: $active-color;
+    }
   }
   &__button {
     display: flex;
@@ -165,6 +171,14 @@
     font-size: 14px;
     font-weight: 600;
     line-height: normal;
+    transition-property: background-color, color, outline;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    &:hover {
+      outline: 2px solid $active-color;
+      background-color: $main-color;
+      color: $active-color;
+    }
     @media screen and (min-width: 770px) {
       padding: 15.5px 20px;
     }

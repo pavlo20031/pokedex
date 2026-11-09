@@ -419,6 +419,7 @@ body.dark-theme .header .btn-icon:hover .icon__stroke {
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 4px 18px 0 rgba(49, 87, 139, 0.04);
+  border: 1px solid #E5EDF6;
 }
 @media screen and (min-width: 770px) {
   .world__box {
@@ -502,6 +503,89 @@ body.dark-theme .header .btn-icon:hover .icon__stroke {
 @media screen and (min-width: 1326px) {
   .world__list {
     margin-top: 0;
+  }
+}
+
+.team {
+  padding: 24px 0;
+}
+@media screen and (min-width: 1326px) {
+  .team {
+    padding: 28px 0;
+  }
+}
+.team__title {
+  color: #192A45;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  margin-bottom: 8px;
+}
+.team__subtitle {
+  color: #8391A7;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 160%;
+  margin-bottom: 16px;
+}
+.team__img {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+}
+.team__name {
+  color: #192A45;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+}
+.team__text {
+  color: #8391A7;
+  margin-top: 7px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.team__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #E5EDF6;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 18px 0 rgba(49, 87, 139, 0.04);
+  transition: 250ms transform ease;
+}
+.team__item:is(:hover, :focus) {
+  transform: translateY(-10px);
+}
+@media screen and (min-width: 770px) {
+  .team__item {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+@media screen and (min-width: 1326px) {
+  .team__item {
+    width: 312px;
+  }
+}
+.team__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media screen and (min-width: 770px) {
+  .team__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .team__list {
+    flex-wrap: nowrap;
   }
 }
 
@@ -620,6 +704,12 @@ body.dark-theme .header .btn-icon:hover .icon__stroke {
   fill: transparent;
   stroke-width: 1.8px;
   stroke: #FFFFFF;
+  transition-property: stroke;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+.easteregg__btn:hover .easteregg__icon {
+  stroke: #287BFA;
 }
 .easteregg__button {
   display: flex;
@@ -735,6 +825,14 @@ body.dark-theme .header .btn-icon:hover .icon__stroke {
   font-size: 14px;
   font-weight: 600;
   line-height: normal;
+  transition-property: background-color, color, outline;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+.easteregg__btn:hover {
+  outline: 2px solid #287BFA;
+  background-color: #FFFFFF;
+  color: #287BFA;
 }
 @media screen and (min-width: 770px) {
   .easteregg__btn {
