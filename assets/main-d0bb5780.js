@@ -21,4 +21,4 @@
     </li>
     ${d.innerHTML}
   `};async function y(){try{const[e,s,r]=await Promise.all([fetch("https://pokeapi.co/api/v2/pokemon").then(o=>o.json()),fetch("https://pokeapi.co/api/v2/type").then(o=>o.json()),fetch("https://pokeapi.co/api/v2/generation").then(o=>o.json())]);_({pokemons:e.count,types:s.count,generations:r.count})}catch(e){console.error(e)}}y();const h=document.querySelector(".easteregg__button"),g=document.querySelector(".easteregg__btn"),u=document.querySelector(".backdrop"),i=()=>{u.style.display="none"};h.addEventListener("click",i);g.addEventListener("click",i);window.addEventListener("keydown",e=>{e.key==="Escape"&&i()});u.addEventListener("click",e=>{e.target===e.currentTarget&&i()});
-//# sourceMappingURL=main-b9c82894.js.map
+//# sourceMappingURL=main-d0bb5780.js.map
