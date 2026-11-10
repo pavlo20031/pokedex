@@ -9,13 +9,13 @@ const closeModal = () => {
 btnRef.addEventListener('click', closeModal);
 buttonRef.addEventListener('click', closeModal);
 
-window.addEventListener('keydown', event => {
+window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeModal();
   }
 });
 
-backdropRef.addEventListener('click', event => {
+backdropRef.addEventListener('click', (event) => {
   if (event.target === event.currentTarget) {
     closeModal();
   }

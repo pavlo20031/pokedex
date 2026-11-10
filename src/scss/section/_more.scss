@@ -1,0 +1,76 @@
+@use '../base/var' as *;
+.more {
+  padding-bottom: 32px;
+  @media screen and (min-width: 1326px) {
+    padding-bottom: 40px;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid $results-color;
+    background-color: $more-color;
+    @media screen and (min-width: 770px) {
+      padding: 28px;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__title {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 8px;
+  }
+  &__text {
+    color: $subtitle-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+  &__btn {
+    border-radius: 8px;
+    background: $active-color;
+    color: $main-color;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    padding: 14.5px 99.5px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition-property: background-color, color, outline;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    &:hover {
+      outline: 2px solid $active-color;
+      background-color: $main-color;
+      color: $active-color;
+    }
+    @media screen and (min-width: 770px) {
+      padding: 14.5px 20px;
+    }
+  }
+  &__icon {
+    width: 17px;
+    height: 17px;
+    fill: transparent;
+    stroke-width: 1.8px;
+    stroke: #fff;
+    transition-property: stroke;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    .more__btn:hover & {
+      stroke: $active-color;
+    }
+  }
+}
