@@ -2,6 +2,7 @@ import { get } from './api.js';
 
 let template = '<div class="card"><p><var>id</var></p><p><var>hp</var></p></div>';
 
+// Вспомогательные функции остаются
 function cratelist(min, max) {
   let arr = [];
   for (let i = min; i <= max; i++) {
@@ -10,82 +11,42 @@ function cratelist(min, max) {
   return arr;
 }
 
-function findAllIndices(str, target) {
-  let indices = [];
-  let idx = str.indexOf(target);
-
-  while (idx !== -1) {
-    indices.push(idx);
-    idx = str.indexOf(target, idx + 1);
-  }
-
-  return indices;
-}
-
 function render(arr) {
-  let rez = [];
-  if (Array.isArray(arr)) {
-    let start = findAllIndices(template, "<var>");
-    let end = findAllIndices(template, "</var>");
+  if (!Array.isArray(arr)) return [];
 
-    for (let pokemon of arr) {
-      let htmlCard = template;
-
-      for (let j = start.length - 1; j >= 0; j--) {
-        let tagContent = template.slice(start[j], end[j]);
-        let variableName = tagContent.slice(5);
-        let fullTag = tagContent + "</var>";
-
-        let value = pokemon[variableName] !== undefined ? pokemon[variableName] : "";
-        htmlCard = htmlCard.replace(fullTag, value);
-      }
-
-      rez.push(htmlCard);
-    }
-  }
-  return rez;
+  return arr.map(pokemon => {
+    let htmlCard = template;
+    // Заменяем все теги <var>имя_поля</var> на значения из объекта
+    htmlCard = htmlCard.replace(/<var>(.*?)<\/var>/g, (_, key) => {
+      return pokemon[key] !== undefined ? pokemon[key] : "";
+    });
+    return htmlCard;
+  });
 }
 
-// ================= НАСТРОЙКИ ПАГИНАЦИИ (легко менять) =================
-let itemsPerPage = 5; // Сколько карточек выводить на страницу
-let currentPage = 1;  // Текущая страница
+// ================= СОСТОЯНИЕ И ФУНКЦИЯ ДЛЯ КНОПКИ =================
 
-// ================= ФУНКЦИЯ ПАГИНАЦИИ =================
-function paginate(array, page, perPage) {
-  let start = (page - 1) * perPage;
-  let end = start + perPage;
+let currentId = 1;       // С какого ID начинать
+const pageSize = 10;     // Сколько загружать за один раз
 
-  return {
-    items: array.slice(start, end),
-    totalPages: Math.ceil(array.length / perPage),
-    page: page
-  };
-}
+// Эту функцию передаешь в обработчик события кнопки
+export async function loadNextPage() {
+  let min = currentId;
+  let max = currentId + pageSize - 1;
 
-// ================= ПОЛУЧЕНИЕ И РЕНДЕР =================
-let pokemonData = await get(null, cratelist(1, 20));
-let cards = render(pokemonData);
+  // 1. Получаем список ID (например, 1..10, потом 11..20 и т.д.)
+  let ids = cratelist(min, max);
 
-// Вызов пагинации
-let result = paginate(cards, currentPage, itemsPerPage);
+  // 2. Запрашиваем данные
+  let pokemonData = await get(null, ids);
 
-console.log(`Страница ${result.page} из ${result.totalPages}:`);
-console.log(result.items);
+  // 3. Превращаем данные в HTML-карточки
+  let cards = render(pokemonData);
 
-// ================= ПРИМЕР ДЛЯ КНОПОК =================
-// Если нужно привязать к кнопкам "Назад" / "Вперед":
-function nextPage() {
-  if (currentPage < result.totalPages) {
-    currentPage++;
-    let newPageData = paginate(cards, currentPage, itemsPerPage);
-    console.log("Новая страница:", newPageData.items);
-  }
-}
+  // 4. Увеличиваем счетчик для следующего клика
+  currentId += pageSize;
 
-function prevPage() {
-  if (currentPage > 1) {
-    currentPage--;
-    let newPageData = paginate(cards, currentPage, itemsPerPage);
-    console.log("Новая страница:", newPageData.items);
-  }
+  // Возвращаем готовую разметку (или вывод в консоль)
+  console.log(`Загружены элементы с ${min} по ${max}:`, cards);
+  return cards;
 }
