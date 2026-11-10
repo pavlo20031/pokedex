@@ -19,14 +19,14 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/pokedex/assets/main-2f48d47c.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/main-44b9f936.css">
+    <script type="module" crossorigin src="/pokedex/assets/main-41d63cf7.js"></script>
+    <link rel="stylesheet" href="/pokedex/assets/main-e6a2946b.css">
   </head>
   <body>
     <header class="header">
   <div class="header__container container">
-    <a href="#" class="header__brand">
-      <svg class="icon icon--logo">
+    <a href="../index.html" class="header__brand">
+      <svg class="icon icon__logo">
         <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#pokeball"></use>
       </svg>
       <span class="header__brand-text">Pokédex</span>
@@ -35,26 +35,26 @@
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="/index.html" class="header__nav-link">Головна</a>
+            <a href="../index.html" class="header__nav-link active">Головна</a>
           </li>
           <li class="header__nav-item">
-            <a href="#" class="header__nav-link">
+            <a href="../favourite.html" class="header__nav-link">
               Улюблені <span class="header__nav-badge">7</span>
             </a>
           </li>
           <li class="header__nav-item">
-            <a href="../command.html" class="header__nav-link header__nav-link--active">Про проєкт</a>
+            <a href="../command.html" class="header__nav-link">Про проєкт</a>
           </li>
         </ul>
       </nav>
       <div class="header__actions">
-        <a class="btn-icon" href="#" aria-label="Toggle Theme">
-          <svg class="icon icon--stroke">
-            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#sun"></use>
+        <button class="btn-icon" type="button" aria-label="Toggle Theme">
+          <svg class="icon icon__stroke">
+            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#moon"></use>
           </svg>
-        </a>
+        </button>
         <button class="btn-icon header__burger-btn" aria-label="Open menu" type="button">
-          <svg class="icon icon--stroke">
+          <svg class="icon icon__stroke">
             <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#burger"></use>
           </svg>
         </button>
@@ -89,7 +89,7 @@
         <img src="#" alt="Pavlo Lesiv" class="team__img" />
         <div>
         <h3 class="team__name">Павло Лесів</h3>
-        <p class="team__text">Team lead. Створив сторінку про проєкт, два модальних вікна та футер</p>
+        <p class="team__text">Team lead. Створив сторінку про проєкт, два модальних вікна футер, секцію герой</p>
         </div>
       </li>
       <li class="team__item">
@@ -117,6 +117,22 @@
   </div>
 </section>
 
+    <section class="more">
+    <div class="container more__box">
+        <div>
+        <h2 class="more__title">Продовжимо досліджувати?</h2>
+        <p class="more__text">Повертайся до каталогу та знаходь своїх улюблених покемонів.</p>
+        </div>
+        <a href="../index.html">
+        <button type="button" class="more__btn">
+            <svg class="more__icon">
+                <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#arrow-left"></use>
+            </svg>
+            До каталогу
+        </button>
+        </a>
+    </div>
+</section>
     <footer class="footer">
     <div class="container footer__box">
         <div class="footer__content">
