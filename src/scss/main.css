@@ -92,7 +92,6 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 0;
 }
 .header__container {
-  max-width: 1326px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -122,6 +121,19 @@ input[type=number]::-webkit-outer-spin-button {
 @media (max-width: 1326px) {
   .header__nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 24px;
+    border-bottom: 3px solid #E5EDF6;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 12px 12px;
+    z-index: 10;
+  }
+  .header__nav.is-open {
+    display: block;
   }
 }
 .header__nav-list {
@@ -131,6 +143,13 @@ input[type=number]::-webkit-outer-spin-button {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+@media (max-width: 1326px) {
+  .header__nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 .header__nav-link {
   text-decoration: none;
@@ -144,7 +163,10 @@ input[type=number]::-webkit-outer-spin-button {
 .header__nav-link:hover {
   color: #287BFA;
 }
-.header__nav-link--active::after {
+.header__nav-link.active {
+  color: #287BFA;
+}
+.header__nav-link.active::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -199,23 +221,11 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.btn-icon:hover {
-  background-color: #8391A7;
-}
 .btn-icon:hover .icon__stroke {
-  stroke: #FFFFFF;
+  stroke: #287BFA;
 }
 
 body,
-a,
-button,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
 span,
 div,
 header,
@@ -265,14 +275,17 @@ body.dark-theme .header {
   background-color: #111827;
   border-bottom-color: #8391A7;
 }
+@media (max-width: 1326px) {
+  body.dark-theme .header .header__nav {
+    background-color: #111827;
+    border-bottom-color: #8391A7;
+  }
+}
 body.dark-theme .header .icon__stroke {
   stroke: #8391A7;
 }
 body.dark-theme .header .btn-icon {
   background-color: transparent;
-}
-body.dark-theme .header .btn-icon:hover {
-  background-color: #79CFD9;
 }
 body.dark-theme .header .btn-icon:hover .icon__stroke {
   stroke: #58ACF6;
