@@ -225,7 +225,7 @@ body.dark-theme {
   }
 
   .header {
-    background-color: $title-color;
+    background-color: $text-color;
     border-bottom-color: $subtitle-color;
 
     @media (max-width: 1325px) {
@@ -251,7 +251,7 @@ body.dark-theme {
   }
 
   .footer {
-    background-color: $title-color;
+    background-color: $text-color;
     color: $main-color;
     border-color: $subtitle-color;
 
