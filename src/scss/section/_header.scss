@@ -8,6 +8,15 @@
   position: sticky;
   top: 0;
   z-index: 0;
+  padding: 22px 20px;
+
+  @media (min-width: 769px) {
+    padding: 24px 32px;
+  }
+
+  @media (min-width: 1325px) {
+    padding: 28px 72px;
+  }
 
   &__container {
     width: 100%;
@@ -167,10 +176,10 @@ main,
 footer,
 section {
   transition:
-    background-color 1850ms ease,
-    color 1850ms ease,
-    stroke 1850ms ease,
-    border-color 1850ms ease;
+    background-color 950ms ease,
+    color 950ms ease,
+    stroke 950ms ease,
+    border-color 950ms ease;
 }
 
 body.dark-theme {
@@ -219,7 +228,7 @@ body.dark-theme {
     background-color: $title-color;
     border-bottom-color: $subtitle-color;
 
-    @media (max-width: 1326px) {
+    @media (max-width: 1325px) {
       .header__nav {
         background-color: $title-color;
         border-bottom-color: $subtitle-color;
@@ -238,6 +247,22 @@ body.dark-theme {
           stroke: $water-color;
         }
       }
+    }
+  }
+
+  .footer {
+    background-color: $title-color;
+    color: $main-color;
+    border-color: $subtitle-color;
+
+    p,
+    span,
+    a {
+      color: $bg-color;
+    }
+
+    a:hover {
+      color: $active-color;
     }
   }
 }

@@ -90,6 +90,17 @@ input[type=number]::-webkit-outer-spin-button {
   position: sticky;
   top: 0;
   z-index: 0;
+  padding: 22px 20px;
+}
+@media (min-width: 769px) {
+  .header {
+    padding: 24px 32px;
+  }
+}
+@media (min-width: 1325px) {
+  .header {
+    padding: 28px 72px;
+  }
 }
 .header__container {
   width: 100%;
@@ -232,7 +243,7 @@ header,
 main,
 footer,
 section {
-  transition: background-color 1850ms ease, color 1850ms ease, stroke 1850ms ease, border-color 1850ms ease;
+  transition: background-color 950ms ease, color 950ms ease, stroke 950ms ease, border-color 950ms ease;
 }
 
 body.dark-theme {
@@ -275,7 +286,7 @@ body.dark-theme .header {
   background-color: #111827;
   border-bottom-color: #8391A7;
 }
-@media (max-width: 1326px) {
+@media (max-width: 1325px) {
   body.dark-theme .header .header__nav {
     background-color: #111827;
     border-bottom-color: #8391A7;
@@ -289,6 +300,19 @@ body.dark-theme .header .btn-icon {
 }
 body.dark-theme .header .btn-icon:hover .icon__stroke {
   stroke: #58ACF6;
+}
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #FFFFFF;
+  border-color: #8391A7;
+}
+body.dark-theme .footer p,
+body.dark-theme .footer span,
+body.dark-theme .footer a {
+  color: #F2F7FC;
+}
+body.dark-theme .footer a:hover {
+  color: #287BFA;
 }
 
 .hero {
