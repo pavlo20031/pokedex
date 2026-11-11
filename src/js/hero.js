@@ -17,11 +17,16 @@ const renderStats = ({ pokemons, types, generations }) => {
 
 async function getStats() {
   try {
-    const [pokemonData, typeData, generationData] = await Promise.all([
-      fetch('https://pokeapi.co/api/v2/pokemon').then(res => res.json()),
-      fetch('https://pokeapi.co/api/v2/type').then(res => res.json()),
-      fetch('https://pokeapi.co/api/v2/generation').then(res => res.json()),
-    ]);
+    const [pokemonResponse, typeResponse, generationResponse] =
+      await Promise.all([
+        fetch('https://pokeapi.co/api/v2/pokemon'),
+        fetch('https://pokeapi.co/api/v2/type'),
+        fetch('https://pokeapi.co/api/v2/generation'),
+      ]);
+
+    const pokemonData = await pokemonResponse.json();
+    const typeData = await typeResponse.json();
+    const generationData = await generationResponse.json();
 
     renderStats({
       pokemons: pokemonData.count,
