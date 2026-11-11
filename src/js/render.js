@@ -1,52 +1,115 @@
 import { get } from './api.js';
 
-let template = '<div class="card"><p><var>id</var></p><p><var>hp</var></p></div>';
+// Configuration & State
+const CONFIG = {
+  pageSize: 10,
+  startId: 1
+};
 
-// Вспомогательные функции остаются
-function cratelist(min, max) {
-  let arr = [];
+const STATE = {
+  currentId: CONFIG.startId
+};
+
+// HTML Template
+const CARD_TEMPLATE = `
+  <div class="card">
+    <p><var>id</var></p>
+    <p><var>hp</var></p>
+  </div>
+`;
+
+// Helper Functions
+function createRangeList(min, max) {
+  const list = [];
   for (let i = min; i <= max; i++) {
-    arr.push(i);
+    list.push(i);
   }
-  return arr;
+  return list;
 }
 
-function render(arr) {
-  if (!Array.isArray(arr)) return [];
+function renderCards(dataArray) {
+  if (!Array.isArray(dataArray)) return '';
 
-  return arr.map(pokemon => {
-    let htmlCard = template;
-    // Заменяем все теги <var>имя_поля</var> на значения из объекта
-    htmlCard = htmlCard.replace(/<var>(.*?)<\/var>/g, (_, key) => {
-      return pokemon[key] !== undefined ? pokemon[key] : "";
+  return dataArray
+    .map(pokemon => {
+      return CARD_TEMPLATE.replace(/<var>(.*?)<\/var>/g, (_, key) => {
+        return pokemon[key] !== undefined ? pokemon[key] : '';
+      });
+    })
+    .join('');
+}
+
+// Data Fetching Logic
+async function fetchPokemonPage(startId, size) {
+  const min = startId;
+  const max = startId + size - 1;
+  const ids = createRangeList(min, max);
+
+  const pokemonData = await get(null, ids);
+  return {
+    html: renderCards(pokemonData),
+    min,
+    max
+  };
+}
+
+// UI Controller & Event Handlers
+export function initPokemonApp({ containerId, prevBtnId, nextBtnId }) {
+  const container = document.getElementById(containerId);
+  const prevBtn = document.getElementById(prevBtnId);
+  const nextBtn = document.getElementById(nextBtnId);
+
+  async function updatePage(newStartId) {
+    if (newStartId < 1) return;
+
+    STATE.currentId = newStartId;
+
+    // Блокируем кнопки на время загрузки
+    if (prevBtn) prevBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
+
+    try {
+      const { html } = await fetchPokemonPage(STATE.currentId, CONFIG.pageSize);
+      if (container) container.innerHTML = html;
+    } catch (error) {
+      console.error('Ошибка при загрузке данных:', error);
+    } finally {
+      // Обновляем состояние кнопки "Назад" (нельзя уйти ниже 1)
+      if (prevBtn) prevBtn.disabled = STATE.currentId <= 1;
+      if (nextBtn) nextBtn.disabled = false;
+    }
+  }
+
+  // Навешиваем слушатели событий
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      updatePage(STATE.currentId + CONFIG.pageSize);
     });
-    return htmlCard;
-  });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      updatePage(Math.max(1, STATE.currentId - CONFIG.pageSize));
+    });
+  }
+
+  // Первоначальная загрузка первой страницы
+  updatePage(STATE.currentId);
 }
-
-// ================= СОСТОЯНИЕ И ФУНКЦИЯ ДЛЯ КНОПКИ =================
-
-let currentId = 1;       // С какого ID начинать
-const pageSize = 10;     // Сколько загружать за один раз
-
-// Эту функцию передаешь в обработчик события кнопки
-export async function loadNextPage() {
-  let min = currentId;
-  let max = currentId + pageSize - 1;
-
-  // 1. Получаем список ID (например, 1..10, потом 11..20 и т.д.)
-  let ids = cratelist(min, max);
-
-  // 2. Запрашиваем данные
-  let pokemonData = await get(null, ids);
-
-  // 3. Превращаем данные в HTML-карточки
-  let cards = render(pokemonData);
-
-  // 4. Увеличиваем счетчик для следующего клика
-  currentId += pageSize;
-
-  // Возвращаем готовую разметку (или вывод в консоль)
-  console.log(`Загружены элементы с ${min} по ${max}:`, cards);
-  return cards;
-}
+//<div id="pokemon-container" class="cards-grid"></div>
+//
+// <div class="pagination-controls">
+//   <button id="prev-btn" disabled>Назад</button>
+//   <button id="next-btn">Загрузить еще</button>
+// </div>
+//
+// <script type="module">
+//   import { initPokemonApp } from './app.js';
+//
+//   // Инициализация приложения
+//   initPokemonApp({
+//     containerId: 'pokemon-container',
+//     prevBtnId: 'prev-btn',
+//     nextBtnId: 'next-btn'
+//   });
+// </script>
