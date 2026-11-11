@@ -3,13 +3,19 @@ const listRef = document.querySelector('.world__list');
 const renderStats = ({ pokemons, types, generations }) => {
   listRef.innerHTML = `
     <li class="world__item">
-      <p class="world__text"><span class="world__num">${pokemons}</span> покемонів</p>
+      <p class="world__text">
+        <span class="world__num">${pokemons}</span> покемонів
+      </p>
     </li>
     <li class="world__item">
-      <p class="world__text"><span class="world__num">${types}</span> типів</p>
+      <p class="world__text">
+        <span class="world__num">${types}</span> типів
+      </p>
     </li>
     <li class="world__item">
-      <p class="world__text"><span class="world__num">${generations}</span> поколінь</p>
+      <p class="world__text">
+        <span class="world__num">${generations}</span> поколінь
+      </p>
     </li>
     ${listRef.innerHTML}
   `;
@@ -17,11 +23,16 @@ const renderStats = ({ pokemons, types, generations }) => {
 
 async function getStats() {
   try {
-    const [pokemonData, typeData, generationData] = await Promise.all([
-      fetch('https://pokeapi.co/api/v2/pokemon').then(res => res.json()),
-      fetch('https://pokeapi.co/api/v2/type').then(res => res.json()),
-      fetch('https://pokeapi.co/api/v2/generation').then(res => res.json()),
-    ]);
+    const [pokemonResponse, typeResponse, generationResponse] =
+      await Promise.all([
+        fetch('https://pokeapi.co/api/v2/pokemon'),
+        fetch('https://pokeapi.co/api/v2/type'),
+        fetch('https://pokeapi.co/api/v2/generation'),
+      ]);
+
+    const pokemonData = await pokemonResponse.json();
+    const typeData = await typeResponse.json();
+    const generationData = await generationResponse.json();
 
     renderStats({
       pokemons: pokemonData.count,
@@ -29,7 +40,7 @@ async function getStats() {
       generations: generationData.count,
     });
   } catch (error) {
-    console.error(error);
+    console.error('Помилка:', error);
   }
 }
 
