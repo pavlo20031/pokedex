@@ -283,7 +283,7 @@ body.dark-theme section .icon__stroke {
   stroke: #58ACF6;
 }
 body.dark-theme .header {
-  background-color: #111827;
+  background-color: #192A45;
   border-bottom-color: #8391A7;
 }
 @media (max-width: 1325px) {
@@ -302,7 +302,7 @@ body.dark-theme .header .btn-icon:hover .icon__stroke {
   stroke: #58ACF6;
 }
 body.dark-theme .footer {
-  background-color: #111827;
+  background-color: #192A45;
   color: #FFFFFF;
   border-color: #8391A7;
 }

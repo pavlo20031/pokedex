@@ -6,7 +6,7 @@ const navMenu = document.querySelector('.header__nav');
 function updateThemeIcon(isDark) {
   if (themeIconUse) {
     const iconName = isDark ? 'sun' : 'moon';
-    themeIconUse.setAttribute('href', `./img/symbol-defs.svg#${iconName}`);
+    themeIconUse.setAttribute('href', `/img/symbol-defs.svg#${iconName}`);
   }
 }
 
