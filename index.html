@@ -19,15 +19,15 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/pokedex/assets/main-2e4dbae5.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/main-87d96b19.css">
+    <script type="module" crossorigin src="/pokedex/assets/main-c7ffb8ff.js"></script>
+    <link rel="stylesheet" href="/pokedex/assets/main-a4092f4f.css">
   </head>
   <body>
     <header class="header">
   <div class="header__container container">
     <a href="./index.html" class="header__brand">
       <svg class="icon icon__logo">
-        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#pokeball"></use>
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#pokeball"></use>
       </svg>
       <span class="header__brand-text">Pokédex</span>
     </a>
@@ -50,12 +50,12 @@
       <div class="header__actions">
         <button class="btn-icon" type="button" aria-label="Toggle Theme">
           <svg class="icon icon__stroke">
-            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#moon"></use>
+            <use href="/pokedex/assets/symbol-defs-1842c525.svg#moon"></use>
           </svg>
         </button>
         <button class="btn-icon header__burger-btn" aria-label="Open menu" type="button">
           <svg class="icon icon__stroke">
-            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#burger"></use>
+            <use href="/pokedex/assets/symbol-defs-1842c525.svg#burger"></use>
           </svg>
         </button>
       </div>
@@ -73,7 +73,50 @@
   </div>
 </section>
 
-    
+    <section class="search-section container">
+  <div class="search-bar-wrapper">
+    <div class="search-input-box">
+      <svg class="icon icon__stroke search-icon">
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#search"></use>
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Пошук за назвою або номером..."
+        aria-label="Пошук покемона"
+      />
+    </div>
+    <button class="btn btn-random" type="button" data-action="random-pokemon">
+      <svg class="icon icon__stroke">
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#random"></use>
+      </svg>
+      <span>Випадковий покемон</span>
+    </button>
+  </div>
+  <div class="filters-wrapper">
+    <div class="filters-group">
+      <button class="dropdown-btn" type="button" data-action="filter-type">
+        <span>Усі типи</span>
+        <svg class="icon icon__stroke">
+          <use href="/pokedex/assets/symbol-defs-1842c525.svg#arrow-down"></use>
+        </svg>
+      </button>
+      <button class="dropdown-btn" type="button" data-action="sort-number">
+        <span>За номером</span>
+        <svg class="icon icon__stroke">
+          <use href="/pokedex/assets/symbol-defs-1842c525.svg#sort"></use>
+        </svg>
+      </button>
+      <button class="dropdown-btn" type="button" data-action="filter-generation">
+        <span>Усі покоління</span>
+        <svg class="icon icon__stroke">
+          <use href="/pokedex/assets/symbol-defs-1842c525.svg#arrow-down"></use>
+        </svg>
+      </button>
+    </div>
+    <p class="search-results-count">Показано 0 із 1 025 покемонів</p>
+  </div>
+</section>
     
     <footer class="footer">
     <div class="container footer__box">
@@ -82,7 +125,7 @@
         <p class="footer__text api">Дані з PokéAPI · Pokémon © Nintendo</p>
         </div>
         <svg class="footer__icon">
-            <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#github"></use>
+            <use href="/pokedex/assets/symbol-defs-1842c525.svg#github"></use>
         </svg>
     </div>
 </footer>
@@ -91,7 +134,7 @@
   <div class="easteregg">
     <button type="button" class="easteregg__button">
       <svg class="easteregg__exit">
-        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#x"></use>
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#x"></use>
       </svg>
     </button>
     <div class="easteregg__box">
@@ -163,7 +206,7 @@
     <img src="/pokedex/assets/missingno-f6c65531.gif" alt="missingno" class="easteregg__gif" />
     <div class="easteregg__textcontent">
       <svg class="easteregg__info">
-        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#info"></use>
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#info"></use>
       </svg>
       <p class="easteregg__information">
         MissingNo. означає «відсутній номер». Це не звичайний покемон, а помилка
@@ -174,7 +217,7 @@
     <p class="easteregg__forms">Іноді найцікавіші знахідки — поза каталогом.</p>
     <button class="easteregg__btn" type="button">
       <svg class="easteregg__icon">
-        <use href="/pokedex/assets/symbol-defs-6a13ddeb.svg#arrow-left"></use>
+        <use href="/pokedex/assets/symbol-defs-1842c525.svg#arrow-left"></use>
       </svg>
       Повернутися до пошуку
     </button>
