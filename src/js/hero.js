@@ -38,4 +38,6 @@ async function getStats() {
   }
 }
 
-getStats();
+if (listRef) {
+  getStats();
+}
