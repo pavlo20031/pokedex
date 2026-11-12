@@ -1,0 +1,44 @@
+<section class="search-section container">
+  <div class="search-bar-wrapper">
+    <div class="search-input-box">
+      <svg class="icon icon__stroke search-icon">
+        <use href="./img/symbol-defs.svg#search"></use>
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Пошук за назвою або номером..."
+        aria-label="Пошук покемона"
+      />
+    </div>
+    <button class="btn btn-random" type="button" data-action="random-pokemon">
+      <svg class="icon icon__stroke">
+        <use href="./img/symbol-defs.svg#random"></use>
+      </svg>
+      <span>Випадковий покемон</span>
+    </button>
+  </div>
+  <div class="filters-wrapper">
+    <div class="filters-group">
+      <button class="dropdown-btn" type="button" data-action="filter-type">
+        <span>Усі типи</span>
+        <svg class="icon icon__stroke">
+          <use href="./img/symbol-defs.svg#arrow-down"></use>
+        </svg>
+      </button>
+      <button class="dropdown-btn" type="button" data-action="sort-number">
+        <span>За номером</span>
+        <svg class="icon icon__stroke">
+          <use href="./img/symbol-defs.svg#sort"></use>
+        </svg>
+      </button>
+      <button class="dropdown-btn" type="button" data-action="filter-generation">
+        <span>Усі покоління</span>
+        <svg class="icon icon__stroke">
+          <use href="./img/symbol-defs.svg#arrow-down"></use>
+        </svg>
+      </button>
+    </div>
+    <p class="search-results-count">Показано 0 із 1 025 покемонів</p>
+  </div>
+</section>

@@ -410,6 +410,168 @@ body.dark-theme .footer a:hover {
   line-height: normal;
 }
 
+.search-section {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.search-section .search-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .search-section .search-bar-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.search-section .search-input-box {
+  position: relative;
+  flex-grow: 1;
+}
+.search-section .search-input-box .search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.search-section .search-input-box .search-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border: 1px solid #8391A7;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  color: #192A45;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+.search-section .search-input-box .search-input::-moz-placeholder {
+  color: #8391A7;
+}
+.search-section .search-input-box .search-input::placeholder {
+  color: #8391A7;
+}
+.search-section .search-input-box .search-input:focus {
+  border-color: #287BFA;
+  box-shadow: 0 0 0 3px rgba(40, 123, 250, 0.15);
+}
+.search-section .btn-random {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #287BFA;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.search-section .btn-random .icon__stroke {
+  stroke: #FFFFFF;
+}
+.search-section .btn-random:hover {
+  background-color: rgb(5.6636363636, 99.68, 243.5363636364);
+}
+.search-section .btn-random:active {
+  transform: scale(0.98);
+}
+.search-section .filters-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 1024px) {
+  .search-section .filters-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.search-section .filters-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.search-section .dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #8391A7;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #192A45;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.search-section .dropdown-btn:hover {
+  background-color: rgba(131, 145, 167, 0.16);
+  border-color: #192A45;
+}
+.search-section .search-results-count {
+  font-size: 14px;
+  color: #8391A7;
+  margin: 0;
+}
+
+body.dark-theme .search-section .search-icon {
+  stroke: #8391A7;
+}
+body.dark-theme .search-section .search-input {
+  background-color: #111827;
+  border-color: #8391A7;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .search-input::-moz-placeholder {
+  color: #8391A7;
+}
+body.dark-theme .search-section .search-input::placeholder {
+  color: #8391A7;
+}
+body.dark-theme .search-section .search-input:focus {
+  border-color: #287BFA;
+}
+body.dark-theme .search-section .btn-random {
+  background-color: #287BFA;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .btn-random .icon__stroke {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .btn-random:hover {
+  background-color: rgb(5.6636363636, 99.68, 243.5363636364);
+}
+body.dark-theme .search-section .dropdown-btn {
+  background-color: #111827;
+  border-color: #8391A7;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn .icon__stroke {
+  stroke: #8391A7;
+}
+body.dark-theme .search-section .dropdown-btn:hover {
+  background-color: rgba(131, 145, 167, 0.22);
+  border-color: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn:hover .icon__stroke {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .search-results-count {
+  color: #8391A7;
+}
+
 .about {
   padding-top: 28px;
 }
