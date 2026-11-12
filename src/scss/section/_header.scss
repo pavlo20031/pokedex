@@ -210,7 +210,6 @@ body.dark-theme {
     color: $main-color;
   }
 
-  button svg:not(.hero *, .easteregg *),
   button .icon__stroke:not(.hero *, .easteregg *) {
     stroke: $active-color;
 

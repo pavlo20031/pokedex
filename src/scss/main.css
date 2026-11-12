@@ -270,11 +270,9 @@ body.dark-theme button:not(.hero *, .easteregg *) {
   background-color: #287BFA;
   color: #FFFFFF;
 }
-body.dark-theme button svg:not(.hero *, .easteregg *),
 body.dark-theme button .icon__stroke:not(.hero *, .easteregg *) {
   stroke: #287BFA;
 }
-body.dark-theme button svg:not(.hero *, .easteregg *):hover,
 body.dark-theme button .icon__stroke:not(.hero *, .easteregg *):hover {
   stroke: #58ACF6;
 }
