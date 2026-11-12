@@ -1251,4 +1251,9 @@ body.dark-theme .search-section .search-results-count {
     flex-wrap: wrap;
     gap: 10px;
   }
+}
+@media screen and (min-width: 1326px) {
+  .easteregg__list {
+    flex-wrap: nowrap;
+  }
 }/*# sourceMappingURL=main.css.map */
