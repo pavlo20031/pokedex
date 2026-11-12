@@ -21,13 +21,13 @@ if (savedTheme === 'dark') {
 themeToggleBtn?.addEventListener('click', () => {
   const isDark = document.body.classList.toggle('dark-theme');
 
-  if (isDark) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
+  if (themeIconUse) {
+    const iconName = isDark ? 'sun' : 'moon';
+    const currentHref = themeIconUse.getAttribute('href') || '';
+    const basePath = currentHref.split('#')[0];
+    
+    themeIconUse.setAttribute('href', `${basePath}#${iconName}`);
   }
-
-  updateThemeIcon(isDark);
 });
 
 if (burgerBtn && navMenu) {
