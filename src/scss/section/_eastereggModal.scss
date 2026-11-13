@@ -16,7 +16,7 @@
   background-color: $main-color;
   padding: 20px;
   width: 350px;
-  z-index: 2;
+  z-index: 999;
   position: relative;
   top: auto;
   left: auto;
@@ -183,11 +183,6 @@
       padding: 15.5px 20px;
     }
   }
-  &__item {
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid $results-color;
-  }
   &__img {
     object-fit: contain;
     border-radius: 8px;
@@ -265,6 +260,9 @@
     }
   }
   &__item {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid $results-color;
     display: flex;
     gap: 12px;
     align-items: center;

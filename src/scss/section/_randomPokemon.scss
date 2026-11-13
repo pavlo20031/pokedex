@@ -45,9 +45,9 @@
     stroke: $subtitle-color;
   }
   &__number {
-    // position: absolute;
-    // left: 18px;
-    // top: 16px;
+    position: absolute;
+    left: 18px;
+    top: 16px;
     color: $number-color;
     font-size: 13px;
     font-weight: 400;
@@ -173,5 +173,18 @@
   }
   &__toxic{
     background-color: $toxic-color;
+  }
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  &__position{
+    position: relative;
+  }
+  &__lists{
+    display: flex;
+    gap: 6px;
   }
 }
