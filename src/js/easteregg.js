@@ -10,14 +10,14 @@ if (btnRef && buttonRef && backdropRef) {
   btnRef.addEventListener('click', closeModal);
   buttonRef.addEventListener('click', closeModal);
 
-  window.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
+  window.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
       closeModal();
     }
   });
 
-  backdropRef.addEventListener('click', event => {
-    if (event.target === event.currentTarget) {
+  backdropRef.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
       closeModal();
     }
   });

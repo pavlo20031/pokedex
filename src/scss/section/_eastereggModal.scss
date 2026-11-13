@@ -16,7 +16,7 @@
   background-color: $main-color;
   padding: 20px;
   width: 350px;
-
+  z-index: 2;
   position: relative;
   top: auto;
   left: auto;
@@ -175,7 +175,7 @@
     transition-duration: 500ms;
     transition-timing-function: ease;
     &:hover {
-      outline: 2px solid $active-color;
+      outline: 1px solid $results-color;
       background-color: $main-color;
       color: $active-color;
     }
