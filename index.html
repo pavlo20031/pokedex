@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/pokedex/assets/main-45f77d98.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/main-0d836782.css">
+    <script type="module" crossorigin src="/pokedex/assets/main-d6e5155a.js"></script>
+    <link rel="stylesheet" href="/pokedex/assets/main-b7ae585d.css">
   </head>
   <body>
     <header class="header">
@@ -124,9 +124,11 @@
         <p class="footer__text">© 2026 Pokédex. З любов’ю до покемонів.</p>
         <p class="footer__text api">Дані з PokéAPI · Pokémon © Nintendo</p>
         </div>
+        <a class="footer__link" href="https://github.com/pavlo20031/pokedex">
         <svg class="footer__icon">
             <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#github"></use>
         </svg>
+        </a>
     </div>
 </footer>
     
@@ -227,24 +229,34 @@
 
     <div class="backdrops">
   <div class="random">
-    <p class="random__text">Випадковий покемон</p>
-    <button type="button" class="random__btn">
-      <svg class="random__exit">
-        <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#x"></use>
-      </svg>
-    </button>
+    <div class="random__content">
+      <p class="random__text">Випадковий покемон</p>
+      <button type="button" class="random__btn">
+        <svg class="random__exit">
+          <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#x"></use>
+        </svg>
+      </button>
+    </div>
     <div class="random__box">
-      <p class="random__number">#094</p>
-      <img class="random__img" src="/pokedex/assets/gengar-3b04ccb8.png" alt="Pokemon" />
+      <div class="random__position">
+        <p class="random__number">#094</p>
+        <img class="random__img" src="/pokedex/assets/gengar-3b04ccb8.png" alt="Pokemon" />
+      </div>
       <p class="random__subtitle">#094 · Покоління I</p>
       <h2 class="random__title">Gengar</h2>
       <button class="random__like" type="button">
-      <svg class="random__icon">
-        <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#heart"></use>
-      </svg>
+        <svg class="random__icon">
+          <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#heart"></use>
+        </svg>
       </button>
-      <p class="random__types random__ghost">Примарний</p>
-      <p class="random__types random__toxic">Отруйний</p>
+      <ul class="random__lists">
+        <li class="random__items">
+          <p class="random__types random__ghost">Примарний</p>
+        </li>
+        <li class="random__items">
+          <p class="random__types random__toxic">Отруйний</p>
+        </li>
+      </ul>
       <p class="random__subtitle">
         Ховається у тінях і полюбляє бешкетувати. Його хитра усмішка завжди
         впізнавана.
