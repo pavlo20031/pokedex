@@ -1,3 +1,5 @@
+import spriteUrl from '../img/symbol-defs.svg';
+
 const themeToggleBtn = document.querySelector('.btn-icon');
 const themeIconUse = themeToggleBtn?.querySelector('use');
 const burgerBtn = document.querySelector('.header__burger-btn');
@@ -6,7 +8,7 @@ const navMenu = document.querySelector('.header__nav');
 function updateThemeIcon(isDark) {
   if (themeIconUse) {
     const iconName = isDark ? 'sun' : 'moon';
-    themeIconUse.setAttribute('href', `/img/symbol-defs.svg#${iconName}`);
+    themeIconUse.setAttribute('href', `${spriteUrl}#${iconName}`);
   }
 }
 
