@@ -946,6 +946,12 @@ body.dark-theme .search-section .search-results-count {
     font-size: 12px;
   }
 }
+.footer__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
 
 .backdrops {
   position: fixed;
@@ -997,6 +1003,9 @@ body.dark-theme .search-section .search-results-count {
   stroke: #8391A7;
 }
 .random__number {
+  position: absolute;
+  left: 18px;
+  top: 16px;
   color: #AC9CCB;
   font-size: 13px;
   font-weight: 400;
@@ -1128,6 +1137,19 @@ body.dark-theme .search-section .search-results-count {
 .random__toxic {
   background-color: #AF65D5;
 }
+.random__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.random__position {
+  position: relative;
+}
+.random__lists {
+  display: flex;
+  gap: 6px;
+}
 
 .backdrop {
   position: fixed;
@@ -1145,7 +1167,7 @@ body.dark-theme .search-section .search-results-count {
   background-color: #FFFFFF;
   padding: 20px;
   width: 350px;
-  z-index: 2;
+  z-index: 999;
   position: relative;
   top: auto;
   left: auto;
@@ -1330,11 +1352,6 @@ body.dark-theme .search-section .search-results-count {
     padding: 15.5px 20px;
   }
 }
-.easteregg__item {
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #E5EDF6;
-}
 .easteregg__img {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1425,6 +1442,9 @@ body.dark-theme .search-section .search-results-count {
   }
 }
 .easteregg__item {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #E5EDF6;
   display: flex;
   gap: 12px;
   align-items: center;
