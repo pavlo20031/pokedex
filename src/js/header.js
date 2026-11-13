@@ -1,3 +1,5 @@
+import spriteUrl from '../img/symbol-defs.svg';
+
 const themeToggleBtn = document.querySelector('.btn-icon');
 const themeIconUse = themeToggleBtn?.querySelector('use');
 const burgerBtn = document.querySelector('.header__burger-btn');
@@ -6,7 +8,7 @@ const navMenu = document.querySelector('.header__nav');
 function updateThemeIcon(isDark) {
   if (themeIconUse) {
     const iconName = isDark ? 'sun' : 'moon';
-    themeIconUse.setAttribute('href', `/img/symbol-defs.svg#${iconName}`);
+    themeIconUse.setAttribute('href', `${spriteUrl}#${iconName}`);
   }
 }
 
@@ -21,13 +23,13 @@ if (savedTheme === 'dark') {
 themeToggleBtn?.addEventListener('click', () => {
   const isDark = document.body.classList.toggle('dark-theme');
 
-  if (themeIconUse) {
-    const iconName = isDark ? 'sun' : 'moon';
-    const currentHref = themeIconUse.getAttribute('href') || '';
-    const basePath = currentHref.split('#')[0];
-    
-    themeIconUse.setAttribute('href', `${basePath}#${iconName}`);
+  if (isDark) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
   }
+
+  updateThemeIcon(isDark);
 });
 
 if (burgerBtn && navMenu) {
