@@ -84,6 +84,9 @@
 <symbol id="burger" viewBox="0 0 32 32">
 <path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88" d="M5.334 6.666h21.331M5.334 16h21.331M5.334 25.334h21.331"></path>
 </symbol>
+<symbol id="chevron-down" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.84" d="M8 12l8 8 8-8"></path>
+</symbol>
 <symbol id="search" viewBox="0 0 32 32">
 <path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.0316" d="M28 28l-5.787-5.787M25.333 14.667c0 5.891-4.776 10.667-10.667 10.667s-10.667-4.776-10.667-10.667c0-5.891 4.776-10.667 10.667-10.667s10.667 4.776 10.667 10.667z"></path>
 </symbol>
