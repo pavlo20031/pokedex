@@ -52,8 +52,8 @@
     transition-duration: 500ms;
     transition-timing-function: ease;
     &:hover {
-      outline: 2px solid $active-color;
-      background-color: $main-color;
+      outline: 1px solid $results-color;
+      background-color: transparent;
       color: $active-color;
     }
     @media screen and (min-width: 770px) {

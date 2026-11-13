@@ -1,1 +1,177 @@
 @use '../base/var' as *;
+.backdrops {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: rgba(20, 34, 57, 0.68);
+}
+
+.random {
+  width: 350px;
+  //   height: 700px;
+  background-color: $main-color;
+  box-shadow: 0 24px 80px 0 rgba(13, 37, 67, 0.24);
+  padding: 22px;
+  position: relative;
+  border-radius: 24px;
+
+  @media screen and (min-width: 770px) {
+    width: 706px;
+  }
+  @media screen and (min-width: 1326px) {
+    width: 860px;
+  }
+
+  &__text {
+    color: $text-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    @media screen and (min-width: 770px) {
+      font-size: 17px;
+    }
+  }
+  &__btn {
+    background-color: transparent;
+  }
+  &__exit {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8px;
+    stroke: $subtitle-color;
+  }
+  &__number {
+    // position: absolute;
+    // left: 18px;
+    // top: 16px;
+    color: $number-color;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    padding: 4px 48px;
+    border-radius: 16px;
+    background-color: $img-color;
+    @media screen and (min-width: 770px) {
+      width: 250px;
+      padding: 51px 5px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 310px;
+      height: 310px;
+      padding: 25px 20px;
+    }
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__title {
+    color: $text-color;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -1px;
+    @media screen and (min-width: 770px) {
+      font-size: 34px;
+    }
+  }
+  &__quote {
+    display: none;
+    @media screen and (min-width: 770px) {
+      display: flex;
+    }
+  }
+
+  &__progress {
+    &::-webkit-progress-bar {
+      background-color: $info-color;
+      border-radius: 999px;
+    }
+
+    &::-webkit-progress-value {
+      background-color: $active-color;
+      border-radius: 999px;
+    }
+
+    &::-moz-progress-bar {
+      background-color: $active-color;
+      border-radius: 999px;
+    }
+  }
+  &__like {
+    background-color: transparent;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8px;
+    stroke: $subtitle-color;
+    fill: transparent;
+  }
+  &__button {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 14.5px 20px;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 8px;
+    background-color: $active-color;
+    transition-property: background-color, outline, color, stroke;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+    &:is(:hover, :focus) {
+      outline: 1px solid $results-color;
+      background-color: transparent;
+      color: $active-color;
+    }
+  }
+  &__more {
+    width: 17px;
+    height: 17px;
+    fill: transparent;
+    stroke-width: 1.8px;
+    stroke: $main-color;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+    .random__button:is(:hover, :focus) & {
+      stroke: $active-color;
+    }
+  }
+  &__stats {
+    color: $text-color;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: normal;
+    @media screen and (min-width:770px){
+        font-size: 12px;
+    }
+  }
+  &__types {
+    color: $main-color;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 100px;
+    padding: 5px 11px;
+  }
+  &__ghost{
+    background-color: $ghost-color;
+  }
+  &__toxic{
+    background-color: $toxic-color;
+  }
+}
