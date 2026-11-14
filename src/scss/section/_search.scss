@@ -80,7 +80,8 @@
       transition: stroke 0.2s ease;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $main-color;
       color: $active-color;
       border-color: $active-color;
@@ -129,17 +130,6 @@
       background-color 0.2s ease,
       border-color 0.2s ease;
 
-    .sort-icons-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-
-      .icon {
-        width: 16px;
-        height: 16px;
-      }
-    }
-
     &:hover,
     &:focus {
       background-color: rgba($subtitle-color, 0.16);
@@ -151,6 +141,27 @@
     font-size: 14px;
     color: $subtitle-color;
     margin: 0;
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    stroke: $subtitle-color;
+  }
+
+  .btn-random {
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .dropdown-btn {
+    > .icon {
+      width: 16px;
+      height: 16px;
+      stroke: $subtitle-color;
+    }
   }
 }
 
@@ -174,7 +185,7 @@ body.dark-theme {
       }
     }
 
-  .btn-random {
+    .btn-random {
       background-color: $active-color;
       color: $main-color;
       border-color: transparent;
