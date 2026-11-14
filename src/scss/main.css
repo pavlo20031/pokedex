@@ -963,6 +963,11 @@ body.dark-theme .search-section .search-results-count {
   padding: 20px;
   background-color: rgba(20, 34, 57, 0.68);
 }
+@media screen and (min-width: 1326px) {
+  .backdrops {
+    align-items: center;
+  }
+}
 
 .random {
   width: 350px;
@@ -994,11 +999,21 @@ body.dark-theme .search-section .search-results-count {
   }
 }
 .random__btn {
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17.5px;
+  border-radius: 8px;
+  background: #F5F8FC;
+}
+@media screen and (min-width: 1326px) {
+  .random__btn {
+    padding: 13.5px;
+  }
 }
 .random__exit {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   stroke-width: 1.8px;
   stroke: #8391A7;
 }
@@ -1006,7 +1021,7 @@ body.dark-theme .search-section .search-results-count {
   position: absolute;
   left: 18px;
   top: 16px;
-  color: #AC9CCB;
+  color: #8391A7;
   font-size: 13px;
   font-weight: 400;
   line-height: normal;
@@ -1016,12 +1031,14 @@ body.dark-theme .search-section .search-results-count {
   height: 100%;
   padding: 4px 48px;
   border-radius: 16px;
-  background-color: #f3effc;
+  background-color: rgba(131, 145, 167, 0.16);
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 770px) {
   .random__img {
     width: 250px;
     padding: 51px 5px;
+    margin-bottom: 0;
   }
 }
 @media screen and (min-width: 1326px) {
@@ -1043,19 +1060,29 @@ body.dark-theme .search-section .search-results-count {
   font-weight: 800;
   line-height: normal;
   letter-spacing: -1px;
+  margin-top: 4px;
 }
 @media screen and (min-width: 770px) {
   .random__title {
     font-size: 34px;
+    margin-top: 6px;
   }
 }
 .random__quote {
   display: none;
+  margin-top: 24px;
 }
 @media screen and (min-width: 770px) {
   .random__quote {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
+}
+.random__progress {
+  width: 177px;
+  flex-grow: 1;
+  height: 8px;
 }
 .random__progress::-webkit-progress-bar {
   background-color: #EAF3FF;
@@ -1070,6 +1097,9 @@ body.dark-theme .search-section .search-results-count {
   border-radius: 999px;
 }
 .random__like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
 }
 .random__icon {
@@ -1094,6 +1124,8 @@ body.dark-theme .search-section .search-results-count {
   transition-property: background-color, outline, color, stroke;
   transition-duration: 250ms;
   transition-timing-function: ease;
+  margin: 0 auto;
+  margin-top: 24px;
 }
 .random__button:is(:hover, :focus) {
   outline: 1px solid #E5EDF6;
@@ -1149,6 +1181,59 @@ body.dark-theme .search-section .search-results-count {
 .random__lists {
   display: flex;
   gap: 6px;
+  margin-bottom: 16px;
+}
+.random__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.random__desc {
+  margin-bottom: 16px;
+}
+.random__params {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.random__abil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+}
+.random__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (min-width: 770px) {
+  .random__item {
+    gap: 12px;
+  }
+}
+.random__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 770px) {
+  .random__list {
+    gap: 14px;
+  }
+}
+@media screen and (min-width: 770px) {
+  .random__box {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.liked .random__icon {
+  fill: #FE4E4E;
+  stroke: #FF6B7A;
 }
 
 .backdrop {
