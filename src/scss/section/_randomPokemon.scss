@@ -2,6 +2,7 @@
 .backdrops {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
   display: none;
   justify-content: center;
@@ -20,7 +21,6 @@
   padding: 22px;
   position: relative;
   border-radius: 24px;
-  z-index: 999;
 
   @media screen and (min-width: 770px) {
     width: 706px;
@@ -115,6 +115,12 @@
     width: 177px;
     flex-grow: 1;
     height: 8px;
+    @media screen and (min-width: 770px) {
+      width: 218px;
+    }
+    @media screen and (min-width: 1326px) {
+      width: 285px;
+    }
 
     &::-webkit-progress-bar {
       background-color: $info-color;
@@ -195,12 +201,7 @@
     line-height: normal;
     border-radius: 100px;
     padding: 5px 11px;
-  }
-  &__ghost {
-    background-color: $ghost-color;
-  }
-  &__toxic {
-    background-color: $toxic-color;
+    background-color: black;
   }
   &__content {
     display: flex;
@@ -223,7 +224,11 @@
     margin-bottom: 8px;
   }
   &__desc {
+    max-width: 414px;
     margin-bottom: 16px;
+    @media screen and (min-width:770px){
+      width: 366px;
+    }
   }
   &__params {
     display: flex;
@@ -256,12 +261,66 @@
   &__box {
     @media screen and (min-width: 770px) {
       display: flex;
-      gap: 24px;
+      justify-content: space-between;
     }
   }
+  &__normal{
+    background-color: $normal-color;
+  }
+  &__fire{
+    background-color: $fire-color;
+  }
+  &__water{
+    background-color: $water-color;
+  }
+  &__electric{
+    background-color: $electric-color;
+  }
+  &__grass{
+    background-color: $type-color;
+  }
+  &__ice{
+    background-color: $ice-color;
+  }
+  &__fighting{
+    background-color: $fight-color;
+  }
+  &__poison{
+    background-color: $toxic-color;
+  }
+  &__ground{
+    background-color: $ground-color;
+  }
+  &__flying{
+    background-color: $fly-color;
+  }
+  &__psyhic{
+    background-color: $psyhic-color;
+  }
+  &__bug{
+    background-color: $bug-color;
+  }
+  &__rock{
+    background-color: $rock-color;
+  }
+  &__dragon{
+    background-color: $dragon-color;
+  }
+  &__dark{
+    background-color: $dark-color;
+  }
+  &__ghost {
+    background-color: $ghost-color;
+  }
+  &__steel{
+    background-color: $steel-color;
+  }
+  &__fairy{
+    background-color: $fairy-color;
+  }
 }
-.liked{
-  .random__icon{
+.liked {
+  .random__icon {
     fill: $fill-color;
     stroke: $heart-color;
   }

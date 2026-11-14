@@ -3,6 +3,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
   display: flex;
   justify-content: center;
@@ -16,7 +17,6 @@
   background-color: $main-color;
   padding: 20px;
   width: 350px;
-  z-index: 999;
   position: relative;
   top: auto;
   left: auto;
@@ -298,7 +298,7 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    @media screen and (min-width:1326px){
+    @media screen and (min-width: 1326px) {
       flex-wrap: nowrap;
     }
   }

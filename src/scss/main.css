@@ -956,6 +956,7 @@ body.dark-theme .search-section .search-results-count {
 .backdrops {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
   display: none;
   justify-content: center;
@@ -1084,6 +1085,16 @@ body.dark-theme .search-section .search-results-count {
   flex-grow: 1;
   height: 8px;
 }
+@media screen and (min-width: 770px) {
+  .random__progress {
+    width: 218px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .random__progress {
+    width: 285px;
+  }
+}
 .random__progress::-webkit-progress-bar {
   background-color: #EAF3FF;
   border-radius: 999px;
@@ -1162,12 +1173,7 @@ body.dark-theme .search-section .search-results-count {
   line-height: normal;
   border-radius: 100px;
   padding: 5px 11px;
-}
-.random__ghost {
-  background-color: #8E79C5;
-}
-.random__toxic {
-  background-color: #AF65D5;
+  background-color: black;
 }
 .random__content {
   display: flex;
@@ -1190,7 +1196,13 @@ body.dark-theme .search-section .search-results-count {
   margin-bottom: 8px;
 }
 .random__desc {
+  max-width: 414px;
   margin-bottom: 16px;
+}
+@media screen and (min-width: 770px) {
+  .random__desc {
+    width: 366px;
+  }
 }
 .random__params {
   display: flex;
@@ -1227,8 +1239,62 @@ body.dark-theme .search-section .search-results-count {
 @media screen and (min-width: 770px) {
   .random__box {
     display: flex;
-    gap: 24px;
+    justify-content: space-between;
   }
+}
+.random__normal {
+  background-color: #B5A897;
+}
+.random__fire {
+  background-color: #FF8C52;
+}
+.random__water {
+  background-color: #58ACF6;
+}
+.random__electric {
+  background-color: #FFD34E;
+}
+.random__grass {
+  background-color: #6FCB68;
+}
+.random__ice {
+  background-color: #79CFD9;
+}
+.random__fighting {
+  background-color: #D97570;
+}
+.random__poison {
+  background-color: #AF65D5;
+}
+.random__ground {
+  background-color: #D9B76E;
+}
+.random__flying {
+  background-color: #91AEF4;
+}
+.random__psyhic {
+  background-color: #F780AD;
+}
+.random__bug {
+  background-color: #A7C84B;
+}
+.random__rock {
+  background-color: #BCAE73;
+}
+.random__dragon {
+  background-color: #8571DC;
+}
+.random__dark {
+  background-color: #10095E;
+}
+.random__ghost {
+  background-color: #8E79C5;
+}
+.random__steel {
+  background-color: #98A9BA;
+}
+.random__fairy {
+  background-color: #E9A4CB;
 }
 
 .liked .random__icon {
@@ -1239,6 +1305,7 @@ body.dark-theme .search-section .search-results-count {
 .backdrop {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
   display: flex;
   justify-content: center;
@@ -1252,7 +1319,6 @@ body.dark-theme .search-section .search-results-count {
   background-color: #FFFFFF;
   padding: 20px;
   width: 350px;
-  z-index: 999;
   position: relative;
   top: auto;
   left: auto;
