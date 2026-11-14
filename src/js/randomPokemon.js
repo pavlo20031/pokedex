@@ -1,4 +1,5 @@
 import { get } from './api.js';
+import spriteUrl from '../img/symbol-defs.svg';
 
 const openBtnRef = document.querySelector('.btn-random');
 const closeBtnRef = document.querySelector('.random__btn');
@@ -68,7 +69,7 @@ function renderPokemon(pokemon) {
 
         <button class="random__like" type="button">
           <svg class="random__icon">
-            <use href="/img/symbol-defs.svg#heart"></use>
+            <use href="${spriteUrl}#heart"></use>
           </svg>
         </button>
       </div>
