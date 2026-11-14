@@ -62,7 +62,7 @@
     gap: 8px;
     background-color: $active-color;
     color: $main-color;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 12px;
     padding: 14px 20px;
     font-weight: 600;
@@ -71,14 +71,23 @@
     white-space: nowrap;
     transition:
       background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
       transform 0.1s ease;
 
     .icon__stroke {
       stroke: $main-color;
+      transition: stroke 0.2s ease;
     }
 
-    &:hover {
-      background-color: darken($active-color, 8%);
+    &:hover, &:focus {
+      background-color: $main-color;
+      color: $active-color;
+      border-color: $active-color;
+
+      .icon__stroke {
+        stroke: $active-color;
+      }
     }
 
     &:active {
@@ -120,7 +129,19 @@
       background-color 0.2s ease,
       border-color 0.2s ease;
 
-    &:hover {
+    .sort-icons-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &:hover,
+    &:focus {
       background-color: rgba($subtitle-color, 0.16);
       border-color: $text-color;
     }
@@ -153,16 +174,24 @@ body.dark-theme {
       }
     }
 
-    .btn-random {
+  .btn-random {
       background-color: $active-color;
       color: $main-color;
+      border-color: transparent;
 
       .icon__stroke {
         stroke: $main-color;
       }
 
-      &:hover {
-        background-color: darken($active-color, 8%);
+      &:hover,
+      &:focus {
+        background-color: $title-color;
+        color: $main-color;
+        border-color: $active-color;
+
+        .icon__stroke {
+          stroke: $main-color;
+        }
       }
     }
 
@@ -175,12 +204,13 @@ body.dark-theme {
         stroke: $subtitle-color;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: rgba($subtitle-color, 0.22);
         border-color: $main-color;
 
         .icon__stroke {
-          stroke: $main-color;
+          stroke: $subtitle-color;
         }
       }
     }
