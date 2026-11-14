@@ -68,6 +68,10 @@
       }
     }
 
+    &-badge {
+      transition: color 0.2s ease;
+    }
+
     &-list {
       display: flex;
       align-items: center;
@@ -94,6 +98,10 @@
 
       &:hover {
         color: $active-color;
+
+        .header__nav-badge {
+          color: $active-color;
+        }
       }
 
       &.active {
@@ -114,9 +122,17 @@
   }
 
   &__actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__brand {
+    .icon__logo {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   &__burger-btn {
@@ -129,8 +145,6 @@
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
   display: block;
   flex-shrink: 0;
 
@@ -211,7 +225,7 @@ body.dark-theme {
   }
 
   button .icon__stroke
-  // :not(.hero *, .easteregg *) 
+  // :not(.hero *, .easteregg *)
   {
     stroke: $active-color;
 
