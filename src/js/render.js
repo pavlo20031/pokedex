@@ -10,12 +10,29 @@ const STATE = {
   currentId: CONFIG.startId
 };
 
-// HTML Template
+// HTML Template (с уникальными ключами для типов и картинки)
 const CARD_TEMPLATE = `
-  <div class="card">
-    <p><var>id</var></p>
-    <p><var>hp</var></p>
-  </div>
+<section>
+    <div>
+        <div>
+            <span>#<var>id</var></span>
+            <button type="button">❤️</button>
+        </div>
+
+        <div>
+            <img src="<var>sprites</var>" alt="<var>name</var>">
+        </div>
+
+        <div>
+            <h2><var>name</var></h2>
+
+            <div>
+                <span><var>type1</var></span>
+                <span><var>type2</var></span>
+            </div>
+        </div>
+    </div>
+</section>
 `;
 
 // Helper Functions
@@ -32,8 +49,18 @@ function renderCards(dataArray) {
 
   return dataArray
     .map(pokemon => {
+      // Преобразуем данные покемона под нужные ключи шаблона
+      const templateData = {
+        id: String(pokemon.id || '').padStart(3, '0'),
+        name: pokemon.name ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) : '',
+        sprites: pokemon.sprites || '',
+        type1: pokemon.types && pokemon.types[0] ? pokemon.types[0] : '',
+        type2: pokemon.types && pokemon.types[1] ? pokemon.types[1] : ''
+      };
+
       return CARD_TEMPLATE.replace(/<var>(.*?)<\/var>/g, (_, key) => {
-        return pokemon[key] !== undefined ? pokemon[key] : '';
+        const trimmedKey = key.trim();
+        return templateData[trimmedKey] !== undefined ? templateData[trimmedKey] : '';
       });
     })
     .join('');
@@ -54,62 +81,44 @@ async function fetchPokemonPage(startId, size) {
 }
 
 // UI Controller & Event Handlers
-export function initPokemonApp({ containerId, prevBtnId, nextBtnId }) {
-  const container = document.getElementById(containerId);
-  const prevBtn = document.getElementById(prevBtnId);
-  const nextBtn = document.getElementById(nextBtnId);
+export function initPokemonApp([ containerId, nextBtnId ]) {
+  const container = document.querySelector(containerId);
+  const nextBtn = document.querySelector(nextBtnId);
 
-  async function updatePage(newStartId) {
+  async function loadMoreData(newStartId) {
     if (newStartId < 1) return;
 
-    STATE.currentId = newStartId;
-
-    // Блокируем кнопки на время загрузки
-    if (prevBtn) prevBtn.disabled = true;
+    // Блокируем кнопку на время загрузки
     if (nextBtn) nextBtn.disabled = true;
 
     try {
-      const { html } = await fetchPokemonPage(STATE.currentId, CONFIG.pageSize);
-      if (container) container.innerHTML = html;
+      const { html } = await fetchPokemonPage(newStartId, CONFIG.pageSize);
+
+      if (container) {
+        // Добавляем новые карточки к уже существующим в контейнере
+        container.innerHTML += html;
+      }
+
+      // Обновляем текущий ID только после успешной загрузки
+      STATE.currentId = newStartId;
+
     } catch (error) {
       console.error('Ошибка при загрузке данных:', error);
     } finally {
-      // Обновляем состояние кнопки "Назад" (нельзя уйти ниже 1)
-      if (prevBtn) prevBtn.disabled = STATE.currentId <= 1;
       if (nextBtn) nextBtn.disabled = false;
     }
   }
 
-  // Навешиваем слушатели событий
+  // Навешиваем слушатель на кнопку «Загрузить еще»
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      updatePage(STATE.currentId + CONFIG.pageSize);
+      loadMoreData(STATE.currentId + CONFIG.pageSize);
     });
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      updatePage(Math.max(1, STATE.currentId - CONFIG.pageSize));
-    });
-  }
-
-  // Первоначальная загрузка первой страницы
-  updatePage(STATE.currentId);
+  // Первоначальная загрузка первой порции при старте
+  loadMoreData(STATE.currentId);
 }
-//<div id="pokemon-container" class="cards-grid"></div>
-//
-// <div class="pagination-controls">
-//   <button id="prev-btn" disabled>Назад</button>
-//   <button id="next-btn">Загрузить еще</button>
-// </div>
-//
-// <script type="module">
-//   import { initPokemonApp } from './app.js';
-//
-//   // Инициализация приложения
-//   initPokemonApp({
-//     containerId: 'pokemon-container',
-//     prevBtnId: 'prev-btn',
-//     nextBtnId: 'next-btn'
-//   });
-// </script>
+
+// Инициализация
+initPokemonApp([".search-cards", ".search-controls-button"]);
