@@ -20,6 +20,7 @@
   padding: 22px;
   position: relative;
   border-radius: 24px;
+  z-index: 999;
 
   @media screen and (min-width: 770px) {
     width: 706px;
