@@ -48,7 +48,7 @@ function renderPokemon(pokemon) {
       </p>
 
       <img
-        class="random__img"
+        class="random__img random__img${pokemon.type[0].type.name}"
         src="${pokemon.sprites.other['official-artwork'].front_default}"
         alt="${pokemon.name}"
       />
@@ -84,11 +84,13 @@ function renderPokemon(pokemon) {
 
       <div class="random__params">
         <p class="random__subtitle">
-          Зріст: ${pokemon.height}
+          Зріст:
+          ${pokemon.height.replace('.', ',').replace('m', ' м')}
         </p>
 
         <p class="random__subtitle">
-          Вага: ${pokemon.weight}
+          Вага:
+          ${pokemon.weight.replace('.', ',').replace('kg', ' кг')}
         </p>
       </div>
 

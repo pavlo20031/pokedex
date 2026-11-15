@@ -4,6 +4,7 @@
   inset: 0;
   z-index: 9;
   overflow-y: auto;
+  overflow-x:hidden;
   display: none;
   justify-content: center;
   align-items: flex-start;
@@ -226,7 +227,7 @@
   &__desc {
     max-width: 414px;
     margin-bottom: 16px;
-    @media screen and (min-width:770px){
+    @media screen and (min-width: 770px) {
       width: 366px;
     }
   }
@@ -264,59 +265,113 @@
       justify-content: space-between;
     }
   }
-  &__normal{
+  &__normal {
     background-color: $normal-color;
   }
-  &__fire{
+  &__fire {
     background-color: $fire-color;
   }
-  &__water{
+  &__water {
     background-color: $water-color;
   }
-  &__electric{
+  &__electric {
     background-color: $electric-color;
   }
-  &__grass{
+  &__grass {
     background-color: $type-color;
   }
-  &__ice{
+  &__ice {
     background-color: $ice-color;
   }
-  &__fighting{
+  &__fighting {
     background-color: $fight-color;
   }
-  &__poison{
+  &__poison {
     background-color: $toxic-color;
   }
-  &__ground{
+  &__ground {
     background-color: $ground-color;
   }
-  &__flying{
+  &__flying {
     background-color: $fly-color;
   }
-  &__psyhic{
+  &__psyhic {
     background-color: $psyhic-color;
   }
-  &__bug{
+  &__bug {
     background-color: $bug-color;
   }
-  &__rock{
+  &__rock {
     background-color: $rock-color;
   }
-  &__dragon{
+  &__dragon {
     background-color: $dragon-color;
   }
-  &__dark{
+  &__dark {
     background-color: $dark-color;
   }
   &__ghost {
     background-color: $ghost-color;
   }
-  &__steel{
+  &__steel {
     background-color: $steel-color;
   }
-  &__fairy{
+  &__fairy {
     background-color: $fairy-color;
+  }
+  &__imgnormal {
+    background-color: rgba($normal-color, 0.16);
+  }
+  &__imgfire {
+    background-color: rgba($fire-color, 0.16);
+  }
+  &__imgwater {
+    background-color: rgba($water-color, 0.16);
+  }
+  &__imgelectric {
+    background-color: rgba($electric-color, 0.16);
+  }
+  &__imggrass {
+    background-color: rgba($type-color, 0.16);
+  }
+  &__imgice {
+    background-color: rgba($ice-color, 0.16);
+  }
+  &__imgfighting {
+    background-color: rgba($fight-color, 0.16);
+  }
+  &__imgpoison {
+    background-color: rgba($toxic-color, 0.16);
+  }
+  &__imgground {
+    background-color: rgba($ground-color, 0.16);
+  }
+  &__imgflying {
+    background-color: rgba($fly-color, 0.16);
+  }
+  &__imgpsyhic {
+    background-color: rgba($psyhic-color, 0.16);
+  }
+  &__imgbug {
+    background-color: rgba($bug-color, 0.16);
+  }
+  &__imgrock {
+    background-color: rgba($rock-color, 0.16);
+  }
+  &__imgdragon {
+    background-color: rgba($dragon-color, 0.16);
+  }
+  &__imgdark {
+    background-color: rgba($dark-color, 0.16);
+  }
+  &__imgghost {
+    background-color: rgba($ghost-color, 0.16);
+  }
+  &__imgsteel {
+    background-color: rgba($steel-color, 0.16);
+  }
+  &__imgfairy {
+    background-color: rgba($fairy-color, 0.16);
   }
 }
 .liked {

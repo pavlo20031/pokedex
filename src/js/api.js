@@ -1,3 +1,4 @@
+import translate from 'translate';
 export async function get(filters = [], pokemons = [], evoinfo = true) {
   let infoApi = 'https://pokeapi.co/api/v2/';
 
@@ -144,6 +145,23 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
           : null;
     }
     console.log(evodata);
+
+    const englishDescription =
+      get_more_data.flavor_text_entries
+        .find(item => item.language.name === 'en')
+        ?.flavor_text.replace(/\f/g, ' ') || '';
+
+    let ukrainianDescription = englishDescription;
+
+    try {
+      ukrainianDescription = await translate(englishDescription, {
+        from: 'en',
+        to: 'uk',
+      });
+    } catch (error) {
+      console.error('Помилка перекладу:', error);
+    }
+
     let normalData = {
       id: pokemon.id,
       name: pokemon.name,
@@ -159,10 +177,7 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
       spe: stats[5],
       sprites: pokemon.sprites,
 
-      description:
-        get_more_data.flavor_text_entries
-          .find(item => item.language.name === 'en')
-          ?.flavor_text.replace(/\f/g, ' ') || '',
+      description: ukrainianDescription,
 
       generation: generationMap[get_more_data.generation.name],
 
