@@ -970,6 +970,7 @@ body.dark-theme .search-section .search-results-count {
   inset: 0;
   z-index: 9;
   overflow-y: auto;
+  overflow-x: hidden;
   display: none;
   justify-content: center;
   align-items: flex-start;
@@ -1308,6 +1309,60 @@ body.dark-theme .search-section .search-results-count {
 .random__fairy {
   background-color: #E9A4CB;
 }
+.random__imgnormal {
+  background-color: rgba(181, 168, 151, 0.16);
+}
+.random__imgfire {
+  background-color: rgba(255, 140, 82, 0.16);
+}
+.random__imgwater {
+  background-color: rgba(88, 172, 246, 0.16);
+}
+.random__imgelectric {
+  background-color: rgba(255, 211, 78, 0.16);
+}
+.random__imggrass {
+  background-color: rgba(111, 203, 104, 0.16);
+}
+.random__imgice {
+  background-color: rgba(121, 207, 217, 0.16);
+}
+.random__imgfighting {
+  background-color: rgba(217, 117, 112, 0.16);
+}
+.random__imgpoison {
+  background-color: rgba(175, 101, 213, 0.16);
+}
+.random__imgground {
+  background-color: rgba(217, 183, 110, 0.16);
+}
+.random__imgflying {
+  background-color: rgba(145, 174, 244, 0.16);
+}
+.random__imgpsyhic {
+  background-color: rgba(247, 128, 173, 0.16);
+}
+.random__imgbug {
+  background-color: rgba(167, 200, 75, 0.16);
+}
+.random__imgrock {
+  background-color: rgba(188, 174, 115, 0.16);
+}
+.random__imgdragon {
+  background-color: rgba(133, 113, 220, 0.16);
+}
+.random__imgdark {
+  background-color: rgba(16, 9, 94, 0.16);
+}
+.random__imgghost {
+  background-color: rgba(142, 121, 197, 0.16);
+}
+.random__imgsteel {
+  background-color: rgba(152, 169, 186, 0.16);
+}
+.random__imgfairy {
+  background-color: rgba(233, 164, 203, 0.16);
+}
 
 .liked .random__icon {
   fill: #FE4E4E;
@@ -1319,6 +1374,7 @@ body.dark-theme .search-section .search-results-count {
   inset: 0;
   z-index: 9;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
