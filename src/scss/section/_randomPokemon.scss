@@ -10,13 +10,11 @@
   align-items: flex-start;
   padding: 20px;
   background-color: rgba(20, 34, 57, 0.68);
-  @media screen and (min-width: 1326px) {
-    align-items: center;
-  }
 }
 
 .random {
   width: 350px;
+  //   height: 700px;
   background-color: $main-color;
   box-shadow: 0 24px 80px 0 rgba(13, 37, 67, 0.24);
   padding: 22px;
@@ -40,20 +38,11 @@
     }
   }
   &__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 17.5px;
-    border-radius: 8px;
-    background: $bg-button;
-
-    @media screen and (min-width: 1326px) {
-      padding: 13.5px;
-    }
+    background-color: transparent;
   }
   &__exit {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     stroke-width: 1.8px;
     stroke: $subtitle-color;
   }
@@ -61,7 +50,7 @@
     position: absolute;
     left: 18px;
     top: 16px;
-    color: $subtitle-color;
+    color: $number-color;
     font-size: 13px;
     font-weight: 400;
     line-height: normal;
@@ -71,12 +60,10 @@
     height: 100%;
     padding: 4px 48px;
     border-radius: 16px;
-    background-color: rgba($subtitle-color, 0.16);
-    margin-bottom: 20px;
+    background-color: $img-color;
     @media screen and (min-width: 770px) {
       width: 250px;
       padding: 51px 5px;
-      margin-bottom: 0;
     }
     @media screen and (min-width: 1326px) {
       width: 310px;
@@ -96,19 +83,14 @@
     font-weight: 800;
     line-height: normal;
     letter-spacing: -1px;
-    margin-top: 4px;
     @media screen and (min-width: 770px) {
       font-size: 34px;
-      margin-top: 6px;
     }
   }
   &__quote {
     display: none;
-    margin-top: 24px;
     @media screen and (min-width: 770px) {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 
@@ -139,9 +121,6 @@
     }
   }
   &__like {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: transparent;
   }
   &__icon {
@@ -166,8 +145,6 @@
     transition-property: background-color, outline, color, stroke;
     transition-duration: 250ms;
     transition-timing-function: ease;
-    margin: 0 auto;
-    margin-top: 24px;
     &:is(:hover, :focus) {
       outline: 1px solid $results-color;
       background-color: transparent;
@@ -191,8 +168,8 @@
     font-size: 10px;
     font-weight: 600;
     line-height: normal;
-    @media screen and (min-width: 770px) {
-      font-size: 12px;
+    @media screen and (min-width:770px){
+        font-size: 12px;
     }
   }
   &__types {
@@ -204,16 +181,16 @@
     padding: 5px 11px;
     background-color: black;
   }
-  &__content {
+  &__content{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
   }
-  &__position {
+  &__position{
     position: relative;
   }
-  &__lists {
+  &__lists{
     display: flex;
     gap: 6px;
     margin-bottom: 16px;
