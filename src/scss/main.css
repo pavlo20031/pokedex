@@ -980,6 +980,7 @@ body.dark-theme .search-section .search-results-count {
 @media screen and (min-width: 1326px) {
   .backdrops {
     align-items: center;
+    justify-content: center;
   }
 }
 
