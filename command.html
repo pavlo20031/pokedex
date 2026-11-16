@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
     <script type="module" crossorigin src="/pokedex/assets/vendor-3fb8d95f.js"></script>
     <script type="module" crossorigin src="/pokedex/assets/main-16759c0f.js"></script>
@@ -65,12 +66,12 @@
 </header>
     <section class="about">
     <div class="container">
-    <h1 class="about__title">Про проєкт</h1>
-    <p class="about__subtitle">Твій зручний довідник у світі покемонів.</p>
+    <h1  data-aos="fade-down" class="about__title">Про проєкт</h1>
+    <p data-aos="fade-up" class="about__subtitle">Твій зручний довідник у світі покемонів.</p>
     </div>
 </section>
     <section class="world">
-    <div class="container world__box">
+    <div data-aos="flip-down" class="container world__box">
         <div>
         <h2 class="world__title">Світ покемонів — українською</h2>
         <p class="world__subtitle">Pokédex — це каталог, який допомагає знаходити покемонів, вивчати їхні характеристики та зберігати улюблених в одному місці.</p>
@@ -80,7 +81,7 @@
     </div>
 </section>
     <section class="team">
-  <div class="container">
+  <div data-aos="flip-left" class="container">
     <h2 class="team__title">Наша команда</h2>
     <p class="team__subtitle">
       Учасники проєкту та їхні ролі.
@@ -119,7 +120,7 @@
 </section>
 
     <section class="more">
-    <div class="container more__box">
+    <div data-aos="zoom-in" class="container more__box">
         <div>
         <h2 class="more__title">Продовжимо досліджувати?</h2>
         <p class="more__text">Повертайся до каталогу та знаходь своїх улюблених покемонів.</p>
@@ -147,7 +148,11 @@
         </a>
     </div>
 </footer>
+
     
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
     <script type="module" crossorigin src="/pokedex/assets/vendor-3fb8d95f.js"></script>
     <script type="module" crossorigin src="/pokedex/assets/main-16759c0f.js"></script>
@@ -64,7 +65,7 @@
   </div>
 </header>
     <section class="hero">
-  <div class="container hero__box">
+  <div data-aos="flip-up" class="container hero__box">
     <p class="hero__text">СВІТ ПОКЕМОНІВ ПОРУЧ</p>
     <h1 class="hero__title">Знайди свого покемона!</h1>
     <p class="hero__subtitle">
@@ -253,5 +254,9 @@
 
 
     
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
