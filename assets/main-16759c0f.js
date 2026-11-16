@@ -160,4 +160,4 @@ import{e as C}from"./vendor-3fb8d95f.js";(function(){const s=document.createElem
       </ul>
     </div>
   `;const r=T.querySelector(".random__like");(JSON.parse(localStorage.getItem("likedPokemons"))||[]).includes(e.id)&&r.classList.add("liked"),r.addEventListener("click",()=>{const t=JSON.parse(localStorage.getItem("likedPokemons"))||[];if(t.includes(e.id)){const a=t.filter(g=>g!==e.id);localStorage.setItem("likedPokemons",JSON.stringify(a)),r.classList.remove("liked")}else t.push(e.id),localStorage.setItem("likedPokemons",JSON.stringify(t)),r.classList.add("liked")})}async function H(){const e=Math.floor(Math.random()*1025)+1,[s]=await F([],[e]);s&&Q(s)}if(M&&N&&b){const e=async()=>{b.style.display="flex",await H()},s=()=>{b.style.display="none"};M.addEventListener("click",e),N.addEventListener("click",s),O&&O.addEventListener("click",H),window.addEventListener("keydown",r=>{r.key==="Escape"&&s()}),b.addEventListener("click",r=>{r.target===r.currentTarget&&s()})}
-//# sourceMappingURL=main-32f17816.js.map
+//# sourceMappingURL=main-16759c0f.js.map
