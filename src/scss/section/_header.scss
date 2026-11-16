@@ -182,6 +182,12 @@
   }
 }
 
+body {
+  transition: 
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
 body,
 span,
 div,
@@ -200,17 +206,17 @@ body.dark-theme {
   background-color: $title-color;
   color: $main-color;
 
-  h1:not(.hero *, .easteregg *),
-  h2:not(.hero *, .easteregg *),
-  h3:not(.hero *, .easteregg *),
-  h4:not(.hero *, .easteregg *),
-  h5:not(.hero *, .easteregg *),
-  h6:not(.hero *, .easteregg *) {
+  h1:not(.hero *),
+  h2:not(.hero *),
+  h3:not(.hero *),
+  h4:not(.hero *),
+  h5:not(.hero *,),
+  h6:not(.hero *) {
     color: $main-color;
   }
 
-  p:not(.hero *, .easteregg *),
-  span:not(.hero *, .easteregg *),
+  p:not(.hero *),
+  span:not(.hero *),
   a {
     color: $bg-color;
   }
@@ -219,13 +225,12 @@ body.dark-theme {
     color: $active-color;
   }
 
-  button:not(.hero *, .easteregg *) {
+  button:not(.hero *) {
     background-color: $active-color;
     color: $main-color;
   }
 
   button .icon__stroke
-  // :not(.hero *, .easteregg *)
   {
     stroke: $active-color;
 
@@ -279,5 +284,38 @@ body.dark-theme {
     a:hover {
       color: $active-color;
     }
+  }
+
+  .world__box,
+  .team__item,
+  .more__box {
+    background-color: $text-color;
+    border-color: $subtitle-color;
+    box-shadow: none;
+  }
+
+  .world__item {
+    background-color: $title-color;
+  }
+
+  .world__num {
+    color: $water-color;
+  }
+
+  .more__btn {
+    &:hover,
+    &:focus {
+      background-color: $title-color;
+      color: $main-color;
+      border-color: $active-color;
+
+      .more__icon {
+        stroke: $main-color;
+      }
+    }
+  }
+
+  .more__icon {
+    stroke: $main-color;
   }
 }
