@@ -251,6 +251,10 @@ input[type=number]::-webkit-outer-spin-button {
   stroke: #287BFA;
 }
 
+body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
 body,
 span,
 div,
@@ -265,10 +269,10 @@ body.dark-theme {
   background-color: #111827;
   color: #FFFFFF;
 }
-body.dark-theme h1:not(.hero *, .easteregg *),
-body.dark-theme h2:not(.hero *, .easteregg *),
-body.dark-theme h3:not(.hero *, .easteregg *),
-body.dark-theme h4:not(.hero *, .easteregg *),
+body.dark-theme h1:not(.hero *),
+body.dark-theme h2:not(.hero *),
+body.dark-theme h3:not(.hero *),
+body.dark-theme h4:not(.hero *),
 body.dark-theme h5:not(.hero *, .easteregg *),
 body.dark-theme h6:not(.hero *, .easteregg *) {
   color: #FFFFFF;
@@ -326,6 +330,30 @@ body.dark-theme .footer a {
 }
 body.dark-theme .footer a:hover {
   color: #287BFA;
+}
+body.dark-theme .world__box,
+body.dark-theme .team__item,
+body.dark-theme .more__box {
+  background-color: #192A45;
+  border-color: #8391A7;
+  box-shadow: none;
+}
+body.dark-theme .world__item {
+  background-color: #111827;
+}
+body.dark-theme .world__num {
+  color: #58ACF6;
+}
+body.dark-theme .more__btn:hover, body.dark-theme .more__btn:focus {
+  background-color: #111827;
+  color: #FFFFFF;
+  border-color: #287BFA;
+}
+body.dark-theme .more__btn:hover .more__icon, body.dark-theme .more__btn:focus .more__icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .more__icon {
+  stroke: #FFFFFF;
 }
 
 .hero {
