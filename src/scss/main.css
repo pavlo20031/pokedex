@@ -996,7 +996,9 @@ body.dark-theme .search-section .search-results-count {
 .backdrops {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
+  overflow-x: hidden;
   display: none;
   justify-content: center;
   align-items: flex-start;
@@ -1097,6 +1099,21 @@ body.dark-theme .search-section .search-results-count {
     display: flex;
   }
 }
+.random__progress {
+  width: 177px;
+  flex-grow: 1;
+  height: 8px;
+}
+@media screen and (min-width: 770px) {
+  .random__progress {
+    width: 218px;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .random__progress {
+    width: 285px;
+  }
+}
 .random__progress::-webkit-progress-bar {
   background-color: #EAF3FF;
   border-radius: 999px;
@@ -1170,12 +1187,7 @@ body.dark-theme .search-section .search-results-count {
   line-height: normal;
   border-radius: 100px;
   padding: 5px 11px;
-}
-.random__ghost {
-  background-color: #8E79C5;
-}
-.random__toxic {
-  background-color: #AF65D5;
+  background-color: black;
 }
 .random__content {
   display: flex;
@@ -1189,12 +1201,181 @@ body.dark-theme .search-section .search-results-count {
 .random__lists {
   display: flex;
   gap: 6px;
+  margin-bottom: 16px;
+}
+.random__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.random__desc {
+  max-width: 414px;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 770px) {
+  .random__desc {
+    width: 366px;
+  }
+}
+.random__params {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.random__abil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+}
+.random__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (min-width: 770px) {
+  .random__item {
+    gap: 12px;
+  }
+}
+.random__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 770px) {
+  .random__list {
+    gap: 14px;
+  }
+}
+@media screen and (min-width: 770px) {
+  .random__box {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.random__normal {
+  background-color: #B5A897;
+}
+.random__fire {
+  background-color: #FF8C52;
+}
+.random__water {
+  background-color: #58ACF6;
+}
+.random__electric {
+  background-color: #FFD34E;
+}
+.random__grass {
+  background-color: #6FCB68;
+}
+.random__ice {
+  background-color: #79CFD9;
+}
+.random__fighting {
+  background-color: #D97570;
+}
+.random__poison {
+  background-color: #AF65D5;
+}
+.random__ground {
+  background-color: #D9B76E;
+}
+.random__flying {
+  background-color: #91AEF4;
+}
+.random__psyhic {
+  background-color: #F780AD;
+}
+.random__bug {
+  background-color: #A7C84B;
+}
+.random__rock {
+  background-color: #BCAE73;
+}
+.random__dragon {
+  background-color: #8571DC;
+}
+.random__dark {
+  background-color: #10095E;
+}
+.random__ghost {
+  background-color: #8E79C5;
+}
+.random__steel {
+  background-color: #98A9BA;
+}
+.random__fairy {
+  background-color: #E9A4CB;
+}
+.random__imgnormal {
+  background-color: rgba(181, 168, 151, 0.16);
+}
+.random__imgfire {
+  background-color: rgba(255, 140, 82, 0.16);
+}
+.random__imgwater {
+  background-color: rgba(88, 172, 246, 0.16);
+}
+.random__imgelectric {
+  background-color: rgba(255, 211, 78, 0.16);
+}
+.random__imggrass {
+  background-color: rgba(111, 203, 104, 0.16);
+}
+.random__imgice {
+  background-color: rgba(121, 207, 217, 0.16);
+}
+.random__imgfighting {
+  background-color: rgba(217, 117, 112, 0.16);
+}
+.random__imgpoison {
+  background-color: rgba(175, 101, 213, 0.16);
+}
+.random__imgground {
+  background-color: rgba(217, 183, 110, 0.16);
+}
+.random__imgflying {
+  background-color: rgba(145, 174, 244, 0.16);
+}
+.random__imgpsyhic {
+  background-color: rgba(247, 128, 173, 0.16);
+}
+.random__imgbug {
+  background-color: rgba(167, 200, 75, 0.16);
+}
+.random__imgrock {
+  background-color: rgba(188, 174, 115, 0.16);
+}
+.random__imgdragon {
+  background-color: rgba(133, 113, 220, 0.16);
+}
+.random__imgdark {
+  background-color: rgba(16, 9, 94, 0.16);
+}
+.random__imgghost {
+  background-color: rgba(142, 121, 197, 0.16);
+}
+.random__imgsteel {
+  background-color: rgba(152, 169, 186, 0.16);
+}
+.random__imgfairy {
+  background-color: rgba(233, 164, 203, 0.16);
+}
+
+.liked .random__icon {
+  fill: #FE4E4E;
+  stroke: #FF6B7A;
 }
 
 .backdrop {
   position: fixed;
   inset: 0;
+  z-index: 9;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -1207,7 +1388,6 @@ body.dark-theme .search-section .search-results-count {
   background-color: #FFFFFF;
   padding: 20px;
   width: 350px;
-  z-index: 999;
   position: relative;
   top: auto;
   left: auto;
