@@ -251,6 +251,10 @@ input[type=number]::-webkit-outer-spin-button {
   stroke: #287BFA;
 }
 
+body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
 body,
 span,
 div,
@@ -265,10 +269,10 @@ body.dark-theme {
   background-color: #111827;
   color: #FFFFFF;
 }
-body.dark-theme h1:not(.hero *, .easteregg *),
-body.dark-theme h2:not(.hero *, .easteregg *),
-body.dark-theme h3:not(.hero *, .easteregg *),
-body.dark-theme h4:not(.hero *, .easteregg *),
+body.dark-theme h1:not(.hero *),
+body.dark-theme h2:not(.hero *),
+body.dark-theme h3:not(.hero *),
+body.dark-theme h4:not(.hero *),
 body.dark-theme h5:not(.hero *, .easteregg *),
 body.dark-theme h6:not(.hero *, .easteregg *) {
   color: #FFFFFF;
@@ -326,6 +330,30 @@ body.dark-theme .footer a {
 }
 body.dark-theme .footer a:hover {
   color: #287BFA;
+}
+body.dark-theme .world__box,
+body.dark-theme .team__item,
+body.dark-theme .more__box {
+  background-color: #192A45;
+  border-color: #8391A7;
+  box-shadow: none;
+}
+body.dark-theme .world__item {
+  background-color: #111827;
+}
+body.dark-theme .world__num {
+  color: #58ACF6;
+}
+body.dark-theme .more__btn:hover, body.dark-theme .more__btn:focus {
+  background-color: #111827;
+  color: #FFFFFF;
+  border-color: #287BFA;
+}
+body.dark-theme .more__btn:hover .more__icon, body.dark-theme .more__btn:focus .more__icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .more__icon {
+  stroke: #FFFFFF;
 }
 
 .hero {
@@ -980,7 +1008,6 @@ body.dark-theme .search-section .search-results-count {
 @media screen and (min-width: 1326px) {
   .backdrops {
     align-items: center;
-    justify-content: center;
   }
 }
 
@@ -1014,21 +1041,11 @@ body.dark-theme .search-section .search-results-count {
   }
 }
 .random__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 17.5px;
-  border-radius: 8px;
-  background: #F5F8FC;
-}
-@media screen and (min-width: 1326px) {
-  .random__btn {
-    padding: 13.5px;
-  }
+  background-color: transparent;
 }
 .random__exit {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   stroke-width: 1.8px;
   stroke: #8391A7;
 }
@@ -1036,7 +1053,7 @@ body.dark-theme .search-section .search-results-count {
   position: absolute;
   left: 18px;
   top: 16px;
-  color: #8391A7;
+  color: #AC9CCB;
   font-size: 13px;
   font-weight: 400;
   line-height: normal;
@@ -1046,14 +1063,12 @@ body.dark-theme .search-section .search-results-count {
   height: 100%;
   padding: 4px 48px;
   border-radius: 16px;
-  background-color: rgba(131, 145, 167, 0.16);
-  margin-bottom: 20px;
+  background-color: #f3effc;
 }
 @media screen and (min-width: 770px) {
   .random__img {
     width: 250px;
     padding: 51px 5px;
-    margin-bottom: 0;
   }
 }
 @media screen and (min-width: 1326px) {
@@ -1075,23 +1090,18 @@ body.dark-theme .search-section .search-results-count {
   font-weight: 800;
   line-height: normal;
   letter-spacing: -1px;
-  margin-top: 4px;
 }
 @media screen and (min-width: 770px) {
   .random__title {
     font-size: 34px;
-    margin-top: 6px;
   }
 }
 .random__quote {
   display: none;
-  margin-top: 24px;
 }
 @media screen and (min-width: 770px) {
   .random__quote {
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 .random__progress {
@@ -1122,9 +1132,6 @@ body.dark-theme .search-section .search-results-count {
   border-radius: 999px;
 }
 .random__like {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: transparent;
 }
 .random__icon {
@@ -1149,8 +1156,6 @@ body.dark-theme .search-section .search-results-count {
   transition-property: background-color, outline, color, stroke;
   transition-duration: 250ms;
   transition-timing-function: ease;
-  margin: 0 auto;
-  margin-top: 24px;
 }
 .random__button:is(:hover, :focus) {
   outline: 1px solid #E5EDF6;
