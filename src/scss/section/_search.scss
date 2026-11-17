@@ -231,3 +231,67 @@ body.dark-theme {
     }
   }
 }
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  width: 100%;
+  margin: 0 auto;
+
+  // Кнопка, що огортає картинку
+  &__btn-img {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // Зображення покемона
+  &__image {
+    max-width: 180px;
+    height: auto;
+    display: block;
+  }
+
+  // Заголовок "Нічого не знайдено"
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--title-color, #111827);
+    margin-bottom: 12px;
+  }
+
+  // Текст-пояснення
+  &__text {
+    font-size: 14px;
+    color: var(--subtitle-color, #6b7280);
+    max-width: 360px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  // Синя кнопка "Скинути всі фільтри"
+  .reset-filters-btn {
+    background-color: var(--accent-color, #3b82f6);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--accent-hover-color, #2563eb);
+    }
+  }
+}
