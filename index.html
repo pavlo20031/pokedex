@@ -21,7 +21,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
     <script type="module" crossorigin src="/pokedex/assets/vendor-3fb8d95f.js"></script>
-    <script type="module" crossorigin src="/pokedex/assets/main-16759c0f.js"></script>
+    <script type="module" crossorigin src="/pokedex/assets/main-7a14f2d1.js"></script>
     <link rel="stylesheet" href="/pokedex/assets/main-fd76932a.css">
   </head>
   <body>
@@ -117,6 +117,18 @@
       </button>
     </div>
     <p class="search-results-count">Показано 0 із 1 025 покемонів</p>
+    <div class="empty-state">
+  <button class="empty-state__btn-img" type="button" aria-label="Нічого не знайдено">
+    <img src="/assets/search-pokemon.png" alt="Сумуючий покемон" class="empty-state__image" />
+  </button>
+  <h2 class="empty-state__title">Нічого не знайдено</h2>
+  <p class="empty-state__text">
+    Ми не знайшли покемонів за твоїм запитом. Спробуй змінити назву або скинути фільтри.
+  </p>
+  <button class="btn btn-primary reset-filters-btn" type="button">
+    Скинути всі фільтри
+  </button>
+</div>
   </div>
 </section>
     
