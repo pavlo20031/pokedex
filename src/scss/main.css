@@ -501,6 +501,18 @@ body.dark-theme .more__icon {
   border-color: #287BFA;
   box-shadow: 0 0 0 3px rgba(40, 123, 250, 0.15);
 }
+.search-section .search__div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media screen and (min-width: 770px) {
+  .search-section .search__div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 .search-section .btn-random {
   display: inline-flex;
   align-items: center;
@@ -537,9 +549,8 @@ body.dark-theme .more__icon {
   flex-direction: column;
   gap: 12px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 770px) {
   .search-section .filters-wrapper {
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
