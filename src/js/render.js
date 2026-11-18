@@ -1,16 +1,17 @@
 import { get } from './api.js';
 
-// Configuration & State
 const CONFIG = {
   pageSize: 10,
-  startId: 1
+  maxPokemonId: 1025
 };
 
 const STATE = {
-  currentId: CONFIG.startId
+  currentId: 1,
+  searchQuery: '',
+  filters: [],
+  loadedPokemons: []
 };
 
-// HTML Template (с уникальными ключами для типов и картинки)
 const CARD_TEMPLATE = `
 <section>
     <div>
@@ -35,7 +36,6 @@ const CARD_TEMPLATE = `
 </section>
 `;
 
-// Helper Functions
 function createRangeList(min, max) {
   const list = [];
   for (let i = min; i <= max; i++) {
@@ -49,13 +49,12 @@ function renderCards(dataArray) {
 
   return dataArray
     .map(pokemon => {
-      // Преобразуем данные покемона под нужные ключи шаблона
       const templateData = {
         id: String(pokemon.id || '').padStart(3, '0'),
         name: pokemon.name ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) : '',
         sprites: pokemon.sprites || '',
-        type1: pokemon.types && pokemon.types[0] ? pokemon.types[0] : '',
-        type2: pokemon.types && pokemon.types[1] ? pokemon.types[1] : ''
+        type1: pokemon.type && pokemon.type[0] ? pokemon.type[0] : '',
+        type2: pokemon.type && pokemon.type[1] ? pokemon.type[1] : ''
       };
 
       return CARD_TEMPLATE.replace(/<var>(.*?)<\/var>/g, (_, key) => {
@@ -66,59 +65,117 @@ function renderCards(dataArray) {
     .join('');
 }
 
-// Data Fetching Logic
-async function fetchPokemonPage(startId, size) {
-  const min = startId;
-  const max = startId + size - 1;
-  const ids = createRangeList(min, max);
-
-  const pokemonData = await get(null, ids);
-  return {
-    html: renderCards(pokemonData),
-    min,
-    max
-  };
-}
-
-// UI Controller & Event Handlers
-export function initPokemonApp([ containerId, nextBtnId ]) {
+export function initPokemonApp([ containerId, nextBtnId ], searchInputSelector, counterSelector) {
   const container = document.querySelector(containerId);
   const nextBtn = document.querySelector(nextBtnId);
+  const searchInput = document.querySelector(searchInputSelector);
+  const counterElement = document.querySelector(counterSelector);
 
-  async function loadMoreData(newStartId) {
-    if (newStartId < 1) return;
+  function updateCounter(shownCount) {
+    if (counterElement) {
+      counterElement.textContent = `Показано ${shownCount} із ${CONFIG.maxPokemonId} покемонів`;
+    }
+  }
 
-    // Блокируем кнопку на время загрузки
+  // Главная функция отрисовки UI
+  async function updateDisplay() {
+    const query = STATE.searchQuery.trim().toLowerCase();
+
+    let displayData = STATE.loadedPokemons;
+
+    // Если есть поисковый запрос
+    if (query !== '') {
+      // 1. Сначала ищем локально среди уже загруженных
+      displayData = STATE.loadedPokemons.filter(p =>
+        p.name.toLowerCase().includes(query) || String(p.id).includes(query)
+      );
+
+      // 2. Если локально ничего не нашли, пробуем запросить через API точечно
+      if (displayData.length === 0) {
+        try {
+          const apiResult = await get(STATE.filters, [query]);
+          if (Array.isArray(apiResult) && apiResult.length > 0) {
+            displayData = apiResult;
+          }
+        } catch (e) {
+          console.log("Поиск через API не дал результатов");
+        }
+      }
+    }
+
+    if (container) {
+      container.innerHTML = renderCards(displayData);
+    }
+
+    updateCounter(displayData.length);
+
+    if (nextBtn) {
+      nextBtn.style.display = (query !== '' || STATE.currentId > CONFIG.maxPokemonId) ? 'none' : 'block';
+    }
+  }
+
+  // Загрузка порций покемонов (пагинация)
+  async function loadMoreData(isReset = false) {
+    if (isReset) {
+      STATE.currentId = 1;
+      STATE.loadedPokemons = [];
+    }
+
     if (nextBtn) nextBtn.disabled = true;
 
     try {
-      const { html } = await fetchPokemonPage(newStartId, CONFIG.pageSize);
+      const min = STATE.currentId;
+      const max = Math.min(STATE.currentId + CONFIG.pageSize - 1, CONFIG.maxPokemonId);
 
-      if (container) {
-        // Добавляем новые карточки к уже существующим в контейнере
-        container.innerHTML += html;
+      if (min > CONFIG.maxPokemonId) {
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
       }
 
-      // Обновляем текущий ID только после успешной загрузки
-      STATE.currentId = newStartId;
+      const ids = createRangeList(min, max);
+      const pokemonData = await get(STATE.filters, ids);
+
+      STATE.currentId = max + 1;
+
+      if (isReset) {
+        STATE.loadedPokemons = pokemonData;
+      } else {
+        const existingIds = new Set(STATE.loadedPokemons.map(p => p.id));
+        const uniqueNew = pokemonData.filter(p => !existingIds.has(p.id));
+        STATE.loadedPokemons.push(...uniqueNew);
+      }
+
+      await updateDisplay();
 
     } catch (error) {
-      console.error('Ошибка при загрузке данных:', error);
+      console.error('Помилка завантаження:', error);
     } finally {
       if (nextBtn) nextBtn.disabled = false;
     }
   }
 
-  // Навешиваем слушатель на кнопку «Загрузить еще»
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      loadMoreData(STATE.currentId + CONFIG.pageSize);
+  // Обработка ввода в поиск с небольшой задержкой (debounce)
+  let searchTimeout;
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      STATE.searchQuery = e.target.value;
+
+      searchTimeout = setTimeout(() => {
+        updateDisplay();
+      }, 300);
     });
   }
 
-  // Первоначальная загрузка первой порции при старте
-  loadMoreData(STATE.currentId);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      loadMoreData(false);
+    });
+  }
+
+  // Первый запуск
+  loadMoreData(true);
 }
 
-// Инициализация
-initPokemonApp([".search-cards", ".search-controls-button"]);
+// Запуск
+initPokemonApp([".search-cards", ".search-controls-button"], ".search-input", ".search-results-count");
