@@ -40,10 +40,6 @@ function renderPokemon(pokemon) {
     `
     )
     .join('');
-  const image =
-    pokemon.sprites?.other?.['official-artwork']?.front_default ||
-    pokemon.sprites?.front_default ||
-    '';
 
   boxRef.innerHTML = `
     <div class="random__position">
