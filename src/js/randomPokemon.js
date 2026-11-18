@@ -40,6 +40,10 @@ function renderPokemon(pokemon) {
     `
     )
     .join('');
+  const image =
+    pokemon.sprites?.other?.['official-artwork']?.front_default ||
+    pokemon.sprites?.front_default ||
+    '';
 
   boxRef.innerHTML = `
     <div class="random__position">
@@ -49,7 +53,7 @@ function renderPokemon(pokemon) {
 
       <img
         class="random__img random__img${pokemon.type[0].type.name}"
-        src="${pokemon.sprites.other['official-artwork'].front_default}"
+        src="${image}"
         alt="${pokemon.name}"
       />
     </div>
