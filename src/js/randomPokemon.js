@@ -49,7 +49,7 @@ function renderPokemon(pokemon) {
 
       <img
         class="random__img random__img${pokemon.type[0].type.name}"
-        src="${pokemon.sprites.other['official-artwork'].front_default}"
+        src="${pokemon.sprites}"
         alt="${pokemon.name}"
       />
     </div>
