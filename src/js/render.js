@@ -27,10 +27,10 @@ const CARD_TEMPLATE = `
         <div>
             <h2><var>name</var></h2>
 
-            <div>
+            <p>
                 <span><var>type1</var></span>
                 <span><var>type2</var></span>
-            </div>
+            </p>
         </div>
     </div>
 </section>
@@ -53,8 +53,8 @@ function renderCards(dataArray) {
         id: String(pokemon.id || '').padStart(3, '0'),
         name: pokemon.name ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) : '',
         sprites: pokemon.sprites || '',
-        type1: pokemon.type && pokemon.type[0] ? pokemon.type[0] : '',
-        type2: pokemon.type && pokemon.type[1] ? pokemon.type[1] : ''
+        type1: pokemon.type && pokemon.type[0] && pokemon.type[0].type ? pokemon.type[0].type.name : '',
+        type2: pokemon.type && pokemon.type[1] && pokemon.type[1].type ? pokemon.type[1].type.name : ''
       };
 
       return CARD_TEMPLATE.replace(/<var>(.*?)<\/var>/g, (_, key) => {
@@ -85,12 +85,10 @@ export function initPokemonApp([ containerId, nextBtnId ], searchInputSelector, 
 
     // Если есть поисковый запрос
     if (query !== '') {
-      // 1. Сначала ищем локально среди уже загруженных
       displayData = STATE.loadedPokemons.filter(p =>
         p.name.toLowerCase().includes(query) || String(p.id).includes(query)
       );
 
-      // 2. Если локально ничего не нашли, пробуем запросить через API точечно
       if (displayData.length === 0) {
         try {
           const apiResult = await get(STATE.filters, [query]);
@@ -114,7 +112,7 @@ export function initPokemonApp([ containerId, nextBtnId ], searchInputSelector, 
     }
   }
 
-  // Загрузка порций покемонов (пагинация)
+  // Загрузка порций покемонов (пагинация ровно по 10 штук)
   async function loadMoreData(isReset = false) {
     if (isReset) {
       STATE.currentId = 1;
@@ -154,7 +152,7 @@ export function initPokemonApp([ containerId, nextBtnId ], searchInputSelector, 
     }
   }
 
-  // Обработка ввода в поиск с небольшой задержкой (debounce)
+  // Обработка ввода в поиск с задержкой (debounce)
   let searchTimeout;
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -167,15 +165,18 @@ export function initPokemonApp([ containerId, nextBtnId ], searchInputSelector, 
     });
   }
 
+  // Привязываем кнопку «Загрузить еще» для порционной загрузки
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
       loadMoreData(false);
     });
   }
 
-  // Первый запуск
+  // Стартовая загрузка первой порции
   loadMoreData(true);
 }
-
-// Запуск
-initPokemonApp([".search-cards", ".search-controls-button"], ".search-input", ".search-results-count");
+initPokemonApp(
+  ['.search-cards', '.search-controls-button'],
+  '.search-input',
+  '.search-results-count'
+);
