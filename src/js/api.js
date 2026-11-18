@@ -175,7 +175,7 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
       spA: stats[3],
       spD: stats[4],
       spe: stats[5],
-      sprites: pokemon.sprites,
+      sprites: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`,
 
       description: ukrainianDescription,
 
