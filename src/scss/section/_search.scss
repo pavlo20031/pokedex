@@ -54,6 +54,16 @@
       }
     }
   }
+  .search__div{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @media screen and (min-width:770px){
+      flex-direction: row;
+          justify-content: space-between;
+    align-items: center;
+    }
+  }
 
   .btn-random {
     display: inline-flex;
@@ -101,8 +111,7 @@
     flex-direction: column;
     gap: 12px;
 
-    @media (min-width: 1024px) {
-      flex-direction: row;
+    @media (min-width: 770px) {
       align-items: center;
       justify-content: space-between;
     }
