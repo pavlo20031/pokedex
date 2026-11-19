@@ -182,24 +182,16 @@
   }
 }
 
-body {
-  transition: 
-    background-color 0.25s ease,
-    color 0.25s ease;
-}
-
 body,
-span,
-div,
 header,
 main,
 footer,
 section {
   transition:
-    background-color 950ms ease,
-    color 950ms ease,
-    stroke 950ms ease,
-    border-color 950ms ease;
+    background-color 250ms ease,
+    color 250ms ease,
+    stroke 250ms ease,
+    border-color 250ms ease;
 }
 
 body.dark-theme {
@@ -209,9 +201,7 @@ body.dark-theme {
   h1:not(.hero *),
   h2:not(.hero *),
   h3:not(.hero *),
-  h4:not(.hero *),
-  h5:not(.hero *,),
-  h6:not(.hero *) {
+  h4:not(.hero *) {
     color: $main-color;
   }
 
@@ -230,8 +220,7 @@ body.dark-theme {
     color: $main-color;
   }
 
-  button .icon__stroke
-  {
+  button .icon__stroke {
     stroke: $active-color;
 
     &:hover {
@@ -316,6 +305,101 @@ body.dark-theme {
   }
 
   .more__icon {
+    stroke: $main-color;
+  }
+
+  .backdrop {
+    background-color: rgba($title-color, 0.85);
+  }
+
+  .easteregg {
+    background-color: $text-color;
+    color: $main-color;
+
+    transition:
+      background-color 250ms ease,
+      color 250ms ease;
+  }
+
+  .easteregg__button {
+    background-color: $title-color;
+  }
+
+  .easteregg__exit {
+    stroke: $subtitle-color;
+  }
+
+  .easteregg__box {
+    color: $main-color;
+  }
+
+  .easteregg__text {
+    background-color: $title-color;
+    color: $water-color;
+  }
+
+  .easteregg__sub {
+    background-color: transparent;
+    color: $active-color;
+  }
+
+  .easteregg__title,
+  .easteregg__missingno,
+  .easteregg__name {
+    color: $main-color;
+  }
+
+  .easteregg__subtitle,
+  .easteregg__desc {
+    color: $subtitle-color;
+  }
+
+  .easteregg__forms,
+  .easteregg__type {
+    color: $subtitle-color;
+  }
+
+  .easteregg__item {
+    background-color: $title-color;
+    border-color: $exit-color;
+  }
+
+  .easteregg__img {
+    background-color: $text-color;
+  }
+
+  .easteregg__textcontent {
+    background-color: $title-color;
+  }
+
+  .easteregg__info {
+    stroke: $active-color;
+  }
+
+  .easteregg__information {
+    color: $main-color;
+  }
+
+  .easteregg__container {
+    border-top-color: $exit-color;
+  }
+
+  .easteregg__btn {
+    background-color: $active-color;
+    color: $main-color;
+
+    &:hover {
+      background-color: $title-color;
+      color: $active-color;
+      outline-color: $exit-color;
+
+      .easteregg__icon {
+        stroke: $active-color;
+      }
+    }
+  }
+
+  .easteregg__icon {
     stroke: $main-color;
   }
 }
