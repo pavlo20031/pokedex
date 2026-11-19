@@ -229,6 +229,9 @@ body.dark-theme {
 
     &__nav-link:not(.active){
       color: $main-color;
+      &:hover{
+        color: $active-color;
+      }
     }
 
     .icon__stroke {
@@ -309,6 +312,7 @@ body.dark-theme {
 
     &__button {
       background-color: transparent;
+      outline: 1px solid $exit-color;
     }
 
     &__title,
