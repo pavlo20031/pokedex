@@ -251,18 +251,12 @@ input[type=number]::-webkit-outer-spin-button {
   stroke: #287BFA;
 }
 
-body {
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
 body,
-span,
-div,
 header,
 main,
 footer,
 section {
-  transition: background-color 950ms ease, color 950ms ease, stroke 950ms ease, border-color 950ms ease;
+  transition: background-color 250ms ease, color 250ms ease, stroke 250ms ease, border-color 250ms ease;
 }
 
 body.dark-theme {
@@ -277,24 +271,6 @@ body.dark-theme h5:not(.hero *),
 body.dark-theme h6:not(.hero *) {
   color: #FFFFFF;
 }
-body.dark-theme p:not(.hero *),
-body.dark-theme span:not(.hero *),
-body.dark-theme a {
-  color: #F2F7FC;
-}
-body.dark-theme a:hover {
-  color: #287BFA;
-}
-body.dark-theme button:not(.hero *) {
-  background-color: #287BFA;
-  color: #FFFFFF;
-}
-body.dark-theme button .icon__stroke {
-  stroke: #287BFA;
-}
-body.dark-theme button .icon__stroke:hover {
-  stroke: #58ACF6;
-}
 body.dark-theme section svg,
 body.dark-theme section .icon__stroke {
   stroke: #58ACF6;
@@ -303,11 +279,17 @@ body.dark-theme .header {
   background-color: #192A45;
   border-bottom-color: #8391A7;
 }
-@media (max-width: 1325px) {
+@media (max-width: 1326px) {
   body.dark-theme .header .header__nav {
     background-color: #111827;
     border-bottom-color: #8391A7;
   }
+}
+body.dark-theme .header__brand-text {
+  color: #FFFFFF;
+}
+body.dark-theme .header__nav-link:not(.active) {
+  color: #FFFFFF;
 }
 body.dark-theme .header .icon__stroke {
   stroke: #287BFA;
@@ -354,6 +336,58 @@ body.dark-theme .more__btn:hover .more__icon, body.dark-theme .more__btn:focus .
 }
 body.dark-theme .more__icon {
   stroke: #FFFFFF;
+}
+body.dark-theme .backdrop {
+  background-color: rgba(17, 24, 39, 0.85);
+}
+body.dark-theme .easteregg {
+  background-color: #111827;
+  color: #FFFFFF;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+body.dark-theme .easteregg__button {
+  background-color: transparent;
+}
+body.dark-theme .easteregg__title, body.dark-theme .easteregg__missingno, body.dark-theme .easteregg__name, body.dark-theme .easteregg__subtitle, body.dark-theme .easteregg__desc, body.dark-theme .easteregg__forms, body.dark-theme .easteregg__type {
+  color: #FFFFFF;
+}
+body.dark-theme .easteregg__text {
+  background-color: rgba(238, 245, 255, 0.16);
+}
+body.dark-theme .easteregg__text.easteregg__sub {
+  background-color: transparent;
+}
+body.dark-theme .easteregg__item {
+  background-color: #111827;
+  border-color: #60728D;
+}
+body.dark-theme .easteregg__info {
+  stroke: #287BFA;
+}
+body.dark-theme .easteregg__textcontent {
+  background-color: rgba(238, 245, 255, 0.16);
+}
+body.dark-theme .easteregg__btn {
+  background-color: #287BFA;
+  color: #FFFFFF;
+}
+body.dark-theme .easteregg__btn:hover {
+  background-color: #111827;
+  color: #287BFA;
+  outline-color: #287BFA;
+}
+body.dark-theme .easteregg__btn:hover .easteregg__icon {
+  stroke: #287BFA;
+}
+body.dark-theme .random {
+  background-color: #111827;
+}
+body.dark-theme .random__title, body.dark-theme .random__text, body.dark-theme .random__subtitle, body.dark-theme .random__stats {
+  color: #FFFFFF;
+}
+body.dark-theme .random__btn {
+  background-color: transparent;
+  outline: 1px solid #60728D;
 }
 
 .hero {
@@ -462,8 +496,9 @@ body.dark-theme .more__icon {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 12px;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .search-section .search-bar-wrapper {
     flex-direction: row;
     align-items: center;
@@ -548,11 +583,18 @@ body.dark-theme .more__icon {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 24px;
 }
 @media (min-width: 770px) {
   .search-section .filters-wrapper {
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+}
+@media (min-width: 1326px) {
+  .search-section .filters-wrapper {
+    margin-bottom: 28px;
   }
 }
 .search-section .filters-group {
@@ -1569,7 +1611,7 @@ body.dark-theme .search-section .search-results-count {
 }
 .easteregg__information {
   width: 246px;
-  color: #60728D;
+  color: #287BFA;
   font-size: 13px;
   font-weight: 400;
   line-height: 160%;

@@ -207,29 +207,6 @@ body.dark-theme {
     color: $main-color;
   }
 
-  p:not(.hero *),
-  span:not(.hero *),
-  a {
-    color: $bg-color;
-  }
-
-  a:hover {
-    color: $active-color;
-  }
-
-  button:not(.hero *) {
-    background-color: $active-color;
-    color: $main-color;
-  }
-
-  button .icon__stroke {
-    stroke: $active-color;
-
-    &:hover {
-      stroke: $water-color;
-    }
-  }
-
   section svg,
   section .icon__stroke {
     stroke: $water-color;
@@ -239,11 +216,19 @@ body.dark-theme {
     background-color: $text-color;
     border-bottom-color: $subtitle-color;
 
-    @media (max-width: 1325px) {
+    @media (max-width: 1326px) {
       .header__nav {
         background-color: $title-color;
         border-bottom-color: $subtitle-color;
       }
+    }
+
+    &__brand-text{
+      color: $main-color;
+    }
+
+    &__nav-link:not(.active){
+      color: $main-color;
     }
 
     .icon__stroke {
@@ -315,93 +300,76 @@ body.dark-theme {
   }
 
   .easteregg {
-    background-color: $text-color;
+    background-color: $title-color;
     color: $main-color;
 
     transition:
       background-color 250ms ease,
       color 250ms ease;
-  }
 
-  .easteregg__button {
-    background-color: $title-color;
-  }
+    &__button {
+      background-color: transparent;
+    }
 
-  .easteregg__exit {
-    stroke: $subtitle-color;
-  }
+    &__title,
+    &__missingno,
+    &__name,
+    &__subtitle,
+    &__desc,
+    &__forms,
+    &__type {
+      color: $main-color;
+    }
 
-  .easteregg__box {
-    color: $main-color;
-  }
+    &__text {
+      background-color: rgba($question-color, 0.16);
+      &.easteregg__sub {
+        background-color: transparent;
+      }
+    }
 
-  .easteregg__text {
-    background-color: $title-color;
-    color: $water-color;
-  }
-
-  .easteregg__sub {
-    background-color: transparent;
-    color: $active-color;
-  }
-
-  .easteregg__title,
-  .easteregg__missingno,
-  .easteregg__name {
-    color: $main-color;
-  }
-
-  .easteregg__subtitle,
-  .easteregg__desc {
-    color: $subtitle-color;
-  }
-
-  .easteregg__forms,
-  .easteregg__type {
-    color: $subtitle-color;
-  }
-
-  .easteregg__item {
-    background-color: $title-color;
-    border-color: $exit-color;
-  }
-
-  .easteregg__img {
-    background-color: $text-color;
-  }
-
-  .easteregg__textcontent {
-    background-color: $title-color;
-  }
-
-  .easteregg__info {
-    stroke: $active-color;
-  }
-
-  .easteregg__information {
-    color: $main-color;
-  }
-
-  .easteregg__container {
-    border-top-color: $exit-color;
-  }
-
-  .easteregg__btn {
-    background-color: $active-color;
-    color: $main-color;
-
-    &:hover {
+    &__item {
       background-color: $title-color;
-      color: $active-color;
-      outline-color: $exit-color;
+      border-color: $exit-color;
+    }
 
-      .easteregg__icon {
-        stroke: $active-color;
+    &__info {
+      stroke: $active-color;
+    }
+
+    &__textcontent{
+      background-color: rgba($question-color, 0.16);
+    }
+
+    &__btn {
+      background-color: $active-color;
+      color: $main-color;
+
+      &:hover {
+        background-color: $title-color;
+        color: $active-color;
+        outline-color: $active-color;
+
+        .easteregg__icon {
+          stroke: $active-color;
+        }
       }
     }
   }
 
-  .easteregg__icon {
-    stroke: $main-color;
+  .random{
+    background-color: $title-color;
+
+    &__title,
+    &__text,
+    &__subtitle,
+    &__stats{
+      color: $main-color;
+    }
+
+    &__btn {
+      background-color: transparent;
+      outline: 1px solid $exit-color;
+    }
   }
 }
