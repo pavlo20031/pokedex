@@ -291,6 +291,9 @@ body.dark-theme .header__brand-text {
 body.dark-theme .header__nav-link:not(.active) {
   color: #FFFFFF;
 }
+body.dark-theme .header__nav-link:not(.active):hover {
+  color: #287BFA;
+}
 body.dark-theme .header .icon__stroke {
   stroke: #287BFA;
 }
@@ -347,6 +350,7 @@ body.dark-theme .easteregg {
 }
 body.dark-theme .easteregg__button {
   background-color: transparent;
+  outline: 1px solid #60728D;
 }
 body.dark-theme .easteregg__title, body.dark-theme .easteregg__missingno, body.dark-theme .easteregg__name, body.dark-theme .easteregg__subtitle, body.dark-theme .easteregg__desc, body.dark-theme .easteregg__forms, body.dark-theme .easteregg__type {
   color: #FFFFFF;
