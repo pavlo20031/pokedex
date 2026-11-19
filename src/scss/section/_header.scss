@@ -201,7 +201,9 @@ body.dark-theme {
   h1:not(.hero *),
   h2:not(.hero *),
   h3:not(.hero *),
-  h4:not(.hero *) {
+  h4:not(.hero *),
+  h5:not(.hero *),
+  h6:not(.hero *) {
     color: $main-color;
   }
 

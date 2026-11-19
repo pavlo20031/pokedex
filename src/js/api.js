@@ -1,12 +1,9 @@
-import translate from 'translate';
 export async function get(filters = [], pokemons = [], evoinfo = true) {
   let infoApi = 'https://pokeapi.co/api/v2/';
 
-  // Безопасно приводим аргументы к правильным типам, если прилетел null или undefined
   let safeFilters = Array.isArray(filters) ? filters : [];
   let pokemonsToFetch = Array.isArray(pokemons) ? [...pokemons] : [pokemons];
 
-  // 1. Если список покемонов пустой, но есть фильтры — собираем имена по фильтрам
   if (pokemonsToFetch.length === 0 && safeFilters.length > 0) {
     let filteredNames = null;
 
@@ -44,7 +41,6 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
         }
       }
 
-      // Пересекаем результаты текущего правила с общим списком
       if (currentFilteredNames.length > 0) {
         filteredNames = filteredNames
           ? filteredNames.filter(name => currentFilteredNames.includes(name))
@@ -55,9 +51,7 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
     if (filteredNames) {
       pokemonsToFetch = filteredNames;
     }
-  }
-  // ТВОЙ КЕЙС: Если переданы И покемоны, И фильтры — фильтруем переданных покемонов на лету!
-  else if (pokemonsToFetch.length > 0 && safeFilters.length > 0) {
+  } else if (pokemonsToFetch.length > 0 && safeFilters.length > 0) {
     for (let rule of safeFilters) {
       if (!rule || !rule.type) continue;
 
@@ -92,7 +86,6 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
     }
   }
 
-  // Це Павло я вносив деякі зміни щоб добре відображалося моя модалка і туту трохи додав
   const generationMap = {
     'generation-i': 'Покоління I',
     'generation-ii': 'Покоління II',
@@ -107,7 +100,6 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
 
   let data = [];
 
-  // 2. Цикл загрузки данных покемонов
   for (let pokemonIdentifier of pokemonsToFetch) {
     let pokemonRes = await fetch(`${infoApi}pokemon/${pokemonIdentifier}`);
     if (!pokemonRes.ok) continue;
@@ -116,7 +108,6 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
     let stats = pokemon.stats.map(stat => stat.base_stat);
 
     let speciesRes = await fetch(`${infoApi}pokemon-species/${pokemon.id}`);
-
     if (!speciesRes.ok) continue;
     let get_more_data = await speciesRes.json();
 
@@ -132,11 +123,11 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
         str.push(currentChain.species.name);
         let id =
           currentChain.species.url.split('/')[
-            currentChain.species.url.split('/').length - 2
-          ];
+          currentChain.species.url.split('/').length - 2
+            ];
         evodata.push({
           id: id,
-          img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+          img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
         });
       }
       currentChain =
@@ -144,23 +135,11 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
           ? currentChain.evolves_to[0]
           : null;
     }
-    console.log(evodata);
 
     const englishDescription =
       get_more_data.flavor_text_entries
         .find(item => item.language.name === 'en')
         ?.flavor_text.replace(/\f/g, ' ') || '';
-
-    let ukrainianDescription = englishDescription;
-
-    try {
-      ukrainianDescription = await translate(englishDescription, {
-        from: 'en',
-        to: 'uk',
-      });
-    } catch (error) {
-      console.error('Помилка перекладу:', error);
-    }
 
     let normalData = {
       id: pokemon.id,
@@ -175,19 +154,15 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
       spA: stats[3],
       spD: stats[4],
       spe: stats[5],
-      sprites: pokemon.sprites,
-
-      description: ukrainianDescription,
-
+      sprites: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
+      description: englishDescription,
       generation: generationMap[get_more_data.generation.name],
-
       chain: str,
       evodata: evodata,
     };
     data.push(normalData);
   }
 
-  // 3. Адекватная сортировка в самом конце (если передано правило sort)
   let sortRule = safeFilters.find(rule => rule && rule.type === 'sort');
   if (sortRule && sortRule.field && sortRule.order) {
     data.sort((a, b) => {
@@ -198,12 +173,4 @@ export async function get(filters = [], pokemons = [], evoinfo = true) {
   }
 
   return data;
-} //url is id
-// // Проверяем тесты:
-// let filters = [
-//   { type: 'gen', value: 1 },
-//   { type: 'searchByTypes', types: ['grass', 'poison'] },
-//   { type: 'sort', field: 'hp', order: 'desc' } // Сортировка тоже работает через фильтр!
-// ];
-//
-// console.log(await get(filters));
+}

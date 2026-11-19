@@ -5,3 +5,5 @@ import "./js/header"
 import './js/world';
 import "./js/easteregg";
 import "./js/randomPokemon"
+import "./js/render.js";
+import "./js/search";
