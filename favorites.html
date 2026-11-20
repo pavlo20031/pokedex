@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/pokedex/assets/main-2fb28dc6.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/main-68599a95.css">
+    <script type="module" crossorigin src="/pokedex/assets/main-50a6bb74.js"></script>
+    <link rel="stylesheet" href="/pokedex/assets/main-e21ac6ac.css">
   </head>
   <body>
     <header class="header">
@@ -91,6 +91,9 @@
       </button>
     </div>
     <ul class="favorites__list"></ul>
+    <p class="favorites__empty" hidden>
+      У тебе поки немає улюблених покемонів або твій пошук не правильний.
+    </p>
     <div class="favorites__textcontent">
       <svg class="favorites__info">
         <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#info"></use>
@@ -102,6 +105,7 @@
     </div>
   </div>
 </section>
+
     <div class="pokemon-details-backdrop" data-details-backdrop aria-hidden="true" inert>
   <section class="pokemon-details" role="dialog" aria-modal="true" aria-labelledby="pokemon-details-title">
     <div class="pokemon-details__toolbar">
