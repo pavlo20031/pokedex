@@ -190,6 +190,11 @@
     gap: 16px;
     margin-bottom: 24px;
 
+    &:empty {
+      padding: 0;
+      margin: 0;
+    }
+
     @media screen and (min-width: 770px) {
       margin-bottom: 28px;
     }
@@ -316,24 +321,79 @@
     background-color: $info-color;
     color: $main-color;
 
-    &--normal { background: $normal-color; color: $main-color; }
-    &--fire { background: $fire-color; color: $main-color; }
-    &--water { background: $water-color; color: $main-color; }
-    &--electric { background: $electric-color; }
-    &--grass { background: $type-color; color: $main-color; }
-    &--ice { background: $ice-color; }
-    &--fighting { background: $fight-color; color: $main-color; }
-    &--poison { background: $toxic-color; color: $main-color; }
-    &--ground { background: $ground-color; }
-    &--flying { background: $fly-color; }
-    &--psychic { background: $psyhic-color; }
-    &--bug { background: $bug-color; }
-    &--rock { background: $rock-color; }
-    &--ghost { background: $ghost-color; color: $main-color; }
-    &--dragon { background: $dragon-color; color: $main-color; }
-    &--dark { background: $dark-color; color: $main-color; }
-    &--steel { background: $steel-color; }
-    &--fairy { background: $fairy-color; }
+    &--normal {
+      background: $normal-color;
+      color: $main-color;
+    }
+    &--fire {
+      background: $fire-color;
+      color: $main-color;
+    }
+    &--water {
+      background: $water-color;
+      color: $main-color;
+    }
+    &--electric {
+      background: $electric-color;
+    }
+    &--grass {
+      background: $type-color;
+      color: $main-color;
+    }
+    &--ice {
+      background: $ice-color;
+    }
+    &--fighting {
+      background: $fight-color;
+      color: $main-color;
+    }
+    &--poison {
+      background: $toxic-color;
+      color: $main-color;
+    }
+    &--ground {
+      background: $ground-color;
+    }
+    &--flying {
+      background: $fly-color;
+    }
+    &--psychic {
+      background: $psyhic-color;
+    }
+    &--bug {
+      background: $bug-color;
+    }
+    &--rock {
+      background: $rock-color;
+    }
+    &--ghost {
+      background: $ghost-color;
+      color: $main-color;
+    }
+    &--dragon {
+      background: $dragon-color;
+      color: $main-color;
+    }
+    &--dark {
+      background: $dark-color;
+      color: $main-color;
+    }
+    &--steel {
+      background: $steel-color;
+    }
+    &--fairy {
+      background: $fairy-color;
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 0 20px 20px;
+    font-size: 16px;
+    color: $text-color;
+    &[hidden] {
+      display: none;
+    }
   }
 
   &__textcontent {
