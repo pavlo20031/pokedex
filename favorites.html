@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/pokedex/assets/main-e76fe4cd.js"></script>
-    <link rel="stylesheet" href="/pokedex/assets/main-56ea747e.css">
+    <script type="module" crossorigin src="/pokedex/assets/main-2fb28dc6.js"></script>
+    <link rel="stylesheet" href="/pokedex/assets/main-68599a95.css">
   </head>
   <body>
     <header class="header">
@@ -102,6 +102,24 @@
     </div>
   </div>
 </section>
+    <div class="pokemon-details-backdrop" data-details-backdrop aria-hidden="true" inert>
+  <section class="pokemon-details" role="dialog" aria-modal="true" aria-labelledby="pokemon-details-title">
+    <div class="pokemon-details__toolbar">
+      <button class="pokemon-details__back" type="button" data-details-close>
+        <span aria-hidden="true">←</span> До каталогу
+      </button>
+      <span class="pokemon-details__toolbar-id" data-details-toolbar-id></span>
+      <button class="pokemon-details__close" type="button" data-details-close aria-label="Закрити вікно">
+        <svg class="pokemon-details__close-icon" aria-hidden="true">
+          <use href="/pokedex/assets/symbol-defs-a3682fdc.svg#x"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="pokemon-details__body" data-details-content aria-live="polite">
+      <p class="pokemon-details__loading">Обери покемона, щоб переглянути деталі.</p>
+    </div>
+  </section>
+</div>
     <footer class="footer">
     <div class="container footer__box">
         <div class="footer__content">
