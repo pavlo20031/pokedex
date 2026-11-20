@@ -372,6 +372,13 @@ body.dark-theme {
       background-color: transparent;
       outline: 1px solid $exit-color;
     }
+
+    .liked {
+      .random__icon {
+        fill: $like-color;
+        stroke: none;
+      }
+    }
   }
 
   .favorites {
@@ -401,15 +408,15 @@ body.dark-theme {
       }
     }
 
-    &__article{
+    &__article {
       background-color: $title-color;
     }
 
-    &__id{
+    &__id {
       color: $main-color;
     }
 
-    &__heart{
+    &__heart {
       stroke: none;
     }
 
@@ -424,6 +431,38 @@ body.dark-theme {
 
     &__information {
       color: $active-color;
+    }
+  }
+
+  .pokemon-details {
+    background: #1d2b42;
+
+    &__top,
+    &__section {
+      background: #243650;
+    }
+
+    &__identity h2,
+    &__section-heading h3,
+    &__section-heading strong,
+    &__stat-value,
+    &__traits strong,
+    &__evolution-name {
+      color: $main-color;
+    }
+
+    &__traits > div,
+    &__evolution {
+      background: #1d2b42;
+    }
+
+    &__evolution.is-current {
+      background: rgba($active-color, 0.18);
+    }
+
+    &.is-liked svg {
+      fill: $like-color;
+      stroke: none;
     }
   }
 }

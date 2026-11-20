@@ -316,61 +316,24 @@
     background-color: $info-color;
     color: $main-color;
 
-    &--normal {
-      background-color: $normal-color;
-    }
-    &--fire {
-      background-color: $fire-color;
-    }
-    &--water {
-      background-color: $water-color;
-    }
-    &--electric {
-      background-color: $electric-color;
-      color: $text-color;
-    }
-    &--grass {
-      background-color: $type-color;
-    }
-    &--ice {
-      background-color: $ice-color;
-    }
-    &--fighting {
-      background-color: $fight-color;
-    }
-    &--poison {
-      background-color: $toxic-color;
-    }
-    &--ground {
-      background-color: $ground-color;
-    }
-    &--flying {
-      background-color: $fly-color;
-    }
-    &--psychic {
-      background-color: $psyhic-color;
-    }
-    &--bug {
-      background-color: $bug-color;
-    }
-    &--rock {
-      background-color: $rock-color;
-    }
-    &--ghost {
-      background-color: $ghost-color;
-    }
-    &--dragon {
-      background-color: $dragon-color;
-    }
-    &--dark {
-      background-color: $dark-color;
-    }
-    &--steel {
-      background-color: $steel-color;
-    }
-    &--fairy {
-      background-color: $fairy-color;
-    }
+    &--normal { background: $normal-color; color: $main-color; }
+    &--fire { background: $fire-color; color: $main-color; }
+    &--water { background: $water-color; color: $main-color; }
+    &--electric { background: $electric-color; }
+    &--grass { background: $type-color; color: $main-color; }
+    &--ice { background: $ice-color; }
+    &--fighting { background: $fight-color; color: $main-color; }
+    &--poison { background: $toxic-color; color: $main-color; }
+    &--ground { background: $ground-color; }
+    &--flying { background: $fly-color; }
+    &--psychic { background: $psyhic-color; }
+    &--bug { background: $bug-color; }
+    &--rock { background: $rock-color; }
+    &--ghost { background: $ghost-color; color: $main-color; }
+    &--dragon { background: $dragon-color; color: $main-color; }
+    &--dark { background: $dark-color; color: $main-color; }
+    &--steel { background: $steel-color; }
+    &--fairy { background: $fairy-color; }
   }
 
   &__textcontent {
