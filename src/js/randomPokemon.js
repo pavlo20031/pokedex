@@ -194,6 +194,8 @@ function renderPokemon(pokemon) {
 
       likeBtnRef.classList.add('liked');
     }
+
+    document.dispatchEvent(new Event('favorites:changed'));
   });
 }
 

@@ -8,3 +8,4 @@ import "./js/randomPokemon"
 import "./js/render.js";
 import "./js/search";
 import "./js/favorites.js";
+import './js/detailsPokemon.js';

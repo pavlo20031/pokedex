@@ -3,29 +3,8 @@ import spriteUrl from '../img/symbol-defs.svg';
 
 const favoritesList = document.querySelector('.favorites__list');
 const searchInput = document.querySelector('.favorites__input');
-const sortBtn = document.querySelector(
-  '.favorites__btn[data-action="sort-number"]'
-);
+const sortBtn = document.querySelector('.favorites__btn[data-action="sort-number"]');
 const counterSpan = document.querySelector('.favorites__span');
-
-function updateHeaderCounter() {
-  const headerFavorites = document.querySelectorAll('.header__nav-badge');
-  if (headerFavorites.length === 0) return;
-
-  try {
-    const rawData = localStorage.getItem('likedPokemons');
-    const savedIds = rawData ? JSON.parse(rawData) : [];
-    const count = Array.isArray(savedIds) ? savedIds.length : 0;
-
-    headerFavorites.forEach(span => {
-      span.textContent = count;
-    });
-  } catch (error) {
-    console.error('Помилка оновлення лічильника в шапці:', error);
-  }
-}
-
-updateHeaderCounter();
 
 const favoritesState = {
   allFavorites: [],
@@ -220,7 +199,40 @@ favoritesList?.addEventListener('click', e => {
   );
 
   updateFavoritesDisplay();
-  updateHeaderCounter();
+  document.dispatchEvent(new Event('favorites:changed'));
+});
+
+document.addEventListener('favorites:changed', async event => {
+  const { id, liked } = event.detail || {};
+  const pokemonId = Number(id);
+
+  if (!Number.isFinite(pokemonId)) return;
+
+  if (favoritesList) {
+    if (liked) {
+      const alreadyExists = favoritesState.allFavorites.some(
+        pokemon => Number(pokemon.id) === pokemonId
+      );
+      if (!alreadyExists) {
+        try {
+          const [pokemon] = await get([], [pokemonId], false);
+
+          if (pokemon) {
+            favoritesState.allFavorites.push(pokemon);
+          }
+        } catch (error) {
+          console.error('Error adding favorite:', error);
+        }
+      }
+    } else {
+      favoritesState.allFavorites =
+        favoritesState.allFavorites.filter(
+          pokemon => Number(pokemon.id) !== pokemonId
+        );
+    }
+    updateFavoritesDisplay();
+  }
+  initHeaderCounter();
 });
 
 if (favoritesList) {
