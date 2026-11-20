@@ -140,7 +140,7 @@
     gap: 8px;
     height: 48px;
     padding: 0 16px;
-    background-color: $bg-button;
+    background-color: $main-color;
     border: 1px solid $results-color;
     border-radius: 12px;
     font-size: 14px;
@@ -188,14 +188,10 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 0;
-    margin: 0;
-    &:not(:empty) {
-      margin-bottom: 24px;
+    margin-bottom: 24px;
 
-      @media screen and (min-width: 770px) {
-        margin-bottom: 28px;
-      }
+    @media screen and (min-width: 770px) {
+      margin-bottom: 28px;
     }
 
     @media screen and (min-width: 390px) and (max-width: 769px) {
@@ -209,6 +205,171 @@
 
     @media screen and (min-width: 1326px) {
       grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__article {
+    position: relative;
+    background-color: $main-color;
+    border: 1px solid $results-color;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    transition:
+      transform 250ms ease,
+      box-shadow 250ms ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  &__id {
+    font-size: 14px;
+    font-weight: 600;
+    color: $subtitle-color;
+  }
+
+  &__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 250ms ease;
+
+    &:hover {
+      background-color: $results-color;
+    }
+  }
+
+  &__heart {
+    width: 20px;
+    height: 20px;
+    fill: $heart-color;
+    stroke: $heart-color;
+  }
+
+  &__img-box {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: $title-color;
+    margin: 0;
+    line-height: 1.2;
+
+    @media screen and (min-width: 770px) {
+      font-size: 20px;
+    }
+  }
+
+  &__types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__type {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background-color: $info-color;
+    color: $main-color;
+
+    &--normal {
+      background-color: $normal-color;
+    }
+    &--fire {
+      background-color: $fire-color;
+    }
+    &--water {
+      background-color: $water-color;
+    }
+    &--electric {
+      background-color: $electric-color;
+      color: $text-color;
+    }
+    &--grass {
+      background-color: $type-color;
+    }
+    &--ice {
+      background-color: $ice-color;
+    }
+    &--fighting {
+      background-color: $fight-color;
+    }
+    &--poison {
+      background-color: $toxic-color;
+    }
+    &--ground {
+      background-color: $ground-color;
+    }
+    &--flying {
+      background-color: $fly-color;
+    }
+    &--psychic {
+      background-color: $psyhic-color;
+    }
+    &--bug {
+      background-color: $bug-color;
+    }
+    &--rock {
+      background-color: $rock-color;
+    }
+    &--ghost {
+      background-color: $ghost-color;
+    }
+    &--dragon {
+      background-color: $dragon-color;
+    }
+    &--dark {
+      background-color: $dark-color;
+    }
+    &--steel {
+      background-color: $steel-color;
+    }
+    &--fairy {
+      background-color: $fairy-color;
     }
   }
 
