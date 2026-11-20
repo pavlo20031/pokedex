@@ -10,11 +10,11 @@
   z-index: 8;
   padding: 22px 20px;
 
-  @media (min-width: 769px) {
+  @media (min-width: 770px) {
     padding: 24px 32px;
   }
 
-  @media (min-width: 1325px) {
+  @media (min-width: 1326px) {
     padding: 28px 72px;
   }
 
@@ -69,7 +69,7 @@
     }
 
     &-badge {
-      transition: color 0.2s ease;
+      transition: color 250ms ease;
     }
 
     &-list {
@@ -94,7 +94,7 @@
       font-size: 16px;
       position: relative;
       padding-bottom: 4px;
-      transition: color 0.2s ease;
+      transition: color 250ms ease;
 
       &:hover {
         color: $active-color;
@@ -156,10 +156,7 @@
   &__stroke {
     fill: none;
     stroke: $text-color;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke 0.2s ease;
+    transition: stroke 250ms ease;
   }
 }
 
@@ -173,7 +170,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 250ms ease;
 
   &:hover {
     .icon__stroke {

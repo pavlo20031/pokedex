@@ -1,0 +1,40 @@
+<section class="favorites">
+  <div class="container">
+    <h1 class="favorites__title">
+      Мої улюблені покемони<span class="favorites__span">0</span>
+    </h1>
+    <p class="favorites__description">
+      Твоя особлива колекція. Усі улюбленці завжди поруч.
+    </p>
+    <div class="favorites__wrapper">
+      <div class="favorites__box">
+        <svg class="favorites__icon input__icon">
+          <use href="/img/symbol-defs.svg#search"></use>
+        </svg>
+        <input
+          type="text"
+          class="favorites__input"
+          placeholder="Пошук за назвою або номером..."
+          aria-label="Пошук покемона"
+        />
+      </div>
+      <button class="favorites__btn" type="button" data-action="sort-number">
+        <span class="favorites__mobile">За №</span>
+        <span class="favorites__tablet">За номером ↑</span>
+        <svg class="icon icon__stroke">
+          <use href="/img/symbol-defs.svg#up-down-arrow"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="favorites__list"></ul>
+    <div class="favorites__textcontent">
+      <svg class="favorites__info">
+        <use href="/img/symbol-defs.svg#info"></use>
+      </svg>
+      <p class="favorites__information">
+        Колекція зберігається у твоєму браузері. Натисни на сердечко, щоб
+        видалити покемона з обраного.
+      </p>
+    </div>
+  </div>
+</section>
