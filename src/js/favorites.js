@@ -3,8 +3,11 @@ import spriteUrl from '../img/symbol-defs.svg';
 
 const favoritesList = document.querySelector('.favorites__list');
 const searchInput = document.querySelector('.favorites__input');
-const sortBtn = document.querySelector('.favorites__btn[data-action="sort-number"]');
+const sortBtn = document.querySelector(
+  '.favorites__btn[data-action="sort-number"]'
+);
 const counterSpan = document.querySelector('.favorites__span');
+const emptyMessage = document.querySelector('.favorites__empty');
 
 const favoritesState = {
   allFavorites: [],
@@ -59,7 +62,7 @@ const CARD_TEMPLATE = `
 
 function renderFavoritesCards(pokemons) {
   if (!Array.isArray(pokemons) || pokemons.length === 0) {
-    return '<p class="favorites__empty">У тебе поки немає улюблених покемонів або твій пошук не правильний.</p>';
+    return '';
   }
 
   return pokemons
@@ -121,6 +124,10 @@ function updateFavoritesDisplay() {
 
   if (favoritesList) {
     favoritesList.innerHTML = renderFavoritesCards(filtered);
+  }
+
+  if (emptyMessage) {
+    emptyMessage.hidden = filtered.length > 0;
   }
 
   updateCounter(favoritesState.allFavorites.length);
@@ -225,10 +232,9 @@ document.addEventListener('favorites:changed', async event => {
         }
       }
     } else {
-      favoritesState.allFavorites =
-        favoritesState.allFavorites.filter(
-          pokemon => Number(pokemon.id) !== pokemonId
-        );
+      favoritesState.allFavorites = favoritesState.allFavorites.filter(
+        pokemon => Number(pokemon.id) !== pokemonId
+      );
     }
     updateFavoritesDisplay();
   }

@@ -420,6 +420,10 @@ body.dark-theme {
       stroke: none;
     }
 
+     &__empty{
+      color: $main-color;
+     }
+
     &__textcontent {
       background-color: rgba($question-color, 0.16);
       border-color: $subtitle-color;
