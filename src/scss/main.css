@@ -390,6 +390,46 @@ body.dark-theme .random__btn {
   background-color: transparent;
   outline: 1px solid #60728D;
 }
+body.dark-theme .favorites {
+  background-color: #111827;
+}
+body.dark-theme .favorites__input, body.dark-theme .favorites__btn {
+  background-color: #192A45;
+  border-color: #8391A7;
+  color: #FFFFFF;
+}
+body.dark-theme .favorites__input::-moz-placeholder, body.dark-theme .favorites__btn::-moz-placeholder {
+  color: #8391A7;
+}
+body.dark-theme .favorites__input::placeholder, body.dark-theme .favorites__btn::placeholder {
+  color: #8391A7;
+}
+body.dark-theme .favorites__input:hover, body.dark-theme .favorites__btn:hover {
+  background-color: #111827;
+  border-color: #287BFA;
+}
+body.dark-theme .favorites__btn:hover .icon {
+  stroke: #287BFA;
+}
+body.dark-theme .favorites__article {
+  background-color: #111827;
+}
+body.dark-theme .favorites__id {
+  color: #FFFFFF;
+}
+body.dark-theme .favorites__heart {
+  stroke: none;
+}
+body.dark-theme .favorites__textcontent {
+  background-color: rgba(238, 245, 255, 0.16);
+  border-color: #8391A7;
+}
+body.dark-theme .favorites__info {
+  stroke: #287BFA;
+}
+body.dark-theme .favorites__information {
+  color: #287BFA;
+}
 
 .hero {
   padding-top: 20px;
@@ -834,7 +874,7 @@ body.dark-theme .search-section .search-results-count {
   gap: 8px;
   height: 48px;
   padding: 0 16px;
-  background-color: #F5F8FC;
+  background-color: #FFFFFF;
   border: 1px solid #E5EDF6;
   border-radius: 12px;
   font-size: 14px;
@@ -878,14 +918,10 @@ body.dark-theme .search-section .search-results-count {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  padding: 0;
-  margin: 0;
-}
-.favorites__list:not(:empty) {
   margin-bottom: 24px;
 }
 @media screen and (min-width: 770px) {
-  .favorites__list:not(:empty) {
+  .favorites__list {
     margin-bottom: 28px;
   }
 }
@@ -904,6 +940,156 @@ body.dark-theme .search-section .search-results-count {
   .favorites__list {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+.favorites__item {
+  list-style: none;
+}
+.favorites__article {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #E5EDF6;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+.favorites__article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.favorites__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.favorites__id {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8391A7;
+}
+.favorites__button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 250ms ease;
+}
+.favorites__button:hover {
+  background-color: #E5EDF6;
+}
+.favorites__heart {
+  width: 20px;
+  height: 20px;
+  fill: #FF6B7A;
+  stroke: #FF6B7A;
+}
+.favorites__img-box {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.favorites__image {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.favorites__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+.favorites__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+@media screen and (min-width: 770px) {
+  .favorites__name {
+    font-size: 20px;
+  }
+}
+.favorites__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.favorites__type {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: #EAF3FF;
+  color: #FFFFFF;
+}
+.favorites__type--normal {
+  background-color: #B5A897;
+}
+.favorites__type--fire {
+  background-color: #FF8C52;
+}
+.favorites__type--water {
+  background-color: #58ACF6;
+}
+.favorites__type--electric {
+  background-color: #FFD34E;
+  color: #192A45;
+}
+.favorites__type--grass {
+  background-color: #6FCB68;
+}
+.favorites__type--ice {
+  background-color: #79CFD9;
+}
+.favorites__type--fighting {
+  background-color: #D97570;
+}
+.favorites__type--poison {
+  background-color: #AF65D5;
+}
+.favorites__type--ground {
+  background-color: #D9B76E;
+}
+.favorites__type--flying {
+  background-color: #91AEF4;
+}
+.favorites__type--psychic {
+  background-color: #F780AD;
+}
+.favorites__type--bug {
+  background-color: #A7C84B;
+}
+.favorites__type--rock {
+  background-color: #BCAE73;
+}
+.favorites__type--ghost {
+  background-color: #8E79C5;
+}
+.favorites__type--dragon {
+  background-color: #8571DC;
+}
+.favorites__type--dark {
+  background-color: #10095E;
+}
+.favorites__type--steel {
+  background-color: #98A9BA;
+}
+.favorites__type--fairy {
+  background-color: #E9A4CB;
 }
 .favorites__textcontent {
   display: flex;

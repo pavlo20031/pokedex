@@ -220,13 +220,13 @@ body.dark-theme {
       }
     }
 
-    &__brand-text{
+    &__brand-text {
       color: $main-color;
     }
 
-    &__nav-link:not(.active){
+    &__nav-link:not(.active) {
       color: $main-color;
-      &:hover{
+      &:hover {
         color: $active-color;
       }
     }
@@ -338,7 +338,7 @@ body.dark-theme {
       stroke: $active-color;
     }
 
-    &__textcontent{
+    &__textcontent {
       background-color: rgba($question-color, 0.16);
     }
 
@@ -358,19 +358,72 @@ body.dark-theme {
     }
   }
 
-  .random{
+  .random {
     background-color: $title-color;
 
     &__title,
     &__text,
     &__subtitle,
-    &__stats{
+    &__stats {
       color: $main-color;
     }
 
     &__btn {
       background-color: transparent;
       outline: 1px solid $exit-color;
+    }
+  }
+
+  .favorites {
+    background-color: $title-color;
+
+    &__input,
+    &__btn {
+      background-color: $text-color;
+      border-color: $subtitle-color;
+      color: $main-color;
+
+      &::placeholder {
+        color: $subtitle-color;
+      }
+
+      &:hover {
+        background-color: $title-color;
+        border-color: $active-color;
+      }
+    }
+
+    &__btn {
+      &:hover {
+        .icon {
+          stroke: $active-color;
+        }
+      }
+    }
+
+    &__article{
+      background-color: $title-color;
+    }
+
+    &__id{
+      color: $main-color;
+    }
+
+    &__heart{
+      stroke: none;
+    }
+
+    &__textcontent {
+      background-color: rgba($question-color, 0.16);
+      border-color: $subtitle-color;
+    }
+
+    &__info {
+      stroke: $active-color;
+    }
+
+    &__information {
+      color: $active-color;
     }
   }
 }
