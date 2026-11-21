@@ -10,11 +10,11 @@
   z-index: 8;
   padding: 22px 20px;
 
-  @media (min-width: 769px) {
+  @media (min-width: 770px) {
     padding: 24px 32px;
   }
 
-  @media (min-width: 1325px) {
+  @media (min-width: 1326px) {
     padding: 28px 72px;
   }
 
@@ -69,7 +69,7 @@
     }
 
     &-badge {
-      transition: color 0.2s ease;
+      transition: color 250ms ease;
     }
 
     &-list {
@@ -94,7 +94,7 @@
       font-size: 16px;
       position: relative;
       padding-bottom: 4px;
-      transition: color 0.2s ease;
+      transition: color 250ms ease;
 
       &:hover {
         color: $active-color;
@@ -156,10 +156,7 @@
   &__stroke {
     fill: none;
     stroke: $text-color;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke 0.2s ease;
+    transition: stroke 250ms ease;
   }
 }
 
@@ -173,7 +170,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 250ms ease;
 
   &:hover {
     .icon__stroke {
@@ -182,24 +179,16 @@
   }
 }
 
-body {
-  transition: 
-    background-color 0.25s ease,
-    color 0.25s ease;
-}
-
 body,
-span,
-div,
 header,
 main,
 footer,
 section {
   transition:
-    background-color 950ms ease,
-    color 950ms ease,
-    stroke 950ms ease,
-    border-color 950ms ease;
+    background-color 250ms ease,
+    color 250ms ease,
+    stroke 250ms ease,
+    border-color 250ms ease;
 }
 
 body.dark-theme {
@@ -215,30 +204,6 @@ body.dark-theme {
     color: $main-color;
   }
 
-  p:not(.hero *),
-  span:not(.hero *),
-  a {
-    color: $bg-color;
-  }
-
-  a:hover {
-    color: $active-color;
-  }
-
-  button:not(.hero *) {
-    background-color: $active-color;
-    color: $main-color;
-  }
-
-  button .icon__stroke
-  {
-    stroke: $active-color;
-
-    &:hover {
-      stroke: $water-color;
-    }
-  }
-
   section svg,
   section .icon__stroke {
     stroke: $water-color;
@@ -248,10 +213,21 @@ body.dark-theme {
     background-color: $text-color;
     border-bottom-color: $subtitle-color;
 
-    @media (max-width: 1325px) {
+    @media (max-width: 1326px) {
       .header__nav {
         background-color: $title-color;
         border-bottom-color: $subtitle-color;
+      }
+    }
+
+    &__brand-text {
+      color: $main-color;
+    }
+
+    &__nav-link:not(.active) {
+      color: $main-color;
+      &:hover {
+        color: $active-color;
       }
     }
 
@@ -317,5 +293,180 @@ body.dark-theme {
 
   .more__icon {
     stroke: $main-color;
+  }
+
+  .backdrop {
+    background-color: rgba($title-color, 0.85);
+  }
+
+  .easteregg {
+    background-color: $title-color;
+    color: $main-color;
+
+    transition:
+      background-color 250ms ease,
+      color 250ms ease;
+
+    &__button {
+      background-color: transparent;
+      outline: 1px solid $exit-color;
+    }
+
+    &__title,
+    &__missingno,
+    &__name,
+    &__subtitle,
+    &__desc,
+    &__forms,
+    &__type {
+      color: $main-color;
+    }
+
+    &__text {
+      background-color: rgba($question-color, 0.16);
+      &.easteregg__sub {
+        background-color: transparent;
+      }
+    }
+
+    &__item {
+      background-color: $title-color;
+      border-color: $exit-color;
+    }
+
+    &__info {
+      stroke: $active-color;
+    }
+
+    &__textcontent {
+      background-color: rgba($question-color, 0.16);
+    }
+
+    &__btn {
+      background-color: $active-color;
+      color: $main-color;
+
+      &:hover {
+        background-color: $title-color;
+        color: $active-color;
+        outline-color: $active-color;
+
+        .easteregg__icon {
+          stroke: $active-color;
+        }
+      }
+    }
+  }
+
+  .random {
+    background-color: $title-color;
+
+    &__title,
+    &__text,
+    &__subtitle,
+    &__stats {
+      color: $main-color;
+    }
+
+    &__btn {
+      background-color: transparent;
+      outline: 1px solid $exit-color;
+    }
+
+    .liked {
+      .random__icon {
+        fill: $like-color;
+        stroke: none;
+      }
+    }
+  }
+
+  .favorites {
+    background-color: $title-color;
+
+    &__input,
+    &__btn {
+      background-color: $text-color;
+      border-color: $subtitle-color;
+      color: $main-color;
+
+      &::placeholder {
+        color: $subtitle-color;
+      }
+
+      &:hover {
+        background-color: $title-color;
+        border-color: $active-color;
+      }
+    }
+
+    &__btn {
+      &:hover {
+        .icon {
+          stroke: $active-color;
+        }
+      }
+    }
+
+    &__article {
+      background-color: $title-color;
+    }
+
+    &__id {
+      color: $main-color;
+    }
+
+    &__heart {
+      stroke: none;
+    }
+
+     &__empty{
+      color: $main-color;
+     }
+
+    &__textcontent {
+      background-color: rgba($question-color, 0.16);
+      border-color: $subtitle-color;
+    }
+
+    &__info {
+      stroke: $active-color;
+    }
+
+    &__information {
+      color: $active-color;
+    }
+  }
+
+  .pokemon-details {
+    background: #1d2b42;
+
+    &__top,
+    &__section {
+      background: #243650;
+    }
+
+    &__identity h2,
+    &__section-heading h3,
+    &__section-heading strong,
+    &__stat-value,
+    &__traits strong,
+    &__evolution-name {
+      color: $main-color;
+    }
+
+    &__traits > div,
+    &__evolution {
+      background: #1d2b42;
+    }
+
+    &__evolution.is-current {
+      background: rgba($active-color, 0.18);
+    }
+
+    &.is-liked svg {
+      fill: $like-color;
+      stroke: none;
+    }
   }
 }

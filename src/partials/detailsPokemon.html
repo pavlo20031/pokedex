@@ -1,0 +1,18 @@
+<div class="pokemon-details-backdrop" data-details-backdrop aria-hidden="true" inert>
+  <section class="pokemon-details" role="dialog" aria-modal="true" aria-labelledby="pokemon-details-title">
+    <div class="pokemon-details__toolbar">
+      <button class="pokemon-details__back" type="button" data-details-close>
+        <span aria-hidden="true">←</span> До каталогу
+      </button>
+      <span class="pokemon-details__toolbar-id" data-details-toolbar-id></span>
+      <button class="pokemon-details__close" type="button" data-details-close aria-label="Закрити вікно">
+        <svg class="pokemon-details__close-icon" aria-hidden="true">
+          <use href="/img/symbol-defs.svg#x"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="pokemon-details__body" data-details-content aria-live="polite">
+      <p class="pokemon-details__loading">Обери покемона, щоб переглянути деталі.</p>
+    </div>
+  </section>
+</div>

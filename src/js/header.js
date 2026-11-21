@@ -44,3 +44,36 @@ if (burgerBtn && navMenu) {
     });
   });
 }
+
+export function initHeaderCounter() {
+  function updateCounter() {
+    try {
+      const rawData = localStorage.getItem('likedPokemons');
+      const savedIds = rawData ? JSON.parse(rawData) : [];
+      const count = Array.isArray(savedIds) ? savedIds.length : 0;
+
+      document.querySelectorAll('.header__nav-badge').forEach(span => {
+        span.textContent = count;
+      });
+    } catch (error) {
+      console.error('Error updating header counter:', error);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCounter, {
+      once: true,
+    });
+  } else {
+    updateCounter();
+  }
+
+  document.addEventListener('favorites:changed', updateCounter);
+  window.addEventListener('storage', event => {
+    if (event.key === 'likedPokemons') {
+      updateCounter();
+    }
+  });
+}
+
+initHeaderCounter();
