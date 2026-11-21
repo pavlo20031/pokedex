@@ -1,11 +1,10 @@
-import "./js/api"
 import "./js/hero";
 import "./js/api"
 import "./js/header"
 import './js/world';
+import './js/render';
 import "./js/easteregg";
 import "./js/randomPokemon"
-import "./js/render.js";
 import "./js/search";
-import "./js/favorites.js";
-import './js/detailsPokemon.js';
+import "./js/favorites";
+import './js/detailsPokemon';

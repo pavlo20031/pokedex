@@ -926,13 +926,13 @@ body.dark-theme .pokemon-details.is-liked svg {
   height: 38px;
   padding: 0 14px;
   border-radius: 8px;
-  border: 1px solid #E5EDF6;
+  outline: 1px solid #E5EDF6;
   background-color: #FFFFFF;
   color: #192A45;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 250ms ease, background-color 250ms ease, color 250ms ease;
+  transition: outline 250ms ease, background-color 250ms ease, color 250ms ease;
 }
 .dropdown-btn .icon {
   width: 15px;
@@ -940,11 +940,10 @@ body.dark-theme .pokemon-details.is-liked svg {
   fill: transparent;
   stroke: #60728D;
   stroke-width: 1.8px;
-  transition: transform 250ms ease, stroke 250ms ease;
+  transition: transform, 250ms ease, stroke 250ms ease;
 }
 .dropdown-btn:hover {
-  border-color: #287BFA;
-  margin-bottom: 12px;
+  outline: 1px solid #287BFA;
 }
 @media (min-width: 770px) {
   .dropdown-btn:hover {
@@ -1092,7 +1091,6 @@ body.dark-theme .pokemon-details.is-liked svg {
 }
 .type-badge--electric {
   background-color: #f4d23c;
-  color: #2b2b2b;
 }
 .type-badge--psychic {
   background-color: #fa7179;
@@ -1230,24 +1228,6 @@ button.type-badge.is-active {
 @media screen and (min-width: 1326px) {
   .pokemon-grid {
     gap: 20px;
-  }
-}
-
-.filters-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-@media screen and (min-width: 770px) {
-  .filters-wrapper {
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-@media screen and (min-width: 1326px) {
-  .filters-wrapper {
-    margin-bottom: 28px;
   }
 }
 
@@ -3077,7 +3057,7 @@ button.type-badge.is-active {
   z-index: 9;
   overflow-y: auto;
   overflow-x: hidden;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
