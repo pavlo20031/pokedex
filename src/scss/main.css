@@ -693,6 +693,7 @@ body.dark-theme .pokemon-details.is-liked svg {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 16px;
 }
 @media screen and (min-width: 770px) {
   .filters-wrapper {
@@ -1022,24 +1023,6 @@ button.type-badge.is-active {
 @media screen and (min-width: 1326px) {
   .pokemon-grid {
     gap: 20px;
-  }
-}
-
-.filters-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-@media screen and (min-width: 770px) {
-  .filters-wrapper {
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-@media screen and (min-width: 1326px) {
-  .filters-wrapper {
-    margin-bottom: 28px;
   }
 }
 

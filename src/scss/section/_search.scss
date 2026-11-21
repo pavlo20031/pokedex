@@ -140,6 +140,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 16px;
 
   @media screen and (min-width: 770px) {
     flex-direction: column;
@@ -452,21 +453,6 @@ button.type-badge {
   }
 }
 
-.filters-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-
-    @media screen and (min-width: 770px) {
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    @media screen and (min-width: 1326px) {
-      margin-bottom: 28px;
-    }
-  }
 
 .pokemon-card {
   display: flex;
