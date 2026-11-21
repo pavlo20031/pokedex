@@ -1,16 +1,195 @@
 @use '../base/var' as *;
 
 .search-section {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+
+  @media screen and (min-width: 770px) {
+    padding-top: 32px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Строка поиска и кнопка "Случайный покемон" */
+.search-bar-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  margin-bottom: 16px;
 
-  .search-bar-wrapper {
-    display: flex;
-    flex-direction: column;
+  @media screen and (min-width: 770px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.search-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  stroke: $subtitle-color;
+  fill: transparent;
+  stroke-width: 1.8px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 48px;
+  padding: 12px 40px 12px 44px;
+  border-radius: 8px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+  color: $text-color;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+
+  &::placeholder {
+    color: $subtitle-color;
+  }
+
+  &:focus {
+    border-color: $active-color;
+    box-shadow: 0 0 0 3px rgba($active-color, 0.12);
+  }
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: $subtitle-color;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 250ms ease;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+/* Общие кнопки (Случайный покемон, Показать ещё, Сбросить) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 1.8px;
+  }
+}
+
+.btn-random,
+.btn-reset {
+  background-color: $active-color;
+  color: $main-color;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $main-color;
+    color: $active-color;
+    border-color: $active-color;
+  }
+}
+
+.btn-more {
+  display: flex;
+  margin: 32px auto 0;
+  background-color: $main-color;
+  color: $text-color;
+  border-color: $results-color;
+
+  &:hover {
+    border-color: $active-color;
+    color: $active-color;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+/* Строка фильтров и счётчик результатов */
+.filters-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 770px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.filters-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  @media screen and (min-width: 770px) {
     gap: 12px;
+  }
+}
+
+.dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+  color: $text-color;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 250ms ease, background-color 250ms ease, color 250ms ease;
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    fill: transparent;
+    stroke: $exit-color;
+    stroke-width: 1.8px;
+    transition: transform 250ms ease, stroke 250ms ease;
+  }
+
+  &:hover {
+    border-color: $active-color;
     margin-bottom: 12px;
 
     @media (min-width: 770px) {
@@ -19,40 +198,63 @@
     }
   }
 
-  .search-input-box {
-    position: relative;
-    flex-grow: 1;
+  &.is-active {
+    background-color: rgba($active-color, 0.08);
+    border-color: $active-color;
+    color: $active-color;
 
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
+    .icon {
+      stroke: $active-color;
     }
+  }
 
-    .search-input {
-      width: 100%;
-      padding: 14px 16px 14px 48px;
-      border: 1px solid $subtitle-color;
-      border-radius: 12px;
-      background-color: $main-color;
-      color: $text-color;
-      font-size: 16px;
-      outline: none;
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.3s ease;
+  &.is-open:not(.sort-btn) .icon {
+    transform: rotate(180deg);
+  }
+}
 
-      &::placeholder {
-        color: $subtitle-color;
-      }
+.search-results-count {
+  color: $subtitle-color;
+  font-size: 13px;
+  font-weight: 400;
+}
 
-      &:focus {
-        border-color: $active-color;
-        box-shadow: 0 0 0 3px rgba($active-color, 0.15);
-      }
+/* Выпадающая панель типов и поколений */
+.filter-panel {
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+  box-shadow: 0 8px 24px rgba(20, 34, 57, 0.06);
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__reset {
+    border: none;
+    background: transparent;
+    color: $active-color;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
   .search__div{
@@ -66,47 +268,173 @@
     }
   }
 
-  .btn-random {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  &__types {
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $results-color;
+  }
+
+  &__gens {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__label {
+    color: $subtitle-color;
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 4px;
+  }
+}
+
+.gen-chip {
+  min-width: 34px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+  color: $text-color;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &:hover {
+    border-color: $active-color;
+    color: $active-color;
+  }
+
+  &.is-active {
     background-color: $active-color;
+    border-color: $active-color;
     color: $main-color;
-    border: 1px solid transparent;
-    border-radius: 12px;
-    padding: 14px 20px;
-    font-weight: 600;
-    font-size: 15px;
+  }
+}
+
+/* Бейджи типов покемонов (в панели и в карточках) */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+
+  &--grass { background-color: #63bc5a; }
+  &--poison { background-color: #b567ce; }
+  &--fire { background-color: #ff9d55; }
+  &--water { background-color: #5090d6; }
+  &--bug { background-color: #91c12f; }
+  &--electric { background-color: #f4d23c; color: #2b2b2b; }
+  &--psychic { background-color: #fa7179; }
+  &--normal { background-color: #919aa2; }
+  &--ghost { background-color: #5269ad; }
+  &--flying { background-color: #89aae3; }
+  &--ice { background-color: #73cec0; }
+  &--ground { background-color: #d97845; }
+  &--fighting { background-color: #ce416b; }
+  &--rock { background-color: #c5b78c; }
+  &--dragon { background-color: #0b6dc3; }
+  &--dark { background-color: #5a5465; }
+  &--steel { background-color: #5a8ea2; }
+  &--fairy { background-color: #ec8fe6; }
+}
+
+button.type-badge {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+
+  &.is-active {
+    border-color: $text-color;
+    box-shadow: 0 0 0 2px $main-color, 0 0 0 4px $active-color;
+  }
+}
+
+/* Строка выбранных активных фильтров */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__reset {
+    border: none;
+    background: transparent;
+    color: $active-color;
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    white-space: nowrap;
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      border-color 0.2s ease,
-      transform 0.1s ease;
+    padding: 4px 6px;
 
-    .icon__stroke {
-      stroke: $main-color;
-      transition: stroke 0.2s ease;
-    }
-
-    &:hover,
-    &:focus {
-      background-color: $main-color;
-      color: $active-color;
-      border-color: $active-color;
-
-      .icon__stroke {
-        stroke: $active-color;
-      }
-    }
-
-    &:active {
-      transform: scale(0.98);
+    &:hover {
+      text-decoration: underline;
     }
   }
 
+  &__count {
+    color: $subtitle-color;
+    font-size: 13px;
+  }
+}
+
+.active-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: rgba($active-color, 0.1);
+  color: $active-color;
+  font-size: 12px;
+  font-weight: 600;
+
+  button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* Сетка карточек покемонов */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &[hidden] {
+    display: none;
   .filters-wrapper {
     display: flex;
     flex-direction: column;
@@ -124,126 +452,184 @@
     }
   }
 
-  .filters-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+  @media screen and (min-width: 770px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
-  .dropdown-btn {
-    display: inline-flex;
+  @media screen and (min-width: 1326px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+  cursor: pointer;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($active-color, 0.4);
+    box-shadow: 0 12px 24px rgba(20, 34, 57, 0.08);
+  }
+
+  &__top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    background-color: $main-color;
-    border: 1px solid $subtitle-color;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 14px;
-    color: $text-color;
-    cursor: pointer;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
-
-    &:hover,
-    &:focus {
-      background-color: rgba($subtitle-color, 0.16);
-      border-color: $text-color;
-    }
+    margin-bottom: 8px;
   }
 
-  .search-results-count {
-    font-size: 14px;
+  &__num {
     color: $subtitle-color;
-    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
   }
 
-  .search-icon {
-    width: 20px;
-    height: 20px;
-    stroke: $subtitle-color;
-  }
+  &__fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: $subtitle-color;
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
 
-  .btn-random {
     .icon {
       width: 18px;
       height: 18px;
+      fill: transparent;
+      stroke: currentColor;
+      stroke-width: 1.8px;
+    }
+
+    &:hover {
+      background-color: $bg-button;
+      color: #fa7179;
+    }
+
+    &.is-active {
+      color: #fa7179;
+
+      .icon {
+        fill: #fa7179;
+      }
     }
   }
 
-  .dropdown-btn {
-    > .icon {
-      width: 16px;
-      height: 16px;
-      stroke: $subtitle-color;
+  &__img {
+    width: 140px;
+    height: 140px;
+    margin: 4px auto 16px;
+    object-fit: contain;
+    transition: transform 250ms ease;
+
+    .pokemon-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__name {
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  &__types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0;
+
+    .type-badge {
+      padding: 3px 10px;
+      font-size: 11px;
     }
   }
 }
 
-body.dark-theme {
-  .search-section {
-    .search-icon {
-      stroke: $subtitle-color;
+/* Пустое состояние ("Ничего не найдено") */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 20px;
+  border-radius: 16px;
+  border: 1px solid $results-color;
+  background-color: $main-color;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__img-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 250ms ease;
+
+    &:hover {
+      transform: scale(1.06);
     }
+  }
 
-    .search-input {
-      background-color: $title-color;
-      border-color: $subtitle-color;
-      color: $main-color;
+  &__img {
+    width: 112px;
+    height: 112px;
+    object-fit: contain;
+  }
 
-      &::placeholder {
-        color: $subtitle-color;
-      }
+  &__title {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
 
-      &:focus {
-        border-color: $active-color;
-      }
-    }
+  &__text {
+    max-width: 380px;
+    color: $exit-color;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
 
-    .btn-random {
-      background-color: $active-color;
-      color: $main-color;
-      border-color: transparent;
+  &__back {
+    margin-top: 14px;
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    color: $subtitle-color;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 250ms ease;
 
-      .icon__stroke {
-        stroke: $main-color;
-      }
-
-      &:hover,
-      &:focus {
-        background-color: $title-color;
-        color: $main-color;
-        border-color: $active-color;
-
-        .icon__stroke {
-          stroke: $main-color;
-        }
-      }
-    }
-
-    .dropdown-btn {
-      background-color: $title-color;
-      border-color: $subtitle-color;
-      color: $main-color;
-
-      .icon__stroke {
-        stroke: $subtitle-color;
-      }
-
-      &:hover,
-      &:focus {
-        background-color: rgba($subtitle-color, 0.22);
-        border-color: $main-color;
-
-        .icon__stroke {
-          stroke: $subtitle-color;
-        }
-      }
-    }
-
-    .search-results-count {
-      color: $subtitle-color;
+    &:hover {
+      color: $active-color;
+      text-decoration: underline;
     }
   }
 }
