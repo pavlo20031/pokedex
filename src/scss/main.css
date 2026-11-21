@@ -701,7 +701,7 @@ body.dark-theme .pokemon-details.is-liked svg {
 }
 @media screen and (min-width: 770px) {
   .filters-wrapper {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
@@ -996,9 +996,9 @@ button.type-badge.is-active {
 
 /* Сетка карточек покемонов */
 .pokemon-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1008,13 +1008,12 @@ button.type-badge.is-active {
 }
 .pokemon-grid[hidden] .filters-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 24px;
 }
 @media (min-width: 770px) {
   .pokemon-grid[hidden] .filters-wrapper {
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
@@ -1026,24 +1025,23 @@ button.type-badge.is-active {
 }
 @media screen and (min-width: 770px) {
   .pokemon-grid[hidden] {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
 }
 @media screen and (min-width: 1326px) {
   .pokemon-grid[hidden] {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
 }
 .pokemon-grid .pokemon-card {
   display: flex;
   flex-direction: column;
+  width: 169px;
+  flex-basis: calc((100% - 12px) / 2);
   padding: 16px;
   border-radius: 16px;
   border: 1px solid #E5EDF6;
   background-color: #FFFFFF;
-  cursor: pointer;
   transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 .pokemon-grid .pokemon-card:hover {
@@ -1094,8 +1092,8 @@ button.type-badge.is-active {
   fill: #fa7179;
 }
 .pokemon-grid .pokemon-card__img {
-  width: 140px;
-  height: 140px;
+  width: 119px;
+  height: 119px;
   margin: 4px auto 16px;
   -o-object-fit: contain;
      object-fit: contain;
@@ -1122,6 +1120,18 @@ button.type-badge.is-active {
 .pokemon-grid .pokemon-card__types .type-badge {
   padding: 3px 10px;
   font-size: 11px;
+}
+@media screen and (min-width: 770px) {
+  .pokemon-grid .pokemon-card {
+    width: 246px;
+    flex-basis: calc((100% - 32px) / 3);
+  }
+}
+@media screen and (min-width: 1326px) {
+  .pokemon-grid .pokemon-card {
+    width: 243px;
+    flex-basis: calc((100% - 80px) / 5);
+  }
 }
 .pokemon-grid {
   /* Пустое состояние ("Ничего не найдено") */
