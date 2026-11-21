@@ -84,7 +84,7 @@ export function initPokemonApp(
   const section = document.querySelector('.search-section') || document.body;
   const input = section.querySelector(searchInputSelector);
   const inputBox = section.querySelector('.search-input-box');
-  const filtersWrapper = section.querySelector('.filters-wrapper');
+  const filtersWrapper = section.querySelector('.filters-wrappers');
   const typeBtn = section.querySelector('[data-action="filter-type"]');
   const genBtn = section.querySelector('[data-action="filter-generation"]');
   const sortBtn = section.querySelector('[data-action="sort-number"]');
@@ -279,7 +279,7 @@ export function initPokemonApp(
 
     const remaining = list.length - visible.length;
     moreBtn.hidden = remaining <= 0;
-    moreBtn.textContent = `Показати ще (${remaining})`;
+    moreBtn.textContent = `Загрузити покемонів (${remaining})`;
 
     if (countEl) {
       countEl.textContent = hasFilters

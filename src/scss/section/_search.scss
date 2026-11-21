@@ -124,19 +124,14 @@
 }
 
 .btn-more {
-  display: flex;
-  margin: 32px auto 0;
-  background-color: $main-color;
-  color: $text-color;
-  border-color: $results-color;
+  background-color: $active-color;
+  color: $main-color;
+  white-space: nowrap;
 
   &:hover {
-    border-color: $active-color;
+    background-color: $main-color;
     color: $active-color;
-  }
-
-  &[hidden] {
-    display: none;
+    border-color: $active-color;
   }
 }
 
@@ -424,7 +419,21 @@ button.type-badge {
   }
 }
 
+.filters-wrappers {
+  display: flex;
+  gap:12px;
+  flex-direction: column;
+  margin-bottom:24px;
+  @media screen and (min-width:1326px) {
+    flex-direction: row;
+    gap:0;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 /* Сетка карточек покемонов */
+
 .pokemon-grid {
   display: flex;
   flex-wrap: wrap;
@@ -435,20 +444,6 @@ button.type-badge {
 
   &[hidden] {
     display: none;
-  .filters-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-
-    @media (min-width: 770px) {
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    @media (min-width: 1326px) {
-      margin-bottom: 28px;
-    }
   }
 
   @media screen and (min-width: 770px) {
@@ -459,6 +454,22 @@ button.type-badge {
     gap: 20px;
   }
 }
+
+.filters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 770px) {
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media screen and (min-width: 1326px) {
+      margin-bottom: 28px;
+    }
+  }
 
 .pokemon-card {
   display: flex;
@@ -640,5 +651,4 @@ button.type-badge {
       text-decoration: underline;
     }
   }
-}
 }
