@@ -166,13 +166,13 @@
   height: 38px;
   padding: 0 14px;
   border-radius: 8px;
-  border: 1px solid $results-color;
+  outline: 1px solid $results-color;
   background-color: $main-color;
   color: $text-color;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 250ms ease, background-color 250ms ease, color 250ms ease;
+  transition: outline 250ms ease, background-color 250ms ease, color 250ms ease;
 
   .icon {
     width: 15px;
@@ -180,13 +180,11 @@
     fill: transparent;
     stroke: $exit-color;
     stroke-width: 1.8px;
-    transition: transform 250ms ease, stroke 250ms ease;
+    transition: transform, 250ms ease, stroke 250ms ease;
   }
 
   &:hover {
-    border-color: $active-color;
-    margin-bottom: 12px;
-
+    outline: 1px solid $active-color;
     @media (min-width: 770px) {
       flex-direction: row;
       align-items: center;
@@ -332,7 +330,7 @@
   &--fire { background-color: #ff9d55; }
   &--water { background-color: #5090d6; }
   &--bug { background-color: #91c12f; }
-  &--electric { background-color: #f4d23c; color: #2b2b2b; }
+  &--electric { background-color: #f4d23c;}
   &--psychic { background-color: #fa7179; }
   &--normal { background-color: #919aa2; }
   &--ghost { background-color: #5269ad; }
