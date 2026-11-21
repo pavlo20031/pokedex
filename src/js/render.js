@@ -155,14 +155,41 @@ export function initPokemonApp(
     empty = document.createElement('div');
     empty.className = 'empty-state';
     empty.hidden = true;
-    empty.innerHTML = `
-      <button class="empty-state__img-btn" type="button" data-action="reset-all" aria-label="Повернутися до каталогу">
-        <img class="empty-state__img" src="/img/search-pokemon.png" alt="Нічого не знайдено" width="120" height="120" />
-      </button>
-      <h3 class="empty-state__title">Нічого не знайдено</h3>
-      <p class="empty-state__text"></p>
-      <button class="btn btn-reset" type="button" data-action="reset-all">Скинути всі фільтри</button>
-      <button class="empty-state__back" type="button" data-action="reset-all">Повернутися до каталогу</button>`;
+empty.innerHTML = `
+  <button
+    class="empty-state__img-btn"
+    type="button"
+    aria-label="Відкрити модалку"
+  >
+    <img
+      class="empty-state__img"
+      src="/img/search-pokemon.png"
+      alt="Нічого не знайдено"
+      width="120"
+      height="120"
+    />
+  </button>
+
+  <h3 class="empty-state__title">Нічого не знайдено</h3>
+
+  <p class="empty-state__text"></p>
+
+  <button
+    class="btn btn-reset"
+    type="button"
+    data-action="reset-all"
+  >
+    Скинути всі фільтри
+  </button>
+
+  <button
+    class="empty-state__back"
+    type="button"
+    data-action="reset-all"
+  >
+    Повернутися до каталогу
+  </button>
+`;
   }
 
   // Кнопка пагінації — обов'язково додаємо класи .btn та .btn-more
