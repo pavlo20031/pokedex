@@ -1,6 +1,5 @@
 const btnRef = document.querySelector('.easteregg__button');
 const buttonRef = document.querySelector('.easteregg__btn');
-const openRef = document.querySelector('.empty-state__img-btn');
 const backdropRef = document.querySelector('.backdrop');
 
 if (btnRef && buttonRef && backdropRef) {
