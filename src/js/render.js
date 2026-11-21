@@ -1,5 +1,5 @@
 import { getAllLight } from './api.js';
-
+import spriteUrl from '../img/symbol-defs.svg';
 const PAGE_SIZE = 10;
 const TOTAL = 1025;
 const MAX_TYPES = 2;
@@ -67,7 +67,7 @@ export function cardHTML(p, likedIds = []) {
       <div class="pokemon-card__top">
         <span class="pokemon-card__num">#${num}</span>
         <button class="pokemon-card__fav ${isLiked ? 'is-active' : ''}" type="button" aria-label="Додати в улюблені">
-          <svg class="icon icon__stroke"><use href="/img/symbol-defs.svg#heart"></use></svg>
+          <svg class="icon icon__stroke"><use href="${spriteUrl}#heart"></use></svg>
         </button>
       </div>
       <img class="pokemon-card__img" src="${img}" alt="${formatName(p.name)}" loading="lazy" width="475" height="475" />
