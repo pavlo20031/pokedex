@@ -3,16 +3,11 @@ const buttonRef = document.querySelector('.easteregg__btn');
 const openRef = document.querySelector('.empty-state__img-btn');
 const backdropRef = document.querySelector('.backdrop');
 
-if (btnRef && buttonRef && openRef && backdropRef) {
-  const openModal = () => {
-    backdropRef.style.display = 'block';
-  };
-
+if (btnRef && buttonRef && backdropRef) {
   const closeModal = () => {
     backdropRef.style.display = 'none';
   };
 
-  openRef.addEventListener('click', openModal);
   btnRef.addEventListener('click', closeModal);
   buttonRef.addEventListener('click', closeModal);
 
