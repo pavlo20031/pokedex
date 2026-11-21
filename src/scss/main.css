@@ -898,7 +898,6 @@ body.dark-theme .pokemon-details.is-liked svg {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 16px;
 }
 @media screen and (min-width: 770px) {
   .filters-wrapper {
