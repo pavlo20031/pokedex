@@ -148,7 +148,7 @@
   margin-bottom: 16px;
 
   @media screen and (min-width: 770px) {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
@@ -426,9 +426,9 @@ button.type-badge {
 
 /* Сетка карточек покемонов */
 .pokemon-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -437,12 +437,11 @@ button.type-badge {
     display: none;
   .filters-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 24px;
 
     @media (min-width: 770px) {
-      flex-direction: row;
       align-items: center;
       justify-content: space-between;
     }
@@ -453,24 +452,23 @@ button.type-badge {
   }
 
   @media screen and (min-width: 770px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
 
   @media screen and (min-width: 1326px) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
 }
 
 .pokemon-card {
   display: flex;
   flex-direction: column;
+  width:169px;
+  flex-basis: calc((100% - 12px) / 2);
   padding: 16px;
   border-radius: 16px;
   border: 1px solid $results-color;
   background-color: $main-color;
-  cursor: pointer;
   transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 
   &:hover {
@@ -529,8 +527,8 @@ button.type-badge {
   }
 
   &__img {
-    width: 140px;
-    height: 140px;
+    width: 119px;
+    height: 119px;
     margin: 4px auto 16px;
     object-fit: contain;
     transition: transform 250ms ease;
@@ -561,6 +559,15 @@ button.type-badge {
       padding: 3px 10px;
       font-size: 11px;
     }
+  }
+  @media screen and (min-width:770px) {
+    width:246px;
+    flex-basis: calc((100% - 16px * 2) / 3);
+  }
+  
+  @media screen and (min-width:1326px) {
+    width:243px;
+    flex-basis: calc((100% - 20px * 4) / 5);
   }
 }
 
