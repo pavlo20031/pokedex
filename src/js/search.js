@@ -372,6 +372,7 @@ section.addEventListener('click', e => {
     state.gen = 0;
     return applyChange();
   }
+  
 
   // Клік по сердечку — додаємо або видаляємо з likedPokemons
   const favBtn = target.closest('.pokemon-card__fav');
