@@ -1,5 +1,6 @@
 import { getAllLight } from './api.js';
 import spriteUrl from '../img/symbol-defs.svg';
+import searchImg from "../img/search-pokemon.png"
 const PAGE_SIZE = 10;
 const TOTAL = 1025;
 const MAX_TYPES = 2;
@@ -163,7 +164,7 @@ empty.innerHTML = `
   >
     <img
       class="empty-state__img"
-      src="/img/search-pokemon.png"
+      src="${searchImg}"
       alt="Нічого не знайдено"
       width="120"
       height="120"

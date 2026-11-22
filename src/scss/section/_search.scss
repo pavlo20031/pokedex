@@ -589,11 +589,6 @@ button.type-badge {
     border: none;
     background: transparent;
     cursor: pointer;
-    transition: transform 250ms ease;
-
-    &:hover {
-      transform: scale(1.06);
-    }
   }
 
   &__img {
