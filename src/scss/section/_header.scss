@@ -204,11 +204,6 @@ body.dark-theme {
     color: $main-color;
   }
 
-  section svg,
-  section .icon__stroke {
-    stroke: $water-color;
-  }
-
   .header {
     background-color: $text-color;
     border-bottom-color: $subtitle-color;
@@ -259,6 +254,157 @@ body.dark-theme {
 
     a:hover {
       color: $active-color;
+    }
+  }
+
+  .search-section {
+    background-color: $title-color;
+
+    .search-input {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      &::placeholder {
+        color: $subtitle-color;
+      }
+
+      &:focus {
+        border-color: $main-color;
+        box-shadow: 0 0 0 3px rgba($main-color, 0.15);
+      }
+    }
+
+    .search-icon,
+    .search-clear {
+      color: $subtitle-color;
+      stroke: $subtitle-color;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+
+    .btn-random {
+      background-color: $active-color;
+      color: $main-color;
+      border-color: transparent;
+
+      .icon {
+        stroke: $main-color;
+      }
+
+      &:hover {
+        background-color: $title-color;
+        color: $main-color;
+        border-color: $main-color;
+
+        .icon {
+          stroke: $main-color;
+        }
+      }
+    }
+
+    .dropdown-btn {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      .icon {
+        stroke: $main-color;
+      }
+
+      &:hover {
+        border-color: $main-color;
+      }
+
+      &.is-active {
+        background-color: rgba($active-color, 0.2);
+        border-color: $main-color;
+        color: $main-color;
+
+        .icon {
+          stroke: $main-color;
+        }
+      }
+    }
+
+    .filter-panel {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+
+      &__title {
+        color: $main-color;
+      }
+
+      &__types {
+        border-bottom-color: rgba($main-color, 0.2);
+      }
+    }
+
+    .gen-chip {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      &:hover {
+        border-color: $main-color;
+        color: $main-color;
+      }
+
+      &.is-active {
+        background-color: $active-color;
+        border-color: $main-color;
+        color: $main-color;
+      }
+    }
+
+    .pokemon-card {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+
+      &:hover {
+        border-color: $main-color;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+      }
+
+      &__num {
+        color: $subtitle-color;
+      }
+
+      &__fav {
+        color: $main-color;
+
+        &:hover {
+          background-color: rgba($main-color, 0.1);
+          color: $heart-color;
+        }
+
+        &.is-active {
+          color: $heart-color;
+
+          .icon {
+            fill: $heart-color;
+          }
+        }
+      }
+
+      &__name {
+        color: $main-color;
+      }
+    }
+
+    .empty-state {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+
+      &__title {
+        color: $main-color;
+      }
+
+      &__text {
+        color: $subtitle-color;
+      }
     }
   }
 
@@ -384,58 +530,163 @@ body.dark-theme {
   .favorites {
     background-color: $title-color;
 
-    &__input,
-    &__btn {
+    &__title {
+      color: $main-color;
+    }
+
+    &__span {
+      background-color: rgba($active-color, 0.2);
+      color: $main-color;
+    }
+
+    &__description {
+      color: $subtitle-color;
+    }
+
+    &__input {
       background-color: $text-color;
-      border-color: $subtitle-color;
+      border-color: rgba($main-color, 0.25);
       color: $main-color;
 
       &::placeholder {
         color: $subtitle-color;
       }
 
-      &:hover {
-        background-color: $title-color;
-        border-color: $active-color;
+      &:focus {
+        border-color: $main-color;
       }
     }
 
     &__btn {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      .icon {
+        stroke: $main-color;
+      }
+
       &:hover {
-        .icon {
-          stroke: $active-color;
-        }
+        border-color: $main-color;
+        background-color: rgba($main-color, 0.08);
       }
     }
 
     &__article {
-      background-color: $title-color;
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+
+      &:hover {
+        border-color: $main-color;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      }
     }
 
     &__id {
+      color: $subtitle-color;
+    }
+
+    &__button {
+      &:hover {
+        background-color: rgba($main-color, 0.1);
+      }
+    }
+
+    &__name {
       color: $main-color;
     }
 
-    &__heart {
-      stroke: none;
+    &__empty {
+      color: $subtitle-color;
     }
-
-     &__empty{
-      color: $main-color;
-     }
 
     &__textcontent {
-      background-color: rgba($question-color, 0.16);
-      border-color: $subtitle-color;
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
     }
 
-    &__info {
-      stroke: $active-color;
+    .favorites {
+    background-color: $title-color;
+
+    &__title {
+      color: $main-color;
+    }
+
+    &__span {
+      background-color: rgba($active-color, 0.2);
+      color: $main-color;
+    }
+
+    &__description {
+      color: $subtitle-color;
+    }
+
+    &__input {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      &::placeholder {
+        color: $subtitle-color;
+      }
+
+      &:focus {
+        border-color: $main-color;
+      }
+    }
+
+    &__btn {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+      color: $main-color;
+
+      .icon {
+        stroke: $main-color;
+      }
+
+      &:hover {
+        border-color: $main-color;
+        background-color: rgba($main-color, 0.08);
+      }
+    }
+
+    &__article {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
+
+      &:hover {
+        border-color: $main-color;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    &__id {
+      color: $subtitle-color;
+    }
+
+    &__button {
+      &:hover {
+        background-color: rgba($main-color, 0.1);
+      }
+    }
+
+    &__name {
+      color: $main-color;
+    }
+
+    &__empty {
+      color: $subtitle-color;
+    }
+
+    &__textcontent {
+      background-color: $text-color;
+      border-color: rgba($main-color, 0.25);
     }
 
     &__information {
-      color: $active-color;
+      color: $main-color;
     }
+  }
   }
 
   .pokemon-details {

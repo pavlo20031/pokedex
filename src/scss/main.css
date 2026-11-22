@@ -269,10 +269,6 @@ body.dark-theme h5:not(.hero *),
 body.dark-theme h6:not(.hero *) {
   color: #FFFFFF;
 }
-body.dark-theme section svg,
-body.dark-theme section .icon__stroke {
-  stroke: #58ACF6;
-}
 body.dark-theme .header {
   background-color: #192A45;
   border-bottom-color: #8391A7;
@@ -313,6 +309,129 @@ body.dark-theme .footer a {
 }
 body.dark-theme .footer a:hover {
   color: #287BFA;
+}
+body.dark-theme .search-section {
+  background-color: #111827;
+}
+body.dark-theme .search-section .search-input {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .search-input::-moz-placeholder {
+  color: #8391A7;
+}
+body.dark-theme .search-section .search-input::placeholder {
+  color: #8391A7;
+}
+body.dark-theme .search-section .search-input:focus {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+body.dark-theme .search-section .search-icon,
+body.dark-theme .search-section .search-clear {
+  color: #8391A7;
+  stroke: #8391A7;
+}
+body.dark-theme .search-section .search-icon:hover,
+body.dark-theme .search-section .search-clear:hover {
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .btn-random {
+  background-color: #287BFA;
+  color: #FFFFFF;
+  border-color: transparent;
+}
+body.dark-theme .search-section .btn-random .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .btn-random:hover {
+  background-color: #111827;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+body.dark-theme .search-section .btn-random:hover .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn:hover {
+  border-color: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn.is-active {
+  background-color: rgba(40, 123, 250, 0.2);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .dropdown-btn.is-active .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .search-section .filter-panel {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .search-section .filter-panel__title {
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .filter-panel__types {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+body.dark-theme .search-section .gen-chip {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .gen-chip:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .gen-chip.is-active {
+  background-color: #287BFA;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .pokemon-card {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .search-section .pokemon-card:hover {
+  border-color: #FFFFFF;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+}
+body.dark-theme .search-section .pokemon-card__num {
+  color: #8391A7;
+}
+body.dark-theme .search-section .pokemon-card__fav {
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .pokemon-card__fav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FF6B7A;
+}
+body.dark-theme .search-section .pokemon-card__fav.is-active {
+  color: #FF6B7A;
+}
+body.dark-theme .search-section .pokemon-card__fav.is-active .icon {
+  fill: #FF6B7A;
+}
+body.dark-theme .search-section .pokemon-card__name {
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .empty-state {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .search-section .empty-state__title {
+  color: #FFFFFF;
+}
+body.dark-theme .search-section .empty-state__text {
+  color: #8391A7;
 }
 body.dark-theme .world__box,
 body.dark-theme .team__item,
@@ -398,45 +517,131 @@ body.dark-theme .random .liked .random__icon {
 body.dark-theme .favorites {
   background-color: #111827;
 }
-body.dark-theme .favorites__input, body.dark-theme .favorites__btn {
-  background-color: #192A45;
-  border-color: #8391A7;
+body.dark-theme .favorites__title {
   color: #FFFFFF;
 }
-body.dark-theme .favorites__input::-moz-placeholder, body.dark-theme .favorites__btn::-moz-placeholder {
+body.dark-theme .favorites__span {
+  background-color: rgba(40, 123, 250, 0.2);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites__description {
   color: #8391A7;
 }
-body.dark-theme .favorites__input::placeholder, body.dark-theme .favorites__btn::placeholder {
+body.dark-theme .favorites__input {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites__input::-moz-placeholder {
   color: #8391A7;
 }
-body.dark-theme .favorites__input:hover, body.dark-theme .favorites__btn:hover {
-  background-color: #111827;
-  border-color: #287BFA;
+body.dark-theme .favorites__input::placeholder {
+  color: #8391A7;
 }
-body.dark-theme .favorites__btn:hover .icon {
-  stroke: #287BFA;
+body.dark-theme .favorites__input:focus {
+  border-color: #FFFFFF;
+}
+body.dark-theme .favorites__btn {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites__btn .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .favorites__btn:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 body.dark-theme .favorites__article {
-  background-color: #111827;
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .favorites__article:hover {
+  border-color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 body.dark-theme .favorites__id {
-  color: #FFFFFF;
+  color: #8391A7;
 }
-body.dark-theme .favorites__heart {
-  stroke: none;
+body.dark-theme .favorites__button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-theme .favorites__name {
+  color: #FFFFFF;
 }
 body.dark-theme .favorites__empty {
-  color: #FFFFFF;
+  color: #8391A7;
 }
 body.dark-theme .favorites__textcontent {
-  background-color: rgba(238, 245, 255, 0.16);
-  border-color: #8391A7;
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
 }
-body.dark-theme .favorites__info {
-  stroke: #287BFA;
+body.dark-theme .favorites .favorites {
+  background-color: #111827;
 }
-body.dark-theme .favorites__information {
-  color: #287BFA;
+body.dark-theme .favorites .favorites__title {
+  color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__span {
+  background-color: rgba(40, 123, 250, 0.2);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__description {
+  color: #8391A7;
+}
+body.dark-theme .favorites .favorites__input {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__input::-moz-placeholder {
+  color: #8391A7;
+}
+body.dark-theme .favorites .favorites__input::placeholder {
+  color: #8391A7;
+}
+body.dark-theme .favorites .favorites__input:focus {
+  border-color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__btn {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__btn .icon {
+  stroke: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__btn:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+body.dark-theme .favorites .favorites__article {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .favorites .favorites__article:hover {
+  border-color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+body.dark-theme .favorites .favorites__id {
+  color: #8391A7;
+}
+body.dark-theme .favorites .favorites__button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-theme .favorites .favorites__name {
+  color: #FFFFFF;
+}
+body.dark-theme .favorites .favorites__empty {
+  color: #8391A7;
+}
+body.dark-theme .favorites .favorites__textcontent {
+  background-color: #192A45;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+body.dark-theme .favorites .favorites__information {
+  color: #FFFFFF;
 }
 body.dark-theme .pokemon-details {
   background: #1d2b42;
