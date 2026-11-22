@@ -1355,10 +1355,6 @@ button.type-badge.is-active {
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: transform 250ms ease;
-}
-.empty-state__img-btn:hover {
-  transform: scale(1.06);
 }
 .empty-state__img {
   width: 112px;
