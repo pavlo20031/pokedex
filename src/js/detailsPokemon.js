@@ -1,6 +1,7 @@
 import { get } from './api.js';
 import spriteUrl from '../img/symbol-defs.svg';
 
+const POKEAPI_BASE_URL = 'https://pokeapi.co/api/v2';
 const backdrop = document.querySelector('[data-details-backdrop]');
 const content = backdrop?.querySelector('[data-details-content]');
 const toolbarId = backdrop?.querySelector('[data-details-toolbar-id]');
@@ -166,14 +167,18 @@ function renderStats(pokemon) {
 }
 
 function renderEvolution(pokemon) {
-  const evolutions = Array.isArray(pokemon.evodata) ? pokemon.evodata : [];
-  const names = Array.isArray(pokemon.chain) ? pokemon.chain : [];
+  const evolutions = Array.isArray(pokemon.evolutionPath)
+    ? pokemon.evolutionPath
+    : [];
 
   if (!evolutions.length) {
     return `
       <section class="pokemon-details__section pokemon-details__evolution-section">
         <h3>Еволюційний ланцюг</h3>
-        <p class="pokemon-details__no-evolution">Інформація про еволюцію відсутня.</p>
+
+        <p class="pokemon-details__no-evolution">
+          Інформація про еволюцію відсутня.
+        </p>
       </section>
     `;
   }
@@ -185,8 +190,10 @@ function renderEvolution(pokemon) {
         ${evolutions
           .map((evolution, index) => {
             const id = Number(evolution.id);
-            const name = names[index] || `Pokémon ${id}`;
+            const name = evolution.name;
             const isCurrent = id === Number(pokemon.id);
+            const nextEvolution = evolutions[index + 1];
+
             return `
             <button
               class="pokemon-details__evolution ${isCurrent ? 'is-current' : ''}"
@@ -196,18 +203,282 @@ function renderEvolution(pokemon) {
               aria-label="Відкрити ${escapeHtml(name)}"
             >
               <span class="pokemon-details__evolution-image">
-                <img src="${escapeHtml(evolution.img)}" alt="${escapeHtml(name)}" loading="lazy">
+                <img
+                  src="${escapeHtml(evolution.img)}"
+                  alt="${escapeHtml(name)}"
+                  loading="lazy"
+                >
               </span>
-              <span class="pokemon-details__evolution-name">${escapeHtml(name.charAt(0).toUpperCase() + name.slice(1))}</span>
-              <span class="pokemon-details__evolution-id">#${paddedId(id)}</span>
+
+              <span class="pokemon-details__evolution-name">
+                ${escapeHtml(name.charAt(0).toUpperCase() + name.slice(1))}
+              </span>
+
+              <span class="pokemon-details__evolution-id">
+                #${paddedId(id)}
+              </span>
+
             </button>
-            ${index < evolutions.length - 1 ? '<span class="pokemon-details__evolution-arrow" aria-hidden="true">→</span>' : ''}
+
+            ${
+              nextEvolution
+                ? `
+                  <div class="pokemon-details__evolution-step">
+
+                    <span class="pokemon-details__evolution-arrow" aria-hidden="true">
+                      →
+                    </span>
+
+                    <span class="pokemon-details__evolution-method">
+                      ${escapeHtml(getEvolutionMethod(nextEvolution))}
+                    </span>
+
+                  </div>
+                `
+                : ''
+            }
           `;
           })
           .join('')}
+
       </div>
     </section>
   `;
+}
+
+function getSpeciesId(url) {
+  return Number(url.split('/').filter(Boolean).pop());
+}
+
+async function fetchEvolutionPath(pokemonId) {
+  const speciesResponse = await fetch(
+    `${POKEAPI_BASE_URL}/pokemon-species/${pokemonId}/`
+  );
+
+  if (!speciesResponse.ok) {
+    throw new Error('Failed to fetch Pokémon species.');
+  }
+
+  const speciesData = await speciesResponse.json();
+  const chainUrl = speciesData.evolution_chain?.url;
+
+  if (!chainUrl) return [];
+
+  const chainResponse = await fetch(chainUrl);
+
+  if (!chainResponse.ok) {
+    throw new Error('Failed to fetch evolution chain.');
+  }
+
+  const chainData = await chainResponse.json();
+  function createEvolutionObject(node) {
+    const id = getSpeciesId(node.species.url);
+
+    return {
+      id,
+      name: node.species.name,
+
+      img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+
+      evolutionDetails: node.evolution_details || [],
+    };
+  }
+  function findEvolutionPath(node, previousPath = []) {
+    const evolution = createEvolutionObject(node);
+    const currentPath = [...previousPath, evolution];
+
+    if (evolution.id === Number(pokemonId)) {
+      return {
+        path: currentPath,
+        node,
+      };
+    }
+
+    for (const child of node.evolves_to || []) {
+      const result = findEvolutionPath(child, currentPath);
+
+      if (result) return result;
+    }
+
+    return null;
+  }
+
+  const result = findEvolutionPath(chainData.chain);
+
+  if (!result) return [];
+
+  const evolutionPath = [...result.path];
+  let currentNode = result.node;
+  while (currentNode.evolves_to?.length) {
+    const nextNode =
+      currentNode.evolves_to.find(child =>
+        child.evolution_details?.some(detail => detail.is_default)
+      ) || currentNode.evolves_to[0];
+
+    evolutionPath.push(createEvolutionObject(nextNode));
+    currentNode = nextNode;
+  }
+
+  return evolutionPath;
+}
+
+const EVOLUTION_ITEMS_UA = {
+  'moon-stone': 'Місячний камінь',
+  'thunder-stone': 'Громовий камінь',
+  'fire-stone': 'Вогняний камінь',
+  'water-stone': 'Водяний камінь',
+  'leaf-stone': 'Листовий камінь',
+  'sun-stone': 'Сонячний камінь',
+  'ice-stone': 'Крижаний камінь',
+  'dusk-stone': 'Сутінковий камінь',
+  'dawn-stone': 'Світанковий камінь',
+  'shiny-stone': 'Блискучий камінь',
+  'kings-rock': 'Королівський камінь',
+  'metal-coat': 'Металеве покриття',
+};
+
+function formatResourceName(resource) {
+  const name = typeof resource === 'string' ? resource : resource?.name;
+
+  if (!name) return '';
+
+  return name.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+}
+
+function formatEvolutionDetail(detail) {
+  const conditions = [];
+  const trigger = detail.trigger?.name;
+
+  if (detail.item?.name) {
+    const item = detail.item.name;
+
+    conditions.push(
+      `Використати ${EVOLUTION_ITEMS_UA[item] || formatResourceName(item)}`
+    );
+  }
+
+  if (detail.held_item?.name) {
+    conditions.push(`Тримати ${formatResourceName(detail.held_item)}`);
+  }
+
+  if (detail.min_level != null) {
+    conditions.push(`Рівень ${detail.min_level}+`);
+  }
+
+  if (detail.min_happiness != null) {
+    conditions.push(`Дружба ≥ ${detail.min_happiness}`);
+  }
+
+  if (detail.min_affection != null) {
+    conditions.push(`Прихильність ≥ ${detail.min_affection}`);
+  }
+
+  if (detail.min_beauty != null) {
+    conditions.push(`Краса ≥ ${detail.min_beauty}`);
+  }
+
+  if (detail.time_of_day) {
+    const time =
+      {
+        day: 'вдень',
+        night: 'вночі',
+      }[detail.time_of_day] || detail.time_of_day;
+
+    conditions.push(`Еволюціонувати ${time}`);
+  }
+
+  if (detail.gender === 1) {
+    conditions.push('Лише жіноча стать');
+  } else if (detail.gender === 2) {
+    conditions.push('Лише чоловіча стать');
+  }
+
+  if (detail.location?.name) {
+    conditions.push(`Локація: ${formatResourceName(detail.location)}`);
+  }
+
+  if (detail.known_move?.name) {
+    conditions.push(`Знати рух ${formatResourceName(detail.known_move)}`);
+  }
+
+  if (detail.known_move_type?.name) {
+    conditions.push(
+      `Знати рух типу ${formatResourceName(detail.known_move_type)}`
+    );
+  }
+
+  if (detail.party_species?.name) {
+    conditions.push(
+      `Мати в команді ${formatResourceName(detail.party_species)}`
+    );
+  }
+
+  if (detail.party_type?.name) {
+    conditions.push(
+      `Мати в команді покемона типу ${formatResourceName(detail.party_type)}`
+    );
+  }
+
+  if (detail.trade_species?.name) {
+    conditions.push(`Обміняти на ${formatResourceName(detail.trade_species)}`);
+  } else if (trigger === 'trade') {
+    conditions.push('Обмін');
+  }
+
+  if (detail.needs_overworld_rain) {
+    conditions.push('Під час дощу');
+  }
+
+  if (detail.min_steps != null) {
+    conditions.push(`Пройти ${detail.min_steps} кроків`);
+  }
+
+  if (detail.turn_upside_down) {
+    conditions.push('Перевернути пристрій');
+  }
+
+  if (detail.relative_physical_stats != null) {
+    const stats = {
+      '-1': 'Атака менша за захист',
+      0: 'Атака дорівнює захисту',
+      1: 'Атака більша за захист',
+    };
+
+    conditions.push(stats[String(detail.relative_physical_stats)]);
+  }
+  if (conditions.length === 0) {
+    const triggerLabels = {
+      'level-up': 'Підвищити рівень',
+      'use-item': 'Використати предмет',
+      trade: 'Обмін',
+      shed: 'Підвищити рівень із вільним місцем у команді',
+      'three-critical-hits': 'Завдати три критичні удари',
+      'take-damage': 'Отримати шкоду',
+      spin: 'Покрутитися',
+    };
+
+    return (
+      triggerLabels[trigger] ||
+      formatResourceName(trigger) ||
+      'Умови не вказані'
+    );
+  }
+
+  return conditions.join(' · ');
+}
+
+function getEvolutionMethod(evolution) {
+  const details = evolution.evolutionDetails || [];
+
+  if (!details.length) {
+    return 'Умови не вказані';
+  }
+
+  const methods = [...new Set(details.map(formatEvolutionDetail))].filter(
+    Boolean
+  );
+
+  return methods.join(' / ') || 'Умови не вказані';
 }
 
 function renderPokemon(pokemon) {
@@ -348,12 +619,20 @@ async function loadPokemonDetails(id) {
     '<p class="pokemon-details__loading">Завантажуємо інформацію про покемона…</p>';
 
   try {
-    const [pokemon] = await get([], [Number(id)]);
+    const [pokemon] = await get([], [Number(id)], false);
     if (thisRequest !== requestNumber) return;
     if (!pokemon) throw new Error('Покемона не знайдено.');
-
     currentPokemon = pokemon;
-    if (toolbarId) toolbarId.textContent = `Покемон #${paddedId(pokemon.id)}`;
+    try {
+      pokemon.evolutionPath = await fetchEvolutionPath(pokemon.id);
+    } catch (error) {
+      console.error('Помилка завантаження еволюцій:', error);
+      pokemon.evolutionPath = [];
+    }
+    if (thisRequest !== requestNumber) return;
+    if (toolbarId) {
+      toolbarId.textContent = `Покемон #${paddedId(pokemon.id)}`;
+    }
     content.innerHTML = renderPokemon(pokemon);
   } catch (error) {
     if (thisRequest !== requestNumber) return;
@@ -365,7 +644,9 @@ async function loadPokemonDetails(id) {
 
 function getPokemonIdFromCard(card) {
   const dataId =
-    card.dataset.pokemonId || card.querySelector('[data-id]')?.dataset.id;
+  card.dataset.id ||
+  card.dataset.pokemonId ||
+  card.querySelector('[data-id]')?.dataset.id;
 
   if (dataId && /^\d+$/.test(dataId)) {
     return dataId;
@@ -386,7 +667,9 @@ function handleListClick(event) {
     return;
   }
 
-  const card = event.target.closest('li, section, article');
+  const card = event.target.closest(
+  '.pokemon-card, .favorites__item'
+);
   const pokemonId = getPokemonIdFromCard(card);
   if (!card || !event.currentTarget.contains(card)) {
     return;
