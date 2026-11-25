@@ -70,7 +70,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  outline: 1px solid red;
 }
 @media screen and (min-width: 390px) {
   .container {
@@ -784,6 +783,18 @@ body.dark-theme .pokemon-details.is-liked svg {
   }
 }
 
+.search-icons {
+  width: 16px;
+  height: 16px;
+  fill: transparent;
+  stroke-width: 1.8px;
+  stroke: #FFFFFF;
+  transition: stroke 250ms ease;
+}
+.btn-reset:is(:hover, :focus) .search-icons {
+  stroke: #287BFA;
+}
+
 .search-input-box {
   position: relative;
   display: flex;
@@ -851,7 +862,7 @@ body.dark-theme .pokemon-details.is-liked svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   height: 48px;
   padding: 0 20px;
   border-radius: 8px;
@@ -877,7 +888,7 @@ body.dark-theme .pokemon-details.is-liked svg {
 }
 .btn-random:hover,
 .btn-reset:hover {
-  background-color: #FFFFFF;
+  background-color: transparent;
   color: #287BFA;
   border-color: #287BFA;
 }
@@ -886,6 +897,7 @@ body.dark-theme .pokemon-details.is-liked svg {
   background-color: #287BFA;
   color: #FFFFFF;
   white-space: nowrap;
+  margin: 0 auto;
 }
 .btn-more:hover {
   background-color: #FFFFFF;
@@ -897,13 +909,18 @@ body.dark-theme .pokemon-details.is-liked svg {
 .filters-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 }
 @media screen and (min-width: 770px) {
   .filters-wrapper {
+    gap: 32px;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1326px) {
+  .filters-wrapper {
+    gap: 44px;
   }
 }
 
