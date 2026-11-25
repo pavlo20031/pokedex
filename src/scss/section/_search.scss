@@ -23,7 +23,17 @@
     gap: 16px;
   }
 }
-
+.search-icons {
+  width: 16px;
+  height: 16px;
+  fill: transparent;
+  stroke-width: 1.8px;
+  stroke: $main-color;
+  transition: stroke 250ms ease;
+  .btn-reset:is(:hover, :focus) & {
+    stroke: $active-color;
+  }
+}
 .search-input-box {
   position: relative;
   display: flex;
@@ -53,7 +63,9 @@
   font-size: 14px;
   font-weight: 400;
   outline: none;
-  transition: border-color 250ms ease, box-shadow 250ms ease;
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease;
 
   &::placeholder {
     color: $subtitle-color;
@@ -91,7 +103,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   height: 48px;
   padding: 0 20px;
   border-radius: 8px;
@@ -99,7 +111,10 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
 
   .icon {
     width: 18px;
@@ -117,7 +132,7 @@
   white-space: nowrap;
 
   &:hover {
-    background-color: $main-color;
+    background-color: transparent;
     color: $active-color;
     border-color: $active-color;
   }
@@ -127,7 +142,7 @@
   background-color: $active-color;
   color: $main-color;
   white-space: nowrap;
-
+  margin: 0 auto;
   &:hover {
     background-color: $main-color;
     color: $active-color;
@@ -139,12 +154,15 @@
 .filters-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 
   @media screen and (min-width: 770px) {
+    gap: 32px;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+  }
+  @media screen and (min-width: 1326px) {
+    gap: 44px;
   }
 }
 
@@ -171,7 +189,10 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: outline 250ms ease, background-color 250ms ease, color 250ms ease;
+  transition:
+    outline 250ms ease,
+    background-color 250ms ease,
+    color 250ms ease;
 
   .icon {
     width: 15px;
@@ -179,7 +200,10 @@
     fill: transparent;
     stroke: $exit-color;
     stroke-width: 1.8px;
-    transition: transform, 250ms ease, stroke 250ms ease;
+    transition:
+      transform,
+      250ms ease,
+      stroke 250ms ease;
   }
 
   &:hover {
@@ -249,14 +273,14 @@
       text-decoration: underline;
     }
   }
-  .search__div{
+  .search__div {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    @media screen and (min-width:770px){
+    @media screen and (min-width: 770px) {
       flex-direction: row;
-          justify-content: space-between;
-    align-items: center;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -322,26 +346,65 @@
   font-weight: 600;
   line-height: 1.2;
   color: #ffffff;
-  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
 
-  &--grass { background-color: #63bc5a; }
-  &--poison { background-color: #b567ce; }
-  &--fire { background-color: #ff9d55; }
-  &--water { background-color: #5090d6; }
-  &--bug { background-color: #91c12f; }
-  &--electric { background-color: #f4d23c;}
-  &--psychic { background-color: #fa7179; }
-  &--normal { background-color: #919aa2; }
-  &--ghost { background-color: #5269ad; }
-  &--flying { background-color: #89aae3; }
-  &--ice { background-color: #73cec0; }
-  &--ground { background-color: #d97845; }
-  &--fighting { background-color: #ce416b; }
-  &--rock { background-color: #c5b78c; }
-  &--dragon { background-color: #0b6dc3; }
-  &--dark { background-color: #5a5465; }
-  &--steel { background-color: #5a8ea2; }
-  &--fairy { background-color: #ec8fe6; }
+  &--grass {
+    background-color: #63bc5a;
+  }
+  &--poison {
+    background-color: #b567ce;
+  }
+  &--fire {
+    background-color: #ff9d55;
+  }
+  &--water {
+    background-color: #5090d6;
+  }
+  &--bug {
+    background-color: #91c12f;
+  }
+  &--electric {
+    background-color: #f4d23c;
+  }
+  &--psychic {
+    background-color: #fa7179;
+  }
+  &--normal {
+    background-color: #919aa2;
+  }
+  &--ghost {
+    background-color: #5269ad;
+  }
+  &--flying {
+    background-color: #89aae3;
+  }
+  &--ice {
+    background-color: #73cec0;
+  }
+  &--ground {
+    background-color: #d97845;
+  }
+  &--fighting {
+    background-color: #ce416b;
+  }
+  &--rock {
+    background-color: #c5b78c;
+  }
+  &--dragon {
+    background-color: #0b6dc3;
+  }
+  &--dark {
+    background-color: #5a5465;
+  }
+  &--steel {
+    background-color: #5a8ea2;
+  }
+  &--fairy {
+    background-color: #ec8fe6;
+  }
 }
 
 button.type-badge {
@@ -354,7 +417,9 @@ button.type-badge {
 
   &.is-active {
     border-color: $text-color;
-    box-shadow: 0 0 0 2px $main-color, 0 0 0 4px $active-color;
+    box-shadow:
+      0 0 0 2px $main-color,
+      0 0 0 4px $active-color;
   }
 }
 
@@ -418,12 +483,12 @@ button.type-badge {
 
 .filters-wrappers {
   display: flex;
-  gap:12px;
+  gap: 12px;
   flex-direction: column;
-  margin-bottom:24px;
-  @media screen and (min-width:1326px) {
+  margin-bottom: 24px;
+  @media screen and (min-width: 1326px) {
     flex-direction: row;
-    gap:0;
+    gap: 0;
     align-items: center;
     justify-content: space-between;
   }
@@ -452,17 +517,19 @@ button.type-badge {
   }
 }
 
-
 .pokemon-card {
   display: flex;
   flex-direction: column;
-  width:169px;
+  width: 169px;
   flex-basis: calc((100% - 12px) / 2);
   padding: 16px;
   border-radius: 16px;
   border: 1px solid $results-color;
   background-color: $main-color;
-  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
 
   &:hover {
     transform: translateY(-4px);
@@ -495,7 +562,9 @@ button.type-badge {
     background: transparent;
     color: $subtitle-color;
     cursor: pointer;
-    transition: background-color 200ms ease, color 200ms ease;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
 
     .icon {
       width: 18px;
@@ -531,7 +600,6 @@ button.type-badge {
     }
   }
 
-
   &__name {
     color: $text-color;
     font-size: 16px;
@@ -553,13 +621,13 @@ button.type-badge {
       font-size: 11px;
     }
   }
-  @media screen and (min-width:770px) {
-    width:246px;
+  @media screen and (min-width: 770px) {
+    width: 246px;
     flex-basis: calc((100% - 16px * 2) / 3);
   }
-  
-  @media screen and (min-width:1326px) {
-    width:243px;
+
+  @media screen and (min-width: 1326px) {
+    width: 243px;
     flex-basis: calc((100% - 20px * 4) / 5);
   }
 }

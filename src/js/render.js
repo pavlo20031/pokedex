@@ -180,6 +180,9 @@ empty.innerHTML = `
     type="button"
     data-action="reset-all"
   >
+  <svg class="search-icons">
+  <use href="${spriteUrl}#update"></use>
+</svg>
     Скинути всі фільтри
   </button>
 
@@ -305,9 +308,14 @@ empty.innerHTML = `
       }
     }
 
-    const remaining = list.length - visible.length;
-    moreBtn.hidden = remaining <= 0;
-    moreBtn.textContent = `Загрузити покемонів (${remaining})`;
+if (list.length === 0) {
+  moreBtn.style.display = 'none';
+} else {
+  const remaining = list.length - visible.length;
+
+  moreBtn.style.display = remaining > 0 ? 'block' : 'none';
+  moreBtn.textContent = `Загрузити покемонів (${remaining})`;
+}
 
     if (countEl) {
       countEl.textContent = hasFilters
