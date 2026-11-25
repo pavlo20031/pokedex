@@ -1,6 +1,6 @@
 import { getAllLight } from './api.js';
 import spriteUrl from '../img/symbol-defs.svg';
-import searchImg from "../img/search-pokemon.png"
+import searchImg from '../img/search-pokemon.png';
 const PAGE_SIZE = 10;
 const TOTAL = 1025;
 const MAX_TYPES = 2;
@@ -42,7 +42,8 @@ function pluralize(n) {
   const last = n % 10;
   const lastTwo = n % 100;
   if (last === 1 && lastTwo !== 11) return 'покемон';
-  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return 'покемони';
+  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14))
+    return 'покемони';
   return 'покемонів';
 }
 
@@ -78,7 +79,10 @@ export function cardHTML(p, likedIds = []) {
 }
 
 export function initPokemonApp(
-  [containerSelector = '.search-cards', nextBtnSelector = '.search-controls-button'] = [],
+  [
+    containerSelector = '.search-cards',
+    nextBtnSelector = '.search-controls-button',
+  ] = [],
   searchInputSelector = '.search-input',
   counterSelector = '.search-results-count'
 ) {
@@ -144,7 +148,9 @@ export function initPokemonApp(
   activeBar.hidden = true;
 
   // Контейнер сітки карток — обов'язково додаємо клас .pokemon-grid
-  let grid = section.querySelector(containerSelector) || section.querySelector('.pokemon-grid');
+  let grid =
+    section.querySelector(containerSelector) ||
+    section.querySelector('.pokemon-grid');
   if (!grid) {
     grid = document.createElement('ul');
   }
@@ -156,7 +162,7 @@ export function initPokemonApp(
     empty = document.createElement('div');
     empty.className = 'empty-state';
     empty.hidden = true;
-empty.innerHTML = `
+    empty.innerHTML = `
   <button
     class="empty-state__img-btn"
     type="button"
@@ -198,7 +204,8 @@ empty.innerHTML = `
 
   // Кнопка пагінації — обов'язково додаємо класи .btn та .btn-more
   let moreBtn =
-    section.querySelector(nextBtnSelector) || section.querySelector('[data-action="show-more"]');
+    section.querySelector(nextBtnSelector) ||
+    section.querySelector('[data-action="show-more"]');
   if (!moreBtn) {
     moreBtn = document.createElement('button');
     moreBtn.type = 'button';
@@ -223,7 +230,12 @@ empty.innerHTML = `
   function getFiltered() {
     const q = state.query.trim().toLowerCase().replace('#', '');
     const result = state.all.filter(p => {
-      if (q && !p.name.includes(q) && !String(p.id).padStart(3, '0').includes(q)) return false;
+      if (
+        q &&
+        !p.name.includes(q) &&
+        !String(p.id).padStart(3, '0').includes(q)
+      )
+        return false;
       if (!state.types.every(t => p.types.includes(t))) return false;
       if (state.gen && p.gen !== state.gen) return false;
       return true;
@@ -250,7 +262,9 @@ empty.innerHTML = `
     if (genBtn) {
       const span = genBtn.querySelector('span');
       if (span) {
-        span.textContent = state.gen ? `Покоління ${GENS[state.gen - 1]}` : 'Усі покоління';
+        span.textContent = state.gen
+          ? `Покоління ${GENS[state.gen - 1]}`
+          : 'Усі покоління';
       }
       genBtn.classList.toggle('is-active', state.gen > 0);
       genBtn.classList.toggle('is-open', !panel.hidden);
@@ -258,7 +272,8 @@ empty.innerHTML = `
 
     if (sortBtn) {
       const span = sortBtn.querySelector('span');
-      if (span) span.textContent = `За номером ${state.order === 'asc' ? '↑' : '↓'}`;
+      if (span)
+        span.textContent = `За номером ${state.order === 'asc' ? '↑' : '↓'}`;
     }
 
     panel.querySelectorAll('[data-type]').forEach(el => {
@@ -292,7 +307,9 @@ empty.innerHTML = `
   function render() {
     const list = getFiltered();
     const visible = list.slice(0, state.shown);
-    const hasFilters = Boolean(state.query.trim() || state.types.length || state.gen);
+    const hasFilters = Boolean(
+      state.query.trim() || state.types.length || state.gen
+    );
     const likedIds = getLiked();
 
     grid.innerHTML = visible.map(p => cardHTML(p, likedIds)).join('');
@@ -371,7 +388,11 @@ if (list.length === 0) {
       }
       return applyChange();
     }
-    if (target.closest('[data-action="filter-type"], [data-action="filter-generation"]')) {
+    if (
+      target.closest(
+        '[data-action="filter-type"], [data-action="filter-generation"]'
+      )
+    ) {
       return togglePanel();
     }
     if (target.closest('[data-action="sort-number"]')) {
@@ -380,7 +401,10 @@ if (list.length === 0) {
     }
     if (target.closest('[data-action="reset-filters"]')) return resetFilters();
     if (target.closest('[data-action="reset-all"]')) return resetAll();
-    if (target.closest('[data-action="show-more"]') || target.closest(nextBtnSelector)) {
+    if (
+      target.closest('[data-action="show-more"]') ||
+      target.closest(nextBtnSelector)
+    ) {
       state.shown += PAGE_SIZE;
       return render();
     }
@@ -404,7 +428,9 @@ if (list.length === 0) {
 
     const removeType = target.closest('[data-remove-type]');
     if (removeType) {
-      state.types = state.types.filter(x => x !== removeType.dataset.removeType);
+      state.types = state.types.filter(
+        x => x !== removeType.dataset.removeType
+      );
       return applyChange();
     }
 
@@ -421,14 +447,20 @@ if (list.length === 0) {
         ? liked.filter(x => x !== id)
         : [...liked, id];
       saveLiked(updated);
-      favBtn.classList.toggle('is-active', updated.includes(id));
+      const isLiked = updated.includes(id);
+      favBtn.classList.toggle('is-active', isLiked);
+      document.dispatchEvent(
+        new CustomEvent('favorites:changed', { detail: { id, liked: isLiked } })
+      );
       return;
     }
 
     const card = target.closest('.pokemon-card');
     if (card) {
       document.dispatchEvent(
-        new CustomEvent('pokemon:open', { detail: { id: Number(card.dataset.id) } })
+        new CustomEvent('pokemon:open', {
+          detail: { id: Number(card.dataset.id) },
+        })
       );
     }
   });
